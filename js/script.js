@@ -207,7 +207,7 @@ let cantidadProductos = 0
 
 usuario = acceder()
 
-if (acceso != false ) {
+if (acceso) {
     alert('Bienvenido/a ' + usuario.toUpperCase() + ' a nuestro portal de compras. \nPor favor elige uno de los siguientes productos')
     document.getElementById('saludoInicial').innerHTML = 'MUCHAS GRACIAS POR ELEGIRNOS'
     cliente.innerHTML =  usuario.toUpperCase()
