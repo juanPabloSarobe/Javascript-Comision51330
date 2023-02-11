@@ -1,43 +1,146 @@
+const cliente = document.getElementById("cliente")
+const pedido = document.getElementById('pedido')
+const retiro = document.getElementById('retiro')
+const saludo = document.getElementById('saludo')
+
+
+/* const usuarioReg = [['juan', '1234'], ['pedro', 'Coder'], ['Ana', 'CH2023']] */
+const usuarioReg = [{
+    idUsuario: 1001,
+    tipoUsuario: 0,
+    email: 'jp.sarobe@gmail.com',
+    password: '1234',
+    nombre: 'Juan Pablo',
+    apellido: 'Sarobe',
+    pais: 'Argentina',
+    estado: 'Neuquen',
+    Localidad: 'Neuquen',
+
+}]
+
+
+const tiposUsuario = [{
+    id: 0, tipo: 'Cliente'
+}
+    , {
+    id: 1, tipo: 'Vendedor'
+}
+]
+
+const listaProductos = [['1', 'Zapatillas', 10, 20000], ['2', 'Remera', 5, 3500], ['3', 'Gorra', 2, 1500], ['4', 'Lentes', 0, 800]]
+let prodSeleccionados = []
+let usuario
+let idUsuEncontrado
+let password
+let acceso = false
+let codigoProd
+let listaProd = ''
+let continuaComprando
+let codigoVerificado
+let listaFinal = ''
+let precioNeto = 0
+let pedidoFinal = ''
+let cantidadProductos = 0
+
+
+class usuarios {
+    constructor(idUsuario, tipoUsuario, email, password, nombre, apellido, pais, estado, localidad,) {
+        this.idUsuario = idUsuario
+        this.tipoUsuario = tipoUsuario
+        this.email = email
+        this.password = password
+        this.nombre = nombre
+        this.apellido = apellido
+        this.pais = pais
+        this.estado = estado
+        this.localidad = localidad
+
+    }
+
+    insertarUsuario() {
+        usuarioReg.push(this)
+
+        
+    }
+
+
+
+}
+
+const nuevoUsuario = new usuarios(1002, 0, 'test1@gmail.com', 'passw1', 'Pedro', 'Martinez', 'Argentina', 'buenos Aires', 'La Plata');
+nuevoUsuario.insertarUsuario()
+
+function newUserPrompt() {
+    const promptUsuario = new usuarios( 
+
+        usuarioReg[usuarioReg.length-1].idUsuario+1,
+        0,
+        prompt('inserte email'), 
+        prompt('Inserte password'),
+        prompt('Indique su nombre'),
+        prompt('Indique su apellido'))
+
+    promptUsuario.insertarUsuario()
+    alert('Usuario creado correctamente')
+}
 
 
 function acceder() {
 
     do {
-        usuario = prompt('Bienvenido a la tienda de compras. \nPor favor introduzca su usuario registrado')
-        password = prompt('Ahora introduzca su password')
 
-        if (usuario == null || password == null) {
-            alert("accion cancelada por el usuario")
+        usuario = prompt('Bienvenido a la tienda de compras. \nPor favor introduzca su email registrado')
+
+        if (usuario == null) {
+            avisarCancel()
             break
-        } else {
-            usuario = usuario.toLowerCase()
-            password = password.toLowerCase()
-            acceso = validarLogin(usuario, password)
+
+        } else if (usuarioReg.some((usu) => usu.email === usuario)) {
+
+             idUsuEncontrado = usuarioReg.findIndex(function (usuEnc) {
+                return usuEnc.email === usuario
+
+            })
+
+            password = prompt('Ahora introduzca su password')
+
+            if (password == null) {
+                avisarCancel()
+                break
+            } else if (password === usuarioReg[idUsuEncontrado].password) {
+                acceso = true
+
+            
+            } else {
+                acceso = false
+            }
+
+
+        }else {
+            
+            if (confirm('Usuario no registrado, desea crear un nuevo usuario?')) {
+                newUserPrompt()
+                continue
+            }else{
+                avisarCancel()
+                break
+            }
+
+
 
         }
 
         if (acceso == false) {
             alert('Datos de acceso no válidos. por favor reintente')
         }
-    } while (acceso == false);
+    } while (acceso !== true);
 
     return usuario
 
 }
 
-function validarLogin(usuario, password) {
-    for (let i = 0; i < usuarioReg.length; i++) {
-
-        if (usuario == usuarioReg[i][0].toLowerCase() && password == usuarioReg[i][1].toLowerCase()) {
-            acceso = true
-            break
-
-        } else {
-            acceso = false
-        }
-
-    }
-    return acceso
+function avisarCancel (){
+    alert("accion cancelada por el usuario")
 }
 
 
@@ -116,44 +219,44 @@ function ingresarCantidad() {
 function pagarProductos() {
 
     for (let i = 0; i < prodSeleccionados.length; i++) {
-        
+
         const element = prodSeleccionados[i][0];
-        
+
         for (let j = 0; j < listaProductos.length; j++) {
             const elemento = listaProductos[j][0] == element;
-            
+
             if (elemento) {
-                listaFinal += 'item: '+ (i+1) + ' Producto: ' + listaProductos[j][1] + '\nCantidad solicitada: ' 
-                + prodSeleccionados[i][1] + ' - Cantidad disponible: ' +listaProductos[j][2] + '\nPrecio Unitario: '
-                + listaProductos[j][3] + '\n\n'
-                
-                if (prodSeleccionados[i][1] <= listaProductos[j][2] ) {
+                listaFinal += 'item: ' + (i + 1) + ' Producto: ' + listaProductos[j][1] + '\nCantidad solicitada: '
+                    + prodSeleccionados[i][1] + ' - Cantidad disponible: ' + listaProductos[j][2] + '\nPrecio Unitario: '
+                    + listaProductos[j][3] + '\n\n'
+
+                if (prodSeleccionados[i][1] <= listaProductos[j][2]) {
                     cantidadProductos += prodSeleccionados[i][1]
                     precioNeto += prodSeleccionados[i][1] * listaProductos[j][3]
-                }else{
+                } else {
                     cantidadProductos += listaProductos[j][2]
-                    precioNeto += listaProductos[j][2]* listaProductos[j][3]
+                    precioNeto += listaProductos[j][2] * listaProductos[j][3]
                 }
             }
 
-            
+
         }
-        
+
     }
-    pedidoFinal = 'Detalle de su pedido:\n'+ listaFinal + 'Cantidad de Productos total: '+ cantidadProductos +'\n\tPrecio Neto total:' 
-        + precioNeto + '\n\tPrecioFinal: '+ precioNeto *1.21
-return confirm( pedidoFinal+ '\n\nDESEA ACEPTAR EL PEDIDO?')
-    
+    pedidoFinal = 'Detalle de su pedido:\n' + listaFinal + 'Cantidad de Productos total: ' + cantidadProductos + '\n\tPrecio Neto total:'
+        + precioNeto + '\n\tPrecioFinal: ' + precioNeto * 1.21
+    return confirm(pedidoFinal + '\n\nDESEA ACEPTAR EL PEDIDO?')
+
 }
 
 
-function fechaRetiro(){
+function fechaRetiro() {
     do {
-                
-        diaCompra= prompt('indique el nombre del dia para ir a retirar')
+
+        diaCompra = prompt('indique el nombre del dia para ir a retirar')
         if (diaCompra == null) {
-            diaCompra ='repetir'
-        }else{
+            diaCompra = 'repetir'
+        } else {
             diaCompra = diaCompra.toLowerCase()
         }
         switch (diaCompra) {
@@ -177,56 +280,38 @@ function fechaRetiro(){
                 break
             default:
                 alert('valor ingresado incorrecto')
-                
-                diaCompra = 'repetir'             
+
+                diaCompra = 'repetir'
         }
     } while (diaCompra == 'repetir')
     return diaCompra
 }
 
 
-const cliente = document.getElementById("cliente")
-const pedido = document.getElementById('pedido')
-const retiro = document.getElementById('retiro')
-const saludo = document.getElementById('saludo')
 
-const usuarioReg = [['juan', '1234'], ['pedro', 'Coder'], ['Ana', 'CH2023']]
-const listaProductos = [['1', 'Zapatillas', 10, 20000], ['2', 'Remera', 5, 3500], ['3', 'Gorra', 2, 1500], ['4', 'Lentes', 0, 800]]
-let prodSeleccionados = []
-let usuario
-let password
-let acceso = false
-let codigoProd
-let listaProd = ''
-let continuaComprando
-let codigoVerificado
-let listaFinal =''
-let precioNeto = 0
-let pedidoFinal = ''
-let cantidadProductos = 0 
 
 usuario = acceder()
 
 if (acceso) {
-    alert('Bienvenido/a ' + usuario.toUpperCase() + ' a nuestro portal de compras. \nPor favor elige uno de los siguientes productos')
+    alert('Bienvenido/a ' + usuarioReg[idUsuEncontrado].nombre + ' a nuestro portal de compras. \nPor favor elige uno de los siguientes productos')
     document.getElementById('saludoInicial').innerHTML = 'MUCHAS GRACIAS POR ELEGIRNOS'
-    cliente.innerHTML =  usuario.toUpperCase()
+    cliente.innerHTML = usuario.toUpperCase()
     comprarProducto()
-    
+
 
 }
 
-if (prodSeleccionados.length != 0 ) {
-    if (!pagarProductos()){
+if (prodSeleccionados.length != 0) {
+    if (!pagarProductos()) {
         alert('Lamentamos que cancele su compra, muchas gracias!!!')
         pedido.innerHTML = pedidoFinal
-        saludo.innerHTML = 'Pedido no completado, lamentamos que cancele su compra, disculpe las molestias. Muchas gracias!!!' 
-    }else{
+        saludo.innerHTML = 'Pedido no completado, lamentamos que cancele su compra, disculpe las molestias. Muchas gracias!!!'
+    } else {
         diaCompra = fechaRetiro()
         pedido.innerHTML = pedidoFinal
-        retiro.innerHTML = '\n\nDia de retiro: ' + diaCompra 
-        saludo.innerHTML = 'MUCHAS GRACIAS POR SU COMPRA' 
-       alert('MUCHAS GRACIAS POR ELEGIRNOS\n\nCliente: '+ usuario.toUpperCase() +'\n' + pedidoFinal + '\n\nDia de retiro: ' + diaCompra )
+        retiro.innerHTML = '\n\nDia de retiro: ' + diaCompra
+        saludo.innerHTML = 'MUCHAS GRACIAS POR SU COMPRA'
+        alert('MUCHAS GRACIAS POR ELEGIRNOS\n\nCliente: ' + usuario.toUpperCase() + '\n' + pedidoFinal + '\n\nDia de retiro: ' + diaCompra)
     }
 }
 
