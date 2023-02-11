@@ -27,8 +27,9 @@ const tiposUsuario = [{
 }
 ]
 
-const listaProductos = [{idProd: 0}]
+const listaProductos = []
 let prodSeleccionados = []
+let nuevaLista = []
 let usuario
 let idUsuEncontrado
 let password
@@ -76,10 +77,16 @@ class productos {
 }
 
 productosArr.forEach(element=> {
+    let newId = 0
+    if (listaProductos.length ===0 ) {
+        newId = 1
+    }else{
+        newId =listaProductos[listaProductos.length-1].idProd+1
+    }
+
 
     const producto = new productos(
-        listaProductos[listaProductos.length-1].idProd+1,
-        element[0], element[1], element[2], element[3]
+        newId, element[0], element[1], element[2], element[3]
 
     )
     producto.cargarProducto()
@@ -87,7 +94,7 @@ productosArr.forEach(element=> {
 });
 console.log(listaProductos)
 
-const nuevoUsuario = new usuarios(1002, 0, 'test1@gmail.com', 'passw1', 'Pedro', 'Martinez', 'Argentina', 'buenos Aires', 'La Plata');
+const nuevoUsuario = new usuarios(1002, 0, '12', '12', 'Pedro', 'Martinez', 'Argentina', 'buenos Aires', 'La Plata');
 nuevoUsuario.insertarUsuario()
 
 function newUserPrompt() {
@@ -163,25 +170,27 @@ function avisarCancel (){
     alert("accion cancelada por el usuario")
 }
 
-
 function comprarProducto() {
 
     while (continuaComprando !== false) {
+        let listaParaMostrar = listaProductos
 
         do {
+           if (nuevaLista.length != 0){
+            listaParaMostrar = nuevaLista
+           }
             if (continuaComprando !== false && codigoProd !== null) {
-                codigoProd = prompt('Por favor indique el codigo del producto deseado \n' + lista())
-                listaProd = ''
+                codigoProd = prompt('Por favor indique el codigo del producto deseado \nSi el producto no aparece busquelo introduciendo parte de su nombre, por ej: zapa o vestido\n\n'  + lista(listaParaMostrar))
+                    
             }
+            validacion = verificaCodigo(codigoProd)
+            listaParaMostrar = validacion[1]
 
-        } while (verificaCodigo(codigoProd) == false && codigoProd !== null)
+        } while (validacion[0] == false && codigoProd !== null)
 
         if (codigoProd !== null) {
             let cantidad = ingresarCantidad()
             prodSeleccionados.push([codigoProd, cantidad])
-
-
-
         } else {
             codigoProd = ''
         }
@@ -192,36 +201,35 @@ function comprarProducto() {
     }
 }
 
-function lista() {
-    for (let i = 0; i < listaProductos.length; i++) {
-        listaProd += 'codigo: ' + listaProductos[i][0] + '   -   Producto: ' + listaProductos[i][1] + '\n'
+function lista(listProdArr) {
+    listaProd=''
+    if (listProdArr.length == 0 ){ listProdArr = listaProductos}
 
-    }
+    listProdArr.forEach(e => {
+        listaProd += 'codigo: ' + e.idProd + '  -   Producto: ' + e.nombreProd + '\n'
+
+    });
     return listaProd
 }
 
+
+
+
 function verificaCodigo(codigo) {
-    let codVerif
+    let codVerif = false
+    nuevaLista = []
     if (codigo == null) {
         avisarCancel ()
         codVerif = false
         continuaComprando = false
-    } else {
-        for (let i = 0; i < listaProductos.length; i++) {
-
-            if (codigo == listaProductos[i][0]) {
-                codVerif = true
-                break
-            } else {
-                codVerif = false
-
-            }
-
+    } else if(listaProductos.some ((e) => e.idProd == codigo)){
+            return codVerif = true
+    } else{
+            nuevaLista =  listaProductos.filter ((elem) => elem.nombreProd.toLowerCase().includes(codigo.toLowerCase()))
         }
-    }
-
-    if (!codVerif && codigo !== null) { alert('el codigo ingresado no es correcto, por favor reintente') }
-    return codVerif
+    
+    if (!codVerif && codigo !== null && nuevaLista.length ===0) { alert('el codigo ingresado no es correcto, por favor reintente') }
+    return [codVerif, nuevaLista]
 }
 
 function ingresarCantidad() {
@@ -235,9 +243,43 @@ function ingresarCantidad() {
 
 }
 
+function abonarProductos() {
+    prodSeleccionados.forEach(e => {
+        const element = e[0]
+
+        const elemento = listaProductos.find(function(item){
+            return item.idProd == element
+        })
+        console.log(elemento)
+
+        if (elemento) {
+            listaFinal += `
+            item: ${elemento.idProd} Producto: ${elemento.nombreProd} 
+            Cantidad solicitada: ${e[1]} - Cantidad disponible: ${elemento.stockProd}
+            Precio unitario: ${elemento.precioProd}
+            
+            `
+            if (e[1] <= elemento.stockProd) {
+                cantidadProductos += e[1]
+                precioNeto += e[1] * elemento.precioProd
+                
+            }else {
+                cantidadProductos += elemento.stockProd
+                precioNeto += elemento.stockProd * elemento.precioProd
+            }
+        }
+
+
+    })
+
+    pedidoFinal = 'Detalle de su pedido:\n' + listaFinal + 'Cantidad de Productos total: ' + cantidadProductos + '\n\tPrecio Neto total:'
+    + precioNeto + '\n\tPrecioFinal: ' + precioNeto * 1.21
+return confirm(pedidoFinal + '\n\nDESEA ACEPTAR EL PEDIDO?')
+    
+}
 
 function pagarProductos() {
-
+    console.log(prodSeleccionados)
     for (let i = 0; i < prodSeleccionados.length; i++) {
 
         const element = prodSeleccionados[i][0];
@@ -322,7 +364,7 @@ if (acceso) {
 }
 
 if (prodSeleccionados.length != 0) {
-    if (!pagarProductos()) {
+    if (!abonarProductos()) {
         alert('Lamentamos que cancele su compra, muchas gracias!!!')
         pedido.innerHTML = pedidoFinal
         saludo.innerHTML = 'Pedido no completado, lamentamos que cancele su compra, disculpe las molestias. Muchas gracias!!!'
