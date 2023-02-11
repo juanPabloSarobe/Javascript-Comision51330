@@ -4,7 +4,6 @@ const retiro = document.getElementById('retiro')
 const saludo = document.getElementById('saludo')
 
 
-/* const usuarioReg = [['juan', '1234'], ['pedro', 'Coder'], ['Ana', 'CH2023']] */
 const usuarioReg = [{
     idUsuario: 1001,
     tipoUsuario: 0,
@@ -62,7 +61,7 @@ class usuarios {
 }
 
 class productos {
-    constructor(idProd, nombreProd, descripProd, precioProd, stockProd, imagenProd){
+    constructor(idProd, nombreProd, descripProd, precioProd, stockProd, imagenProd) {
         this.idProd = idProd
         this.nombreProd = nombreProd
         this.descripProd = descripProd
@@ -71,17 +70,17 @@ class productos {
         this.imagenProd = imagenProd
     }
 
-    cargarProducto(){
+    cargarProducto() {
         listaProductos.push(this)
     }
 }
 
-productosArr.forEach(element=> {
+productosArr.forEach(element => {
     let newId = 0
-    if (listaProductos.length ===0 ) {
+    if (listaProductos.length === 0) {
         newId = 1
-    }else{
-        newId =listaProductos[listaProductos.length-1].idProd+1
+    } else {
+        newId = listaProductos[listaProductos.length - 1].idProd + 1
     }
 
 
@@ -91,18 +90,17 @@ productosArr.forEach(element=> {
     )
     producto.cargarProducto()
 
-});
-console.log(listaProductos)
+})
 
 const nuevoUsuario = new usuarios(1002, 0, '12', '12', 'Pedro', 'Martinez', 'Argentina', 'buenos Aires', 'La Plata');
 nuevoUsuario.insertarUsuario()
 
 function newUserPrompt() {
-    const promptUsuario = new usuarios( 
+    const promptUsuario = new usuarios(
 
-        usuarioReg[usuarioReg.length-1].idUsuario+1,
+        usuarioReg[usuarioReg.length - 1].idUsuario + 1,
         0,
-        prompt('inserte email'), 
+        prompt('inserte email'),
         prompt('Inserte password'),
         prompt('Indique su nombre'),
         prompt('Indique su apellido'))
@@ -124,7 +122,7 @@ function acceder() {
 
         } else if (usuarioReg.some((usu) => usu.email === usuario)) {
 
-             idUsuEncontrado = usuarioReg.findIndex(function (usuEnc) {
+            idUsuEncontrado = usuarioReg.findIndex(function (usuEnc) {
                 return usuEnc.email === usuario
 
             })
@@ -137,18 +135,18 @@ function acceder() {
             } else if (password === usuarioReg[idUsuEncontrado].password) {
                 acceso = true
 
-            
+
             } else {
                 acceso = false
             }
 
 
-        }else {
-            
+        } else {
+
             if (confirm('Usuario no registrado, desea crear un nuevo usuario?')) {
                 newUserPrompt()
                 continue
-            }else{
+            } else {
                 avisarCancel()
                 break
             }
@@ -166,7 +164,7 @@ function acceder() {
 
 }
 
-function avisarCancel (){
+function avisarCancel() {
     alert("accion cancelada por el usuario")
 }
 
@@ -176,12 +174,12 @@ function comprarProducto() {
         let listaParaMostrar = listaProductos
 
         do {
-           if (nuevaLista.length != 0){
-            listaParaMostrar = nuevaLista
-           }
+            if (nuevaLista.length != 0) {
+                listaParaMostrar = nuevaLista
+            }
             if (continuaComprando !== false && codigoProd !== null) {
-                codigoProd = prompt('Por favor indique el codigo del producto deseado \nSi el producto no aparece busquelo introduciendo parte de su nombre, por ej: zapa o vestido\n\n'  + lista(listaParaMostrar))
-                    
+                codigoProd = prompt('Por favor indique el codigo del producto deseado \nSi el producto no aparece busquelo introduciendo parte de su nombre, por ej: zapa o vestido\n\n' + lista(listaParaMostrar))
+
             }
             validacion = verificaCodigo(codigoProd)
             listaParaMostrar = validacion[1]
@@ -202,8 +200,8 @@ function comprarProducto() {
 }
 
 function lista(listProdArr) {
-    listaProd=''
-    if (listProdArr.length == 0 ){ listProdArr = listaProductos}
+    listaProd = ''
+    if (listProdArr.length == 0) { listProdArr = listaProductos }
 
     listProdArr.forEach(e => {
         listaProd += 'codigo: ' + e.idProd + '  -   Producto: ' + e.nombreProd + '\n'
@@ -219,16 +217,16 @@ function verificaCodigo(codigo) {
     let codVerif = false
     nuevaLista = []
     if (codigo == null) {
-        avisarCancel ()
+        avisarCancel()
         codVerif = false
         continuaComprando = false
-    } else if(listaProductos.some ((e) => e.idProd == codigo)){
-            return codVerif = true
-    } else{
-            nuevaLista =  listaProductos.filter ((elem) => elem.nombreProd.toLowerCase().includes(codigo.toLowerCase()))
-        }
-    
-    if (!codVerif && codigo !== null && nuevaLista.length ===0) { alert('el codigo ingresado no es correcto, por favor reintente') }
+    } else if (listaProductos.some((e) => e.idProd == codigo)) {
+        return codVerif = true
+    } else {
+        nuevaLista = listaProductos.filter((elem) => elem.nombreProd.toLowerCase().includes(codigo.toLowerCase()))
+    }
+
+    if (!codVerif && codigo !== null && nuevaLista.length === 0) { alert('el codigo ingresado no es correcto, por favor reintente') }
     return [codVerif, nuevaLista]
 }
 
@@ -247,10 +245,9 @@ function abonarProductos() {
     prodSeleccionados.forEach(e => {
         const element = e[0]
 
-        const elemento = listaProductos.find(function(item){
+        const elemento = listaProductos.find(function (item) {
             return item.idProd == element
         })
-        console.log(elemento)
 
         if (elemento) {
             listaFinal += `
@@ -262,8 +259,8 @@ function abonarProductos() {
             if (e[1] <= elemento.stockProd) {
                 cantidadProductos += e[1]
                 precioNeto += e[1] * elemento.precioProd
-                
-            }else {
+
+            } else {
                 cantidadProductos += elemento.stockProd
                 precioNeto += elemento.stockProd * elemento.precioProd
             }
@@ -273,43 +270,11 @@ function abonarProductos() {
     })
 
     pedidoFinal = 'Detalle de su pedido:\n' + listaFinal + 'Cantidad de Productos total: ' + cantidadProductos + '\n\tPrecio Neto total:'
-    + precioNeto + '\n\tPrecioFinal: ' + precioNeto * 1.21
-return confirm(pedidoFinal + '\n\nDESEA ACEPTAR EL PEDIDO?')
-    
-}
-
-function pagarProductos() {
-    console.log(prodSeleccionados)
-    for (let i = 0; i < prodSeleccionados.length; i++) {
-
-        const element = prodSeleccionados[i][0];
-
-        for (let j = 0; j < listaProductos.length; j++) {
-            const elemento = listaProductos[j][0] == element;
-
-            if (elemento) {
-                listaFinal += 'item: ' + (i + 1) + ' Producto: ' + listaProductos[j][1] + '\nCantidad solicitada: '
-                    + prodSeleccionados[i][1] + ' - Cantidad disponible: ' + listaProductos[j][2] + '\nPrecio Unitario: '
-                    + listaProductos[j][3] + '\n\n'
-
-                if (prodSeleccionados[i][1] <= listaProductos[j][2]) {
-                    cantidadProductos += prodSeleccionados[i][1]
-                    precioNeto += prodSeleccionados[i][1] * listaProductos[j][3]
-                } else {
-                    cantidadProductos += listaProductos[j][2]
-                    precioNeto += listaProductos[j][2] * listaProductos[j][3]
-                }
-            }
-
-
-        }
-
-    }
-    pedidoFinal = 'Detalle de su pedido:\n' + listaFinal + 'Cantidad de Productos total: ' + cantidadProductos + '\n\tPrecio Neto total:'
         + precioNeto + '\n\tPrecioFinal: ' + precioNeto * 1.21
     return confirm(pedidoFinal + '\n\nDESEA ACEPTAR EL PEDIDO?')
 
 }
+
 
 
 function fechaRetiro() {
