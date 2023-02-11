@@ -27,7 +27,7 @@ const tiposUsuario = [{
 }
 ]
 
-const listaProductos = [['1', 'Zapatillas', 10, 20000], ['2', 'Remera', 5, 3500], ['3', 'Gorra', 2, 1500], ['4', 'Lentes', 0, 800]]
+const listaProductos = [{idProd: 0}]
 let prodSeleccionados = []
 let usuario
 let idUsuEncontrado
@@ -54,18 +54,38 @@ class usuarios {
         this.pais = pais
         this.estado = estado
         this.localidad = localidad
-
     }
-
     insertarUsuario() {
         usuarioReg.push(this)
+    }
+}
 
-        
+class productos {
+    constructor(idProd, nombreProd, descripProd, precioProd, stockProd, imagenProd){
+        this.idProd = idProd
+        this.nombreProd = nombreProd
+        this.descripProd = descripProd
+        this.precioProd = precioProd
+        this.stockProd = stockProd
+        this.imagenProd = imagenProd
     }
 
-
-
+    cargarProducto(){
+        listaProductos.push(this)
+    }
 }
+
+productosArr.forEach(element=> {
+
+    const producto = new productos(
+        listaProductos[listaProductos.length-1].idProd+1,
+        element[0], element[1], element[2], element[3]
+
+    )
+    producto.cargarProducto()
+
+});
+console.log(listaProductos)
 
 const nuevoUsuario = new usuarios(1002, 0, 'test1@gmail.com', 'passw1', 'Pedro', 'Martinez', 'Argentina', 'buenos Aires', 'La Plata');
 nuevoUsuario.insertarUsuario()
@@ -183,7 +203,7 @@ function lista() {
 function verificaCodigo(codigo) {
     let codVerif
     if (codigo == null) {
-        alert('Accion cancelada por el usuario')
+        avisarCancel ()
         codVerif = false
         continuaComprando = false
     } else {
