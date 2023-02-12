@@ -43,7 +43,7 @@ let pedidoFinal = ''
 let cantidadProductos = 0
 
 
-class usuarios {
+class Usuarios {
     constructor(idUsuario, tipoUsuario, email, password, nombre, apellido, pais, estado, localidad,) {
         this.idUsuario = idUsuario
         this.tipoUsuario = tipoUsuario
@@ -60,7 +60,7 @@ class usuarios {
     }
 }
 
-class productos {
+class Productos {
     constructor(idProd, nombreProd, descripProd, precioProd, stockProd, imagenProd) {
         this.idProd = idProd
         this.nombreProd = nombreProd
@@ -84,7 +84,7 @@ productosArr.forEach(element => {
     }
 
 
-    const producto = new productos(
+    const producto = new Productos(
         newId, element[0], element[1], element[2], element[3]
 
     )
@@ -92,11 +92,11 @@ productosArr.forEach(element => {
 
 })
 
-const nuevoUsuario = new usuarios(1002, 0, '12', '12', 'Pedro', 'Martinez', 'Argentina', 'buenos Aires', 'La Plata');
+const nuevoUsuario = new Usuarios(1002, 0, '12', '12', 'Pedro', 'Martinez', 'Argentina', 'buenos Aires', 'La Plata');
 nuevoUsuario.insertarUsuario()
 
 function newUserPrompt() {
-    const promptUsuario = new usuarios(
+    const promptUsuario = new Usuarios(
 
         usuarioReg[usuarioReg.length - 1].idUsuario + 1,
         0,
@@ -269,7 +269,9 @@ function abonarProductos() {
 
     })
 
-    pedidoFinal = 'Detalle de su pedido:\n' + listaFinal + 'Cantidad de Productos total: ' + cantidadProductos + '\n\tPrecio Neto total:'
+
+
+    pedidoFinal = 'Detalle de su pedido:\n' + listaFinal +'Cantidad de Productos total: ' + cantidadProductos + '\n\tPrecio Neto total:'
         + precioNeto + '\n\tPrecioFinal: ' + precioNeto * 1.21
     return confirm(pedidoFinal + '\n\nDESEA ACEPTAR EL PEDIDO?')
 
