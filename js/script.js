@@ -324,7 +324,7 @@ usuario = acceder()
 if (acceso) {
     alert('Bienvenido/a ' + usuarioReg[idUsuEncontrado].nombre + ' a nuestro portal de compras. \nPor favor elige uno de los siguientes productos')
     document.getElementById('saludoInicial').innerHTML = 'MUCHAS GRACIAS POR ELEGIRNOS'
-    cliente.innerHTML = usuario.toUpperCase()
+    cliente.innerHTML = usuarioReg[idUsuEncontrado].nombre.toUpperCase() +' '+ usuarioReg[idUsuEncontrado].apellido.toUpperCase()
     comprarProducto()
 
 
@@ -340,7 +340,7 @@ if (prodSeleccionados.length != 0) {
         pedido.innerHTML = pedidoFinal
         retiro.innerHTML = '\n\nDia de retiro: ' + diaCompra
         saludo.innerHTML = 'MUCHAS GRACIAS POR SU COMPRA'
-        alert('MUCHAS GRACIAS POR ELEGIRNOS\n\nCliente: ' + usuario.toUpperCase() + '\n' + pedidoFinal + '\n\nDia de retiro: ' + diaCompra)
+        alert('MUCHAS GRACIAS POR ELEGIRNOS\n\nCliente: ' + usuarioReg[idUsuEncontrado].nombre.toUpperCase() +' '+ usuarioReg[idUsuEncontrado].apellido.toUpperCase()+ '\n' + pedidoFinal + '\n\nDia de retiro: ' + diaCompra)
     }
 }
 
