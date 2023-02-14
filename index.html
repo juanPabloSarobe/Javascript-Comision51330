@@ -1,22 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css"  rel="stylesheet" />
+    <link rel="stylesheet" href="style/style.css">
 </head>
 <!-- Se declara el style en el HTML por cuestiones practicas, no porque sea lo correcto -->
-<body style="background-color: beige; display: flex; flex-direction: column; justify-items: center; align-items: center;">
-    <h1>Tienda de Pedidos</h1>
+<!-- style="background-color: beige; display: flex; flex-direction: column; justify-items: center; align-items: center;" -->
 
-    <h2 id="saludoInicial"></h2>
-    <h2 id="cliente"> </h2>
-    <p id="pedido"> </p>
+<body class="">
+
+ 
+<nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800 fixed w-full top-0 left-0 z-20">
+    <div class="container flex flex-wrap items-center justify-between mx-auto">
+      <a href="https://flowbite.com/" class="flex items-center">
+          <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
+          <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-gray-400">Flowbite</span>
+      </a>
+
+      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+      </button>
+      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+        <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <li>
+            <a href="#" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Home</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+
+  <div class="prose">
+
+    <h1 class="pt-20">Tienda de Pedidos</h1>
+
+    <h2 id="saludoInicial"> saludo inicial</h2>
+    <h3 id="cliente"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa quam ipsum veniam, tempora totam
+        fuga voluptates laboriosam laudantium debitis laborum ex doloribus. Itaque excepturi, fugit veniam numquam unde
+        nihil expedita.</h3>
+    <p id="pedido"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero recusandae architecto fuga suscipit, dolor maiores, incidunt temporibus veritatis beatae eligendi, nobis illum. Repellendus eos sapiente quo illo similique voluptatibus quos.
+    Quod fugit ipsa maxime inventore, est repellat obcaecati consequuntur distinctio nihil officia tempore praesentium corporis numquam mollitia commodi porro sunt ipsum dolorum neque hic. Praesentium officia eius qui ullam deserunt.
+    At perspiciatis non exercitationem laborum, similique fugit iusto ab asperiores labore optio maxime suscipit sint minima doloremque totam soluta necessitatibus magni nostrum ad autem? Incidunt eveniet illum rem iure debitis.
+    Cupiditate distinctio quasi repellendus et modi ipsam veniam, iusto error dolor voluptas maxime, eligendi earum temporibus soluta nesciunt esse eius numquam explicabo? Minima eligendi, dicta suscipit consequuntur amet commodi laudantium.
+    Corrupti aliquid unde, quidem minima animi quos est praesentium natus excepturi delectus corporis repellendus ad quis quia eius sit. Nam quasi a pariatur, iusto at error tenetur incidunt suscipit? Id!
+    Commodi minima laudantium similique mollitia, porro officia iste dolores nostrum est libero veniam, asperiores maxime sapiente maiores ipsam debitis harum sit accusantium. Recusandae doloribus in tempore repellendus, pariatur dolorum alias.
+    Sed accusamus non, totam quam sit dolor animi eaque dolore tenetur aperiam fuga facere molestiae! Dolor, cumque provident. Tenetur hic corrupti dignissimos inventore cumque repellat a. Excepturi suscipit ad omnis?
+    Ipsum eveniet obcaecati, nisi eum nulla nostrum alias perferendis esse, itaque delectus maxime repellendus quasi fuga? Inventore, voluptatem officia dicta ea dolore animi voluptatum, fugit adipisci ipsa accusantium voluptates magnam?
+    Totam debitis id eos quae. Eaque cum pariatur laudantium incidunt ipsa! Fugiat pariatur, quis sed facere dolor a quisquam ducimus voluptate laborum nam nihil blanditiis accusamus excepturi qui veniam fuga.
+    Libero, nemo perferendis eius accusantium iste nobis nulla aspernatur possimus delectus earum officiis, fuga maiores aliquam eligendi hic voluptatibus qui necessitatibus nisi sapiente ut est accusamus? Itaque dicta velit asperiores!
+    Distinctio dolor cum explicabo velit accusamus, quod odio minima, aspernatur temporibus illo culpa sed blanditiis sapiente aperiam sint amet officiis quae molestias modi nesciunt obcaecati! Vel animi numquam atque esse?
+    Quos enim tenetur quasi vero laboriosam earum eius unde ipsa sed voluptatem porro sunt iste perferendis mollitia minima asperiores quae, magni nihil non quaerat maiores! Facere eligendi qui veniam aliquam.
+    Beatae voluptatibus expedita amet eaque sequi dolores laborum porro sit necessitatibus inventore! Optio ea voluptas iusto velit soluta esse, voluptatem magnam suscipit minus, molestias excepturi facere! Incidunt totam dolor sit?
+    In consectetur consequatur officia fuga eveniet voluptas unde, voluptatum quidem? Corrupti nobis ea soluta dicta magnam incidunt veritatis, ut error totam. Illum porro quibusdam repellat vel eligendi molestias natus molestiae.
+    Maiores quaerat soluta asperiores expedita deserunt dolores esse libero, consectetur et voluptatibus qui, tempora magnam? Quam possimus inventore enim laborum quibusdam corporis dolorem doloribus, labore officia ipsum! Nisi, dignissimos architecto?</p>
     <h4 id="retiro"> </h4>
-    
+
     <p id="saludo"> </p>
+
+</div>
     <script src="./js/datos.js"></script>
     <script src="./js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
 </body>
+
 </html>
