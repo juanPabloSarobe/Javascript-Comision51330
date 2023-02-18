@@ -318,7 +318,7 @@ function fechaRetiro() {
 
 
 
-
+function init (){
 usuario = acceder()
 
 if (acceso) {
@@ -344,6 +344,6 @@ if (prodSeleccionados.length != 0) {
     }
 }
 
-
+}
 
 
