@@ -1,0 +1,2 @@
+Para iniciar el compilador de tailwindcss
+npx tailwindcss -i ./input.css -o ./style/style.css --watch
