@@ -2,167 +2,424 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css"  rel="stylesheet" />
-    <link rel="stylesheet" href="style/style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
 </head>
-<!-- Se declara el style en el HTML por cuestiones practicas, no porque sea lo correcto -->
-<!-- style="background-color: beige; display: flex; flex-direction: column; justify-items: center; align-items: center;" -->
 
 <body class="">
 
-  <nav class="bg-gray-800 fixed w-screen">
+  <nav class="bg-gray-800 fixed w-screen z-50">
     <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
       <div class="relative flex h-16 items-center justify-between">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
           <!-- Mobile menu button-->
-          <button id="mobileMenuButton" onclick="toggleMobileMenu()" type="button" class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+          <button id="mobileMenuButton" onclick="toggleMobileMenu()" type="button"
+            class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+            aria-controls="mobile-menu" aria-expanded="false">
             <span class="sr-only">Open main menu</span>
-            <!--
-              Icon when menu is closed.
-  
-              Menu open: "hidden", Menu closed: "block"
-            -->
-            <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+
+            <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+              aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
 
-            
-            <!--
-              Icon when menu is open.
-  
-              Menu open: "block", Menu closed: "hidden"
-            -->
-            <svg  class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+
+            <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+              aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
         </div>
         <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-between">
-          <div class="flex flex-shrink-0 items-center">
-            <img class="block h-8 w-auto lg:hidden" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
-            <img class="hidden h-8 w-auto lg:block" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
-          </div>
-          <div  class="hidden sm:ml-6 sm:block">
+
+          <a href="./index.html">
+
+            <div class="flex flex-shrink-0 items-center">
+
+              <div class="block h-8 w-auto lg:hidden">
+                <svg class="svg-standalone-icon h-8" width="100%"
+                  viewBox="201.30849453929235 115 147.38301092141532 147.38301092141535">
+                  <g data-paper-data="{&quot;fillRule&quot;:&quot;evenodd&quot;,&quot;fillRuleOriginal&quot;:&quot;evenodd&quot;,&quot;isIcon&quot;:true,&quot;iconStyle&quot;:&quot;standalone&quot;,&quot;selectedEffects&quot;:{&quot;container&quot;:&quot;&quot;,&quot;transformation&quot;:&quot;&quot;,&quot;pattern&quot;:&quot;&quot;},&quot;bounds&quot;:{&quot;x&quot;:201.30849453929235,&quot;y&quot;:115,&quot;width&quot;:147.38301092141532,&quot;height&quot;:147.38301092141535},&quot;iconType&quot;:&quot;icon&quot;,&quot;rawIconId&quot;:&quot;1709134&quot;,&quot;isDetailed&quot;:false,&quot;suitableAsStandaloneIcon&quot;:true}"
+                    fill-rule="evenodd">
+                    <path
+                      d="M246.6241,145.60901l26.79692,26.79692c0.87201,0.87201 2.286,0.87201 3.15802,0l26.79692,-26.79692c0.87201,-0.87201 0.87201,-2.286 0,-3.15802l-26.79692,-26.79694c-0.87201,-0.87207 -2.286,-0.87207 -3.15802,0l-26.79692,26.79694c-0.87201,0.87201 -0.87201,2.286 0,3.15802zM275.00003,120.39112l23.6389,23.63888l-23.6389,23.6389l-23.6389,-23.6389zM201.96254,190.27054l26.79694,26.79692c0.87201,0.87201 2.286,0.87201 3.15802,0l26.79692,-26.79692c0.87201,-0.87201 0.87201,-2.286 0,-3.15802l-26.79692,-26.79692c-0.87201,-0.87201 -2.286,-0.87201 -3.15802,0l-26.79694,26.79692c-0.87207,0.87201 -0.87207,2.286 0,3.15802zM291.28563,190.27054l26.79692,26.79692c0.87201,0.87201 2.286,0.87201 3.15802,0l26.79692,-26.79692c0.87201,-0.87201 0.87201,-2.286 0,-3.15802l-26.79692,-26.79692c-0.87201,-0.87201 -2.286,-0.87201 -3.15802,0l-26.79692,26.79692c-0.87201,0.87201 -0.87201,2.286 0,3.15802zM230.33849,165.05263l23.6389,23.6389l-23.6389,23.6389l-23.63888,-23.6389zM319.66156,165.05263l23.6389,23.6389l-23.6389,23.6389l-23.6389,-23.6389zM246.6241,234.93208l26.79692,26.79692c0.87201,0.87201 2.286,0.87201 3.15802,0l26.79692,-26.79692c0.87201,-0.87201 0.87201,-2.286 0,-3.15802l-26.79692,-26.79692c-0.87201,-0.87201 -2.286,-0.87201 -3.15802,0l-26.79692,26.79692c-0.87201,0.87201 -0.87201,2.286 0,3.15802zM275.00003,209.71417l23.6389,23.6389l-23.6389,23.6389l-23.6389,-23.6389z"
+                      data-paper-data="{&quot;isPathIcon&quot;:true}" style="fill: rgb(255, 255, 255);"></path>
+                  </g>
+                </svg>
+
+              </div>
+              <div class="hidden h-8 w-auto lg:block">
+                <svg class="svg-standalone-icon h-8" width="100%"
+                  viewBox="201.30849453929235 115 147.38301092141532 147.38301092141535">
+                  <g data-paper-data="{&quot;fillRule&quot;:&quot;evenodd&quot;,&quot;fillRuleOriginal&quot;:&quot;evenodd&quot;,&quot;isIcon&quot;:true,&quot;iconStyle&quot;:&quot;standalone&quot;,&quot;selectedEffects&quot;:{&quot;container&quot;:&quot;&quot;,&quot;transformation&quot;:&quot;&quot;,&quot;pattern&quot;:&quot;&quot;},&quot;bounds&quot;:{&quot;x&quot;:201.30849453929235,&quot;y&quot;:115,&quot;width&quot;:147.38301092141532,&quot;height&quot;:147.38301092141535},&quot;iconType&quot;:&quot;icon&quot;,&quot;rawIconId&quot;:&quot;1709134&quot;,&quot;isDetailed&quot;:false,&quot;suitableAsStandaloneIcon&quot;:true}"
+                    fill-rule="evenodd">
+                    <path
+                      d="M246.6241,145.60901l26.79692,26.79692c0.87201,0.87201 2.286,0.87201 3.15802,0l26.79692,-26.79692c0.87201,-0.87201 0.87201,-2.286 0,-3.15802l-26.79692,-26.79694c-0.87201,-0.87207 -2.286,-0.87207 -3.15802,0l-26.79692,26.79694c-0.87201,0.87201 -0.87201,2.286 0,3.15802zM275.00003,120.39112l23.6389,23.63888l-23.6389,23.6389l-23.6389,-23.6389zM201.96254,190.27054l26.79694,26.79692c0.87201,0.87201 2.286,0.87201 3.15802,0l26.79692,-26.79692c0.87201,-0.87201 0.87201,-2.286 0,-3.15802l-26.79692,-26.79692c-0.87201,-0.87201 -2.286,-0.87201 -3.15802,0l-26.79694,26.79692c-0.87207,0.87201 -0.87207,2.286 0,3.15802zM291.28563,190.27054l26.79692,26.79692c0.87201,0.87201 2.286,0.87201 3.15802,0l26.79692,-26.79692c0.87201,-0.87201 0.87201,-2.286 0,-3.15802l-26.79692,-26.79692c-0.87201,-0.87201 -2.286,-0.87201 -3.15802,0l-26.79692,26.79692c-0.87201,0.87201 -0.87201,2.286 0,3.15802zM230.33849,165.05263l23.6389,23.6389l-23.6389,23.6389l-23.63888,-23.6389zM319.66156,165.05263l23.6389,23.6389l-23.6389,23.6389l-23.6389,-23.6389zM246.6241,234.93208l26.79692,26.79692c0.87201,0.87201 2.286,0.87201 3.15802,0l26.79692,-26.79692c0.87201,-0.87201 0.87201,-2.286 0,-3.15802l-26.79692,-26.79692c-0.87201,-0.87201 -2.286,-0.87201 -3.15802,0l-26.79692,26.79692c-0.87201,0.87201 -0.87201,2.286 0,3.15802zM275.00003,209.71417l23.6389,23.6389l-23.6389,23.6389l-23.6389,-23.6389z"
+                      data-paper-data="{&quot;isPathIcon&quot;:true}" style="fill: rgb(255, 255, 255);"></path>
+                  </g>
+                </svg>
+
+              </div>
+
+              <div>
+                <h2 class="uppercase font-nunito text-white ml-2 "> Coder Store</h2>
+              </div>
+
+            </div>
+          </a>
+          <div class="hidden sm:ml-1 sm:block">
             <div class="flex space-x-4">
-              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Dashboard</a>
-  
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</a>
-  
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
-  
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calendar</a>
+
+
+              <form>
+                <div class="flex w-60">
+
+                  <div class="relative w-full">
+                    <input type="search" id="search-dropdown"
+                      class=" block p-2.5 w-full z-40 text-sm text-gray-900 bg-gray-50 rounded-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-red-500 focus:border-red-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:focus:bg-gray-500 dark:text-white dark:focus:border-red-500"
+                      placeholder="Buscar..." required>
+                    <button type="submit"
+                      class="z-30 absolute top-0 right-0 p-2.5 text-sm font-medium text-gray-900 hover:text-white bg-gray-50 rounded-r-lg border border-gray-300 hover:bg-red-700  outline-red-300 focus:outline-none focus:border-red-300 focus:ring-red-300 dark:bg-gray-800 dark:text-gray-300 dark:focus:text-gray-800 dark:border-gray-500 dark:hover:bg-gray-300 dark:focus:ring-gray-800">
+                      <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                      </svg>
+                      <span class="sr-only">Search</span>
+                    </button>
+                  </div>
+                </div>
+              </form>
+
+
+              <a href="#"
+                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Productos</a>
+
+              <a href="#"
+                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contacto</a>
+
+
             </div>
           </div>
         </div>
         <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-          <button type="button" class=" relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+          <button type="button"
+            class=" relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
             <span class="sr-only">View Cart</span>
-            <svg  class="h-8 w-8"fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path>
+            <svg class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z">
+              </path>
             </svg>
-            <div class="absolute inline-flex items-center justify-center w-4 h-4 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full top-0 -right-2 dark:border-gray-900">8</div>
+            <div
+              class="absolute inline-flex items-center justify-center w-4 h-4 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full top-0 -right-2 dark:border-gray-900">
+              8</div>
           </button>
-  
+
           <!-- Profile dropdown -->
-          
+
           <div class="relative ml-3">
             <div>
-              <button id="userButton" onclick="toggleMenu()" type="button" class="flex rounded-full text-gray-400 hover:text-white  bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+              <button id="userButton" onclick="toggleMenu()" type="button"
+                class="flex rounded-full text-gray-400 hover:text-white  bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                 <span class="sr-only">Open user menu</span>
                 <!-- <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""> -->
-                <svg class="block h-8 w-8 " fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                <svg class="block h-8 w-8 " fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z">
+                  </path>
                 </svg>
 
-              
               </button>
 
             </div>
-            
-            <!--
-              Dropdown menu, show/hide based on menu state.
-              
-              Entering: "transition ease-out duration-100"
-              From: "transform opacity-0 scale-95"
-              To: "transform opacity-100 scale-100"
-              Leaving: "transition ease-in duration-75"
-              From: "transform opacity-100 scale-100"
-              To: "transform opacity-0 scale-95"
-            -->
-            <div id="userMenu" class="hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+
+
+            <div id="userMenu"
+              class=" hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none "
+              role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
               <!-- Active: "bg-gray-100", Not Active: "" -->
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                id="user-menu-item-0">Your Profile</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                id="user-menu-item-1">Settings</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                id="user-menu-item-2">Sign out</a>
             </div>
           </div>
 
-          <div class="h-8"> 
+          <div class="h-8">
             <h4 class="hidden"> Juan Pablo</h4>
           </div>
         </div>
       </div>
     </div>
-  
+
     <!-- Mobile menu, show/hide based on menu state. -->
     <div id="mobileMenu" class="hidden sm:hidden">
       <div class="space-y-1 px-2 pt-2 pb-3">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-        <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Dashboard</a>
-  
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a>
-  
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
-  
-        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a>
-      </div>
+        
+        
+        <a href="#"
+        class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Productos</a>
+        
+        <a href="#"
+        class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contacto</a>
+        
+        <form>
+          <div class="flex w-full">
+
+            <div class="relative w-full">
+              <input type="search" id="searchOnMenu"
+                class=" block p-2.5 w-full z-40 text-sm text-gray-900 bg-gray-50 rounded-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-red-500 focus:border-red-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-red-500"
+                placeholder="Buscar..." required>
+              <button type="submit"
+                class="z-30 absolute top-0 right-0 p-2.5 text-sm font-medium text-gray-900 hover:text-white bg-gray-50 rounded-r-lg border border-gray-300 hover:bg-red-700  outline-red-300 focus:outline-none focus:border-red-300 focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+                <span class="sr-only">Search</span>
+              </button>
+            </div>
+          </div>
+        </form>
+        </div>
     </div>
   </nav>
-    
+
+  <div class=" pt-16 w-screen h-screen  bg-red-700 mx-auto ">
+
+    <svg class="  mx-auto h-screen w-screen" xmlns:mydata="http://www.w3.org/2000/svg" mydata:contrastcolor="EE2737"
+      mydata:template="Contrast" mydata:presentation="2.5" mydata:layouttype="undefined"
+      mydata:specialfontid="undefined" mydata:id1="033" mydata:id2="151" mydata:companyname="coder Store"
+      mydata:companytagline="El mejor eShop para vestirte" version="1.1" xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 550 470">
+      <g fill="#101820" fill-rule="none" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+        stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+        font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+        <g
+          data-paper-data="{&quot;isGlobalGroup&quot;:true,&quot;bounds&quot;:{&quot;x&quot;:71.55856531384373,&quot;y&quot;:115,&quot;width&quot;:406.8828693723125,&quot;height&quot;:240}}">
+          <g data-paper-data="{&quot;isSecondaryText&quot;:true}" fill-rule="nonzero">
+            <path
+              d="M116.84505,354.91078v-7.8064h4.81766v1.20442h-3.61325v1.9516h3.28984v1.20442h-3.28984v2.24155h3.6467v1.20442z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;E&quot;,&quot;glyphIndex&quot;:0,&quot;firstGlyphOfWord&quot;:true,&quot;word&quot;:1}">
+            </path>
+            <path d="M128.10027,354.91078v-7.8064h1.20442v6.60198h3.63555v1.20442z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;L&quot;,&quot;glyphIndex&quot;:1,&quot;lastGlyphOfWord&quot;:true,&quot;word&quot;:1}">
+            </path>
+            <path
+              d="M153.23834,354.91078v-5.30835l-2.29731,3.74707l-2.33077,-3.68016v5.24144h-1.17096v-7.8064h0.92562l2.57611,4.10394l2.57611,-4.10394h0.91446v7.8064z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;M&quot;,&quot;glyphIndex&quot;:2,&quot;firstGlyphOfWord&quot;:true,&quot;word&quot;:2}">
+            </path>
+            <path
+              d="M161.34936,354.91078v-7.8064h4.81766v1.20442h-3.61325v1.9516h3.28984v1.20442h-3.28984v2.24155h3.6467v1.20442z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;E&quot;,&quot;glyphIndex&quot;:3,&quot;word&quot;:2}">
+            </path>
+            <path
+              d="M177.25116,347.10438v5.41987c0,0.81781 -0.20074,1.43489 -0.60221,1.85123c-0.40147,0.41634 -0.98509,0.62451 -1.75086,0.62451c-0.23791,0 -0.45909,-0.02416 -0.66354,-0.07249c-0.20445,-0.04833 -0.39775,-0.12639 -0.5799,-0.23419c-0.18215,-0.1078 -0.36244,-0.24906 -0.54087,-0.42378c-0.17843,-0.17471 -0.36058,-0.38474 -0.54645,-0.63009l0.90331,-0.84755c0.21561,0.31969 0.44236,0.56689 0.68027,0.74161c0.23791,0.17471 0.52786,0.26207 0.86986,0.26207c0.37173,0 0.63566,-0.1171 0.79179,-0.35129c0.15613,-0.23419 0.23419,-0.54459 0.23419,-0.93119v-5.40872z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;J&quot;,&quot;glyphIndex&quot;:4,&quot;word&quot;:2}">
+            </path>
+            <path
+              d="M190.29251,350.97413c0,-0.3643 -0.05018,-0.71373 -0.15055,-1.04829c-0.10037,-0.33456 -0.25278,-0.63009 -0.45723,-0.88658c-0.20445,-0.2565 -0.45909,-0.45909 -0.76391,-0.60778c-0.30482,-0.14869 -0.66169,-0.22304 -1.07059,-0.22304c-0.40147,0 -0.75462,0.07435 -1.05944,0.22304c-0.30482,0.14869 -0.5576,0.34943 -0.75834,0.60221c-0.20074,0.25278 -0.35315,0.54645 -0.45723,0.88101c-0.10409,0.33456 -0.15613,0.68771 -0.15613,1.05944c0,0.37173 0.05204,0.72488 0.15613,1.05944c0.10409,0.33456 0.2565,0.63009 0.45723,0.88658c0.20074,0.2565 0.45351,0.46095 0.75834,0.61336c0.30482,0.15241 0.65797,0.22862 1.05944,0.22862c0.40891,0 0.76577,-0.07435 1.07059,-0.22304c0.30482,-0.14869 0.55946,-0.35129 0.76391,-0.60778c0.20445,-0.2565 0.35686,-0.55202 0.45723,-0.88658c0.10037,-0.33456 0.15055,-0.69142 0.15055,-1.07059zM191.50808,350.96298c0,0.52043 -0.07621,1.02227 -0.22862,1.50552c-0.15241,0.48325 -0.38289,0.90889 -0.69142,1.2769c-0.30854,0.36802 -0.69142,0.66354 -1.14866,0.88658c-0.45723,0.22304 -0.98695,0.33456 -1.58916,0.33456c-0.60221,0 -1.13007,-0.11152 -1.58358,-0.33456c-0.45351,-0.22304 -0.83454,-0.51857 -1.14308,-0.88658c-0.30854,-0.36802 -0.53901,-0.79365 -0.69142,-1.2769c-0.15241,-0.48325 -0.22862,-0.98509 -0.22862,-1.50552c0,-0.51299 0.07621,-1.00926 0.22862,-1.48879c0.15241,-0.47954 0.38289,-0.90145 0.69142,-1.26575c0.30854,-0.3643 0.68957,-0.65611 1.14308,-0.87543c0.45351,-0.21932 0.98138,-0.32898 1.58358,-0.32898c0.60221,0 1.13193,0.10966 1.58916,0.32898c0.45723,0.21932 0.84012,0.51113 1.14866,0.87543c0.30854,0.3643 0.53901,0.78622 0.69142,1.26575c0.15241,0.47954 0.22862,0.9758 0.22862,1.48879z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;O&quot;,&quot;glyphIndex&quot;:5,&quot;word&quot;:2}">
+            </path>
+            <path
+              d="M201.29838,351.75477h-1.394v3.15602h-1.20442v-7.8064h2.96643c0.31969,0 0.61894,0.06134 0.89774,0.18401c0.2788,0.12267 0.52414,0.28995 0.73603,0.50184c0.21189,0.21189 0.37917,0.45909 0.50184,0.74161c0.12267,0.28252 0.18401,0.58362 0.18401,0.90331c0,0.46838 -0.12825,0.89216 -0.38474,1.27133c-0.2565,0.37917 -0.58176,0.66169 -0.9758,0.84755l1.76202,3.35675h-1.36054zM199.90438,350.55035h1.76202c0.15613,0 0.3011,-0.02788 0.43493,-0.08364c0.13382,-0.05576 0.25092,-0.13382 0.35129,-0.23419c0.10037,-0.10037 0.18029,-0.21932 0.23977,-0.35686c0.05948,-0.13754 0.08922,-0.28438 0.08922,-0.4405c0,-0.31226 -0.1078,-0.57619 -0.32341,-0.79179c-0.21561,-0.21561 -0.47954,-0.32713 -0.79179,-0.33456h-1.76202z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;R&quot;,&quot;glyphIndex&quot;:6,&quot;lastGlyphOfWord&quot;:true,&quot;word&quot;:2}">
+            </path>
+            <path
+              d="M218.57782,354.91078v-7.8064h4.81766v1.20442h-3.61325v1.9516h3.28984v1.20442h-3.28984v2.24155h3.6467v1.20442z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;E&quot;,&quot;glyphIndex&quot;:7,&quot;firstGlyphOfWord&quot;:true,&quot;word&quot;:3}">
+            </path>
+            <path
+              d="M234.70331,348.98907c-0.20817,-0.25278 -0.43679,-0.43493 -0.68585,-0.54645c-0.24906,-0.11152 -0.54087,-0.16728 -0.87543,-0.16728c-0.43121,0 -0.76763,0.08364 -1.00926,0.25092c-0.24163,0.16728 -0.36244,0.36987 -0.36244,0.60778c0,0.14869 0.0539,0.28066 0.1617,0.3959c0.1078,0.11524 0.2472,0.21932 0.4182,0.31226c0.171,0.09293 0.35686,0.18029 0.5576,0.26207c0.20074,0.08178 0.39775,0.15613 0.59106,0.22304h-0.01115c0.21561,0.07435 0.45909,0.171 0.73046,0.28995c0.27137,0.11895 0.52786,0.27137 0.76949,0.45723c0.24163,0.18587 0.44608,0.40891 0.61336,0.66912c0.16728,0.26021 0.25092,0.56875 0.25092,0.92562c0,0.37173 -0.07063,0.70072 -0.21189,0.98695c-0.14126,0.28623 -0.33828,0.526 -0.59106,0.7193c-0.25278,0.1933 -0.54831,0.34014 -0.88658,0.4405c-0.33828,0.10037 -0.70443,0.15055 -1.09847,0.15055c-0.5576,0 -1.07803,-0.11895 -1.56128,-0.35686c-0.48325,-0.23791 -0.95907,-0.61708 -1.42746,-1.1375l0.98138,-0.80294c0.26765,0.37173 0.57061,0.6431 0.90889,0.8141c0.33828,0.171 0.70815,0.2565 1.10962,0.2565c0.23047,0 0.4405,-0.0223 0.63009,-0.06691c0.18958,-0.04461 0.35315,-0.1078 0.49069,-0.18958c0.13754,-0.08178 0.24534,-0.17843 0.32341,-0.28995c0.07806,-0.11152 0.1171,-0.23419 0.1171,-0.36802c0,-0.18587 -0.05576,-0.34943 -0.16728,-0.49069c-0.11152,-0.14126 -0.25278,-0.26579 -0.42378,-0.37359c-0.171,-0.1078 -0.3643,-0.20074 -0.5799,-0.2788c-0.21561,-0.07806 -0.42378,-0.15055 -0.62451,-0.21746l-0.26765,-0.10037c-0.25278,-0.08922 -0.49998,-0.18401 -0.74161,-0.28438c-0.24163,-0.10037 -0.45909,-0.23047 -0.65239,-0.39032c-0.1933,-0.15985 -0.34943,-0.35872 -0.46838,-0.59663c-0.11895,-0.23791 -0.17843,-0.53158 -0.17843,-0.88101c0,-0.27508 0.04833,-0.54273 0.14498,-0.80294c0.09665,-0.26021 0.24906,-0.48883 0.45723,-0.68585c0.20817,-0.19702 0.47582,-0.35501 0.80294,-0.47396c0.32713,-0.11895 0.72116,-0.17843 1.18211,-0.17843c0.26765,0 0.52414,0.0223 0.76949,0.06691c0.24534,0.04461 0.48325,0.12081 0.71373,0.22862c0.23047,0.1078 0.45537,0.24906 0.6747,0.42378c0.21932,0.17471 0.43679,0.39218 0.65239,0.65239l-1.03714,0.82525z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;S&quot;,&quot;glyphIndex&quot;:8,&quot;word&quot;:3}">
+            </path>
+            <path
+              d="M247.18996,354.91078v-3.44597h-3.22293v3.44597h-1.20442v-7.8064h1.20442v3.15602h3.22293v-3.15602h1.20442v7.8064z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;H&quot;,&quot;glyphIndex&quot;:9,&quot;word&quot;:3}">
+            </path>
+            <path
+              d="M261.66196,350.97413c0,-0.3643 -0.05018,-0.71373 -0.15055,-1.04829c-0.10037,-0.33456 -0.25278,-0.63009 -0.45723,-0.88658c-0.20445,-0.2565 -0.45909,-0.45909 -0.76391,-0.60778c-0.30482,-0.14869 -0.66169,-0.22304 -1.07059,-0.22304c-0.40147,0 -0.75462,0.07435 -1.05944,0.22304c-0.30482,0.14869 -0.5576,0.34943 -0.75834,0.60221c-0.20074,0.25278 -0.35315,0.54645 -0.45723,0.88101c-0.10409,0.33456 -0.15613,0.68771 -0.15613,1.05944c0,0.37173 0.05204,0.72488 0.15613,1.05944c0.10409,0.33456 0.2565,0.63009 0.45723,0.88658c0.20074,0.2565 0.45351,0.46095 0.75834,0.61336c0.30482,0.15241 0.65797,0.22862 1.05944,0.22862c0.40891,0 0.76577,-0.07435 1.07059,-0.22304c0.30482,-0.14869 0.55946,-0.35129 0.76391,-0.60778c0.20445,-0.2565 0.35686,-0.55202 0.45723,-0.88658c0.10037,-0.33456 0.15055,-0.69142 0.15055,-1.07059zM262.87752,350.96298c0,0.52043 -0.07621,1.02227 -0.22862,1.50552c-0.15241,0.48325 -0.38289,0.90889 -0.69142,1.2769c-0.30854,0.36802 -0.69142,0.66354 -1.14866,0.88658c-0.45723,0.22304 -0.98695,0.33456 -1.58916,0.33456c-0.60221,0 -1.13007,-0.11152 -1.58358,-0.33456c-0.45351,-0.22304 -0.83454,-0.51857 -1.14308,-0.88658c-0.30854,-0.36802 -0.53901,-0.79365 -0.69142,-1.2769c-0.15241,-0.48325 -0.22862,-0.98509 -0.22862,-1.50552c0,-0.51299 0.07621,-1.00926 0.22862,-1.48879c0.15241,-0.47954 0.38289,-0.90145 0.69142,-1.26575c0.30854,-0.3643 0.68957,-0.65611 1.14308,-0.87543c0.45351,-0.21932 0.98138,-0.32898 1.58358,-0.32898c0.60221,0 1.13193,0.10966 1.58916,0.32898c0.45723,0.21932 0.84012,0.51113 1.14866,0.87543c0.30854,0.3643 0.53901,0.78622 0.69142,1.26575c0.15241,0.47954 0.22862,0.9758 0.22862,1.48879z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;O&quot;,&quot;glyphIndex&quot;:10,&quot;word&quot;:3}">
+            </path>
+            <path
+              d="M271.16687,351.75477v3.15602h-1.19326v-7.8064h2.95528c0.31969,0 0.62079,0.06134 0.90331,0.18401c0.28252,0.12267 0.52972,0.28995 0.74161,0.50184c0.21189,0.21189 0.37917,0.45909 0.50184,0.74161c0.12267,0.28252 0.18401,0.58362 0.18401,0.90331c0,0.31969 -0.06134,0.62079 -0.18401,0.90331c-0.12267,0.28252 -0.28995,0.52786 -0.50184,0.73603c-0.21189,0.20817 -0.45909,0.37359 -0.74161,0.49626c-0.28252,0.12267 -0.58362,0.18401 -0.90331,0.18401zM271.16687,350.55035h1.76202c0.15613,0 0.3011,-0.02788 0.43493,-0.08364c0.13382,-0.05576 0.25278,-0.13382 0.35686,-0.23419c0.10409,-0.10037 0.18587,-0.21932 0.24534,-0.35686c0.05948,-0.13754 0.08922,-0.28438 0.08922,-0.4405c0,-0.15613 -0.02974,-0.3011 -0.08922,-0.43493c-0.05948,-0.13382 -0.14126,-0.25092 -0.24534,-0.35129c-0.10409,-0.10037 -0.22304,-0.18215 -0.35686,-0.24534c-0.13382,-0.06319 -0.2788,-0.09479 -0.43493,-0.09479h-1.76202z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;P&quot;,&quot;glyphIndex&quot;:11,&quot;lastGlyphOfWord&quot;:true,&quot;word&quot;:3}">
+            </path>
+            <path
+              d="M290.65123,351.75477v3.15602h-1.19326v-7.8064h2.95528c0.31969,0 0.62079,0.06134 0.90331,0.18401c0.28252,0.12267 0.52972,0.28995 0.74161,0.50184c0.21189,0.21189 0.37917,0.45909 0.50184,0.74161c0.12267,0.28252 0.18401,0.58362 0.18401,0.90331c0,0.31969 -0.06134,0.62079 -0.18401,0.90331c-0.12267,0.28252 -0.28995,0.52786 -0.50184,0.73603c-0.21189,0.20817 -0.45909,0.37359 -0.74161,0.49626c-0.28252,0.12267 -0.58362,0.18401 -0.90331,0.18401zM290.65123,350.55035h1.76202c0.15613,0 0.3011,-0.02788 0.43493,-0.08364c0.13382,-0.05576 0.25278,-0.13382 0.35686,-0.23419c0.10409,-0.10037 0.18587,-0.21932 0.24534,-0.35686c0.05948,-0.13754 0.08922,-0.28438 0.08922,-0.4405c0,-0.15613 -0.02974,-0.3011 -0.08922,-0.43493c-0.05948,-0.13382 -0.14126,-0.25092 -0.24534,-0.35129c-0.10409,-0.10037 -0.22304,-0.18215 -0.35686,-0.24534c-0.13382,-0.06319 -0.2788,-0.09479 -0.43493,-0.09479h-1.76202z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;P&quot;,&quot;glyphIndex&quot;:12,&quot;firstGlyphOfWord&quot;:true,&quot;word&quot;:4}">
+            </path>
+            <path
+              d="M306.28251,352.66923h-2.45344l-0.79179,2.24155h-1.33824l2.788,-7.8064h1.1375l2.788,7.8064h-1.33824zM304.25284,351.47597h1.59474c-0.07435,-0.21561 -0.14312,-0.40891 -0.20631,-0.5799c-0.06319,-0.171 -0.12453,-0.34014 -0.18401,-0.50742c-0.05948,-0.16728 -0.12081,-0.34014 -0.18401,-0.51857c-0.06319,-0.17843 -0.13568,-0.3866 -0.21746,-0.62451z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;A&quot;,&quot;glyphIndex&quot;:13,&quot;word&quot;:4}">
+            </path>
+            <path
+              d="M318.06179,351.75477h-1.394v3.15602h-1.20442v-7.8064h2.96643c0.31969,0 0.61894,0.06134 0.89774,0.18401c0.2788,0.12267 0.52414,0.28995 0.73603,0.50184c0.21189,0.21189 0.37917,0.45909 0.50184,0.74161c0.12267,0.28252 0.18401,0.58362 0.18401,0.90331c0,0.46838 -0.12825,0.89216 -0.38474,1.27133c-0.2565,0.37917 -0.58176,0.66169 -0.9758,0.84755l1.76202,3.35675h-1.36054zM316.66779,350.55035h1.76202c0.15613,0 0.3011,-0.02788 0.43493,-0.08364c0.13382,-0.05576 0.25092,-0.13382 0.35129,-0.23419c0.10037,-0.10037 0.18029,-0.21932 0.23977,-0.35686c0.05948,-0.13754 0.08922,-0.28438 0.08922,-0.4405c0,-0.31226 -0.1078,-0.57619 -0.32341,-0.79179c-0.21561,-0.21561 -0.47954,-0.32713 -0.79179,-0.33456h-1.76202z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;R&quot;,&quot;glyphIndex&quot;:14,&quot;word&quot;:4}">
+            </path>
+            <path
+              d="M332.78519,352.66923h-2.45344l-0.79179,2.24155h-1.33824l2.788,-7.8064h1.1375l2.788,7.8064h-1.33824zM330.75553,351.47597h1.59474c-0.07435,-0.21561 -0.14312,-0.40891 -0.20631,-0.5799c-0.06319,-0.171 -0.12453,-0.34014 -0.18401,-0.50742c-0.05948,-0.16728 -0.12081,-0.34014 -0.18401,-0.51857c-0.06319,-0.17843 -0.13568,-0.3866 -0.21746,-0.62451z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;A&quot;,&quot;glyphIndex&quot;:15,&quot;lastGlyphOfWord&quot;:true,&quot;word&quot;:4}">
+            </path>
+            <path
+              d="M353.15163,352.7696c0.33456,-0.95164 0.67098,-1.89956 1.00926,-2.84376c0.33828,-0.9442 0.6747,-1.88469 1.00926,-2.82146h1.33824l-2.788,7.8064h-1.1375l-2.788,-7.8064h1.33824z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;V&quot;,&quot;glyphIndex&quot;:16,&quot;firstGlyphOfWord&quot;:true,&quot;word&quot;:5}">
+            </path>
+            <path
+              d="M363.35961,354.91078v-7.8064h4.81766v1.20442h-3.61325v1.9516h3.28984v1.20442h-3.28984v2.24155h3.6467v1.20442z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;E&quot;,&quot;glyphIndex&quot;:17,&quot;word&quot;:5}">
+            </path>
+            <path
+              d="M379.48509,348.98907c-0.20817,-0.25278 -0.43679,-0.43493 -0.68585,-0.54645c-0.24906,-0.11152 -0.54087,-0.16728 -0.87543,-0.16728c-0.43121,0 -0.76763,0.08364 -1.00926,0.25092c-0.24163,0.16728 -0.36244,0.36987 -0.36244,0.60778c0,0.14869 0.0539,0.28066 0.1617,0.3959c0.1078,0.11524 0.2472,0.21932 0.4182,0.31226c0.171,0.09293 0.35686,0.18029 0.5576,0.26207c0.20074,0.08178 0.39775,0.15613 0.59106,0.22304h-0.01115c0.21561,0.07435 0.45909,0.171 0.73046,0.28995c0.27137,0.11895 0.52786,0.27137 0.76949,0.45723c0.24163,0.18587 0.44608,0.40891 0.61336,0.66912c0.16728,0.26021 0.25092,0.56875 0.25092,0.92562c0,0.37173 -0.07063,0.70072 -0.21189,0.98695c-0.14126,0.28623 -0.33828,0.526 -0.59106,0.7193c-0.25278,0.1933 -0.54831,0.34014 -0.88658,0.4405c-0.33828,0.10037 -0.70443,0.15055 -1.09847,0.15055c-0.5576,0 -1.07803,-0.11895 -1.56128,-0.35686c-0.48325,-0.23791 -0.95907,-0.61708 -1.42746,-1.1375l0.98138,-0.80294c0.26765,0.37173 0.57061,0.6431 0.90889,0.8141c0.33828,0.171 0.70815,0.2565 1.10962,0.2565c0.23047,0 0.4405,-0.0223 0.63009,-0.06691c0.18958,-0.04461 0.35315,-0.1078 0.49069,-0.18958c0.13754,-0.08178 0.24534,-0.17843 0.32341,-0.28995c0.07806,-0.11152 0.1171,-0.23419 0.1171,-0.36802c0,-0.18587 -0.05576,-0.34943 -0.16728,-0.49069c-0.11152,-0.14126 -0.25278,-0.26579 -0.42378,-0.37359c-0.171,-0.1078 -0.3643,-0.20074 -0.5799,-0.2788c-0.21561,-0.07806 -0.42378,-0.15055 -0.62451,-0.21746l-0.26765,-0.10037c-0.25278,-0.08922 -0.49998,-0.18401 -0.74161,-0.28438c-0.24163,-0.10037 -0.45909,-0.23047 -0.65239,-0.39032c-0.1933,-0.15985 -0.34943,-0.35872 -0.46838,-0.59663c-0.11895,-0.23791 -0.17843,-0.53158 -0.17843,-0.88101c0,-0.27508 0.04833,-0.54273 0.14498,-0.80294c0.09665,-0.26021 0.24906,-0.48883 0.45723,-0.68585c0.20817,-0.19702 0.47582,-0.35501 0.80294,-0.47396c0.32713,-0.11895 0.72116,-0.17843 1.18211,-0.17843c0.26765,0 0.52414,0.0223 0.76949,0.06691c0.24534,0.04461 0.48325,0.12081 0.71373,0.22862c0.23047,0.1078 0.45537,0.24906 0.6747,0.42378c0.21932,0.17471 0.43679,0.39218 0.65239,0.65239l-1.03714,0.82525z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;S&quot;,&quot;glyphIndex&quot;:18,&quot;word&quot;:5}">
+            </path>
+            <path d="M390.41908,348.3088v6.60198h-1.20442v-6.60198h-1.85123v-1.20442h4.87342v1.20442z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;T&quot;,&quot;glyphIndex&quot;:19,&quot;word&quot;:5}">
+            </path>
+            <path d="M397.77863,354.91078v-7.8064h1.20442v7.8064z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;I&quot;,&quot;glyphIndex&quot;:20,&quot;word&quot;:5}">
+            </path>
+            <path
+              d="M407.31753,351.75477h-1.394v3.15602h-1.20442v-7.8064h2.96643c0.31969,0 0.61894,0.06134 0.89774,0.18401c0.2788,0.12267 0.52414,0.28995 0.73603,0.50184c0.21189,0.21189 0.37917,0.45909 0.50184,0.74161c0.12267,0.28252 0.18401,0.58362 0.18401,0.90331c0,0.46838 -0.12825,0.89216 -0.38474,1.27133c-0.2565,0.37917 -0.58176,0.66169 -0.9758,0.84755l1.76202,3.35675h-1.36054zM405.92353,350.55035h1.76202c0.15613,0 0.3011,-0.02788 0.43493,-0.08364c0.13382,-0.05576 0.25092,-0.13382 0.35129,-0.23419c0.10037,-0.10037 0.18029,-0.21932 0.23977,-0.35686c0.05948,-0.13754 0.08922,-0.28438 0.08922,-0.4405c0,-0.31226 -0.1078,-0.57619 -0.32341,-0.79179c-0.21561,-0.21561 -0.47954,-0.32713 -0.79179,-0.33456h-1.76202z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;R&quot;,&quot;glyphIndex&quot;:21,&quot;word&quot;:5}">
+            </path>
+            <path d="M420.07397,348.3088v6.60198h-1.20442v-6.60198h-1.85123v-1.20442h4.87342v1.20442z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;T&quot;,&quot;glyphIndex&quot;:22,&quot;word&quot;:5}">
+            </path>
+            <path
+              d="M428.30383,354.91078v-7.8064h4.81766v1.20442h-3.61325v1.9516h3.28984v1.20442h-3.28984v2.24155h3.6467v1.20442z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;E&quot;,&quot;glyphIndex&quot;:23,&quot;lastGlyphOfWord&quot;:true,&quot;word&quot;:5}">
+            </path>
+          </g>
+          <g data-paper-data="{&quot;isPrimaryText&quot;:true}" fill-rule="nonzero">
+            <path
+              d="M78.98822,309.3705c-1.93356,1.98654 -2.90035,4.31741 -2.90035,6.99262c0,2.67521 0.98665,4.95973 2.95994,6.85356c1.9733,1.89383 4.25781,2.84075 6.85356,2.84075c2.59574,0 4.80742,-0.7284 6.63504,-2.18519c0.45028,-0.34433 0.99327,-0.47677 1.62896,-0.39731c0.63569,0.07946 1.15219,0.35758 1.5495,0.83435c0.37082,0.50326 0.5165,1.06611 0.43704,1.68856c-0.07946,0.62245 -0.35758,1.11908 -0.83435,1.4899c-2.64872,2.066 -5.70799,3.099 -9.17781,3.099c-3.97308,0 -7.38992,-1.3972 -10.25054,-4.1916c-2.86062,-2.7944 -4.30417,-6.16489 -4.33065,-10.11148c0.02649,-3.9201 1.47004,-7.27735 4.33065,-10.07175c2.86062,-2.7944 6.27746,-4.20484 10.25054,-4.23133c3.46982,0 6.52909,1.033 9.17781,3.099c0.47677,0.39731 0.75488,0.90056 0.83435,1.50977c0.07946,0.60921 -0.07284,1.16544 -0.4569,1.66869c-0.38406,0.50326 -0.89394,0.79462 -1.52963,0.87408c-0.63569,0.07946 -1.17868,-0.06622 -1.62896,-0.43704c-1.77464,-1.4568 -3.96646,-2.18519 -6.57544,-2.18519c-2.60899,0 -4.93324,0.95354 -6.97275,2.86062z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;C&quot;,&quot;glyphIndex&quot;:0,&quot;firstGlyphOfWord&quot;:true,&quot;word&quot;:1}">
+            </path>
+            <path
+              d="M118.56007,326.37527c0,0 -0.65887,-0.70191 -1.97661,-2.10573c-1.31774,-1.40382 -1.97661,-4.06578 -1.97661,-7.98589c0,-3.9201 1.31774,-7.28398 3.95321,-10.09162c2.63547,-2.80764 5.84705,-4.21146 9.63471,-4.21146c3.78767,0 6.99924,1.42369 9.63471,4.27106c2.63547,2.84737 3.95321,6.20462 3.95321,10.07175c0,3.86713 -1.3376,7.20451 -4.01281,10.01216c-1.19192,1.32436 -2.62223,2.36398 -4.29092,3.11887c-1.66869,0.75488 -3.4036,1.13233 -5.20473,1.13233c-3.84064,0 -7.0787,-1.40382 -9.71417,-4.21146zM119.13617,316.28365c0,0 0,0.6688 0,2.0064c0,1.3376 0.88732,2.96656 2.66196,4.88689c1.77464,1.92032 3.91348,2.88048 6.41652,2.88048c2.50304,0 4.63526,-0.9734 6.39665,-2.92021c1.7614,-1.94681 2.6421,-4.23133 2.6421,-6.85356c0,-2.62223 -0.87408,-4.90675 -2.62223,-6.85356c-1.74815,-1.94681 -3.88699,-2.92021 -6.41652,-2.92021c-2.52953,0 -4.67499,0.96016 -6.43639,2.88048c-1.7614,1.92032 -2.6421,4.21808 -2.6421,6.89329z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;O&quot;,&quot;glyphIndex&quot;:1,&quot;word&quot;:1}">
+            </path>
+            <path
+              d="M162.02554,328.40154v-23.44116c0,-0.60921 0.2119,-1.12571 0.63569,-1.5495c0.42379,-0.42379 0.9403,-0.63569 1.5495,-0.63569h4.68823c3.84064,0 7.11181,1.35747 9.8135,4.0724c2.70169,2.71494 4.05254,5.99273 4.05254,9.83337c0,3.84064 -1.35085,7.11843 -4.05254,9.83337c-2.70169,2.71494 -5.97286,4.0724 -9.8135,4.0724h-4.68823c-0.60921,0 -1.12571,-0.2119 -1.5495,-0.63569c-0.42379,-0.42379 -0.63569,-0.9403 -0.63569,-1.5495zM166.43566,307.18531v18.99131h2.46331c2.62223,-0.02649 4.85378,-0.96016 6.69464,-2.80102c1.84086,-1.84086 2.76129,-4.0724 2.76129,-6.69464c0,-2.62223 -0.92043,-4.8604 -2.76129,-6.7145c-1.84086,-1.8541 -4.0724,-2.78115 -6.69464,-2.78115z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;D&quot;,&quot;glyphIndex&quot;:2,&quot;word&quot;:1}">
+            </path>
+            <path
+              d="M205.19303,330.58673c-0.60921,0 -1.12571,-0.2119 -1.5495,-0.63569c-0.42379,-0.42379 -0.63569,-0.9403 -0.63569,-1.5495v-23.44116c0,-0.60921 0.2119,-1.12571 0.63569,-1.5495c0.42379,-0.42379 0.9403,-0.63569 1.5495,-0.63569h12.99196c0.58272,0 1.0926,0.2119 1.52963,0.63569c0.43704,0.42379 0.65556,0.9403 0.65556,1.5495c0,0.60921 -0.21852,1.13233 -0.65556,1.56937c-0.43704,0.43704 -0.94692,0.65556 -1.52963,0.65556h-10.76704v7.27073h9.25727c0.58272,0 1.0926,0.21852 1.52963,0.65556c0.43704,0.43704 0.65556,0.95354 0.65556,1.5495c0,0.59596 -0.2119,1.11246 -0.63569,1.5495c-0.42379,0.43704 -0.9403,0.65556 -1.5495,0.65556h-9.25727v7.31046h10.76704c0.58272,0 1.0926,0.21852 1.52963,0.65556c0.43704,0.43704 0.65556,0.95354 0.65556,1.5495c0,0.59596 -0.21852,1.11246 -0.65556,1.5495c-0.43704,0.43704 -0.94692,0.65556 -1.52963,0.65556h-12.87277l-0.07946,-0.03973z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;E&quot;,&quot;glyphIndex&quot;:3,&quot;word&quot;:1}">
+            </path>
+            <path
+              d="M253.12821,317.83315c1.80113,1.37733 2.70169,3.29765 2.70169,5.76096c-0.02649,0.87408 0.02649,1.65545 0.15892,2.34412c0.68867,0.2119 1.15219,0.6688 1.39058,1.37071c0.23838,0.70191 0.13244,1.35747 -0.31785,1.96667c-0.45028,0.60921 -1.09922,0.91381 -1.94681,0.91381h-0.03973c-1.19192,0 -2.13222,-0.60921 -2.82089,-1.82762c-0.55623,-1.16544 -0.83435,-2.75467 -0.83435,-4.76769c-0.05297,-1.21841 -0.60921,-2.17195 -1.66869,-2.86062c-0.68867,-0.45028 -1.43031,-0.76813 -2.22492,-0.95354h-4.68823v8.62158c0,0.60921 -0.21852,1.12571 -0.65556,1.5495c-0.43704,0.42379 -0.96016,0.63569 -1.56937,0.63569c-0.60921,0 -1.12571,-0.2119 -1.5495,-0.63569c-0.42379,-0.42379 -0.63569,-0.9403 -0.63569,-1.5495v-23.44116c0,-0.60921 0.2119,-1.12571 0.63569,-1.5495c0.42379,-0.42379 0.9403,-0.63569 1.5495,-0.63569h7.11181c2.35736,0 4.36376,0.83435 6.01921,2.50304c1.65545,1.66869 2.48317,3.74794 2.48317,6.23773c0,2.4898 -1.033,4.59553 -3.099,6.31719zM247.72482,315.36985c1.13895,0 2.10573,-0.39731 2.90035,-1.19192c0.79462,-0.79462 1.19192,-1.75478 1.19192,-2.88048c0,-1.12571 -0.39731,-2.09249 -1.19192,-2.90035c-0.79462,-0.80786 -1.7614,-1.21179 -2.90035,-1.21179h-4.88689v8.18454z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;R&quot;,&quot;glyphIndex&quot;:4,&quot;lastGlyphOfWord&quot;:true,&quot;word&quot;:1}">
+            </path>
+            <path
+              d="M316.85637,322.12408c0,-2.01303 -2.33087,-3.45658 -6.99262,-4.33065h-0.07946c-2.066,-0.39731 -3.85389,-0.95354 -5.36365,-1.66869c-1.50977,-0.71515 -2.61561,-1.63558 -3.31752,-2.76129c-0.70191,-1.12571 -1.05287,-2.28452 -1.05287,-3.47644c0,-2.30438 1.01313,-4.19822 3.0394,-5.6815c2.02627,-1.48328 4.36376,-2.22492 7.01248,-2.22492c1.16544,0 2.35736,0.19865 3.57577,0.59596c1.21841,0.39731 2.1256,0.76813 2.72156,1.11246c0.59596,0.34433 1.38396,0.83435 2.36398,1.47004c0.45028,0.31785 0.73502,0.75488 0.85421,1.31112c0.11919,0.55623 0.02649,1.06611 -0.27812,1.52963c-0.3046,0.46353 -0.73502,0.75488 -1.29125,0.87408c-0.55623,0.11919 -1.07273,0.01987 -1.5495,-0.29798c-1.2449,-0.84759 -2.35074,-1.48328 -3.31752,-1.90708c-0.96678,-0.42379 -1.99316,-0.63569 -3.07914,-0.63569c-1.74815,0 -3.17846,0.41055 -4.29092,1.23165c-1.11246,0.8211 -1.66869,1.69518 -1.66869,2.62223c0,0.45028 0.10595,0.83435 0.31785,1.15219c0.74164,1.21841 2.74142,2.13222 5.99935,2.74142h0.07946c2.22492,0.45028 4.05254,1.00651 5.48285,1.66869c3.28441,1.61572 4.92662,3.84064 4.92662,6.67477c0,2.46331 -1.08597,4.48296 -3.25792,6.05894c-2.17195,1.57599 -4.67499,2.36398 -7.50912,2.36398c-3.46982,-0.02649 -6.86018,-1.35085 -10.17108,-3.97308c-0.42379,-0.34433 -0.6688,-0.80786 -0.73502,-1.39058c-0.06622,-0.58272 0.07284,-1.08597 0.41717,-1.50977c0.34433,-0.42379 0.80786,-0.6688 1.39058,-0.73502c0.58272,-0.06622 1.08597,0.08608 1.50977,0.4569c2.54277,2.066 5.0723,3.08576 7.58858,3.05927c1.98654,0 3.59564,-0.4569 4.82729,-1.37071c1.23165,-0.91381 1.84748,-1.90046 1.84748,-2.95994z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;S&quot;,&quot;glyphIndex&quot;:5,&quot;firstGlyphOfWord&quot;:true,&quot;word&quot;:2}">
+            </path>
+            <path
+              d="M358.03732,303.41088c0,0 0.10595,0.10595 0.31785,0.31785c0.2119,0.2119 0.31785,0.62245 0.31785,1.23165c0,0.60921 -0.21852,1.13233 -0.65556,1.56937c-0.43704,0.43704 -0.94692,0.65556 -1.52963,0.65556h-6.31719v21.21623c0,0.60921 -0.2119,1.12571 -0.63569,1.5495c-0.42379,0.42379 -0.9403,0.63569 -1.5495,0.63569c-0.60921,0 -1.12571,-0.2119 -1.5495,-0.63569c-0.42379,-0.42379 -0.63569,-0.9403 -0.63569,-1.5495v-21.21623h-6.27746c-0.60921,0 -1.12571,-0.21852 -1.5495,-0.65556c-0.42379,-0.43704 -0.63569,-0.96016 -0.63569,-1.56937c0,-0.60921 0.2119,-1.12571 0.63569,-1.5495c0.42379,-0.42379 0.9403,-0.63569 1.5495,-0.63569h16.96504c0.60921,0 1.12571,0.2119 1.5495,0.63569z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;T&quot;,&quot;glyphIndex&quot;:6,&quot;word&quot;:2}">
+            </path>
+            <path
+              d="M380.36602,326.37527c0,0 -0.65887,-0.70191 -1.97661,-2.10573c-1.31774,-1.40382 -1.97661,-4.06578 -1.97661,-7.98589c0,-3.9201 1.31774,-7.28398 3.95321,-10.09162c2.63547,-2.80764 5.84705,-4.21146 9.63471,-4.21146c3.78767,0 6.99924,1.42369 9.63471,4.27106c2.63547,2.84737 3.95321,6.20462 3.95321,10.07175c0,3.86713 -1.3376,7.20451 -4.01281,10.01216c-1.19192,1.32436 -2.62223,2.36398 -4.29092,3.11887c-1.66869,0.75488 -3.4036,1.13233 -5.20473,1.13233c-3.84064,0 -7.0787,-1.40382 -9.71417,-4.21146zM380.94211,316.28365c0,0 0,0.6688 0,2.0064c0,1.3376 0.88732,2.96656 2.66196,4.88689c1.77464,1.92032 3.91348,2.88048 6.41652,2.88048c2.50304,0 4.63526,-0.9734 6.39665,-2.92021c1.7614,-1.94681 2.6421,-4.23133 2.6421,-6.85356c0,-2.62223 -0.87408,-4.90675 -2.62223,-6.85356c-1.74815,-1.94681 -3.88699,-2.92021 -6.41652,-2.92021c-2.52953,0 -4.67499,0.96016 -6.43639,2.88048c-1.7614,1.92032 -2.6421,4.21808 -2.6421,6.89329z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;O&quot;,&quot;glyphIndex&quot;:7,&quot;word&quot;:2}">
+            </path>
+            <path
+              d="M437.97564,317.83315c1.80113,1.37733 2.70169,3.29765 2.70169,5.76096c-0.02649,0.87408 0.02649,1.65545 0.15892,2.34412c0.68867,0.2119 1.15219,0.6688 1.39058,1.37071c0.23838,0.70191 0.13244,1.35747 -0.31785,1.96667c-0.45028,0.60921 -1.09922,0.91381 -1.94681,0.91381h-0.03973c-1.19192,0 -2.13222,-0.60921 -2.82089,-1.82762c-0.55623,-1.16544 -0.83435,-2.75467 -0.83435,-4.76769c-0.05297,-1.21841 -0.60921,-2.17195 -1.66869,-2.86062c-0.68867,-0.45028 -1.43031,-0.76813 -2.22492,-0.95354h-4.68823v8.62158c0,0.60921 -0.21852,1.12571 -0.65556,1.5495c-0.43704,0.42379 -0.96016,0.63569 -1.56937,0.63569c-0.60921,0 -1.12571,-0.2119 -1.5495,-0.63569c-0.42379,-0.42379 -0.63569,-0.9403 -0.63569,-1.5495v-23.44116c0,-0.60921 0.2119,-1.12571 0.63569,-1.5495c0.42379,-0.42379 0.9403,-0.63569 1.5495,-0.63569h7.11181c2.35736,0 4.36376,0.83435 6.01921,2.50304c1.65545,1.66869 2.48317,3.74794 2.48317,6.23773c0,2.4898 -1.033,4.59553 -3.099,6.31719zM432.57225,315.36985c1.13895,0 2.10573,-0.39731 2.90035,-1.19192c0.79462,-0.79462 1.19192,-1.75478 1.19192,-2.88048c0,-1.12571 -0.39731,-2.09249 -1.19192,-2.90035c-0.79462,-0.80786 -1.7614,-1.21179 -2.90035,-1.21179h-4.88689v8.18454z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;R&quot;,&quot;glyphIndex&quot;:8,&quot;word&quot;:2}">
+            </path>
+            <path
+              d="M463.26428,330.58673c-0.60921,0 -1.12571,-0.2119 -1.5495,-0.63569c-0.42379,-0.42379 -0.63569,-0.9403 -0.63569,-1.5495v-23.44116c0,-0.60921 0.2119,-1.12571 0.63569,-1.5495c0.42379,-0.42379 0.9403,-0.63569 1.5495,-0.63569h12.99196c0.58272,0 1.0926,0.2119 1.52963,0.63569c0.43704,0.42379 0.65556,0.9403 0.65556,1.5495c0,0.60921 -0.21852,1.13233 -0.65556,1.56937c-0.43704,0.43704 -0.94692,0.65556 -1.52963,0.65556h-10.76704v7.27073h9.25727c0.58272,0 1.0926,0.21852 1.52963,0.65556c0.43704,0.43704 0.65556,0.95354 0.65556,1.5495c0,0.59596 -0.2119,1.11246 -0.63569,1.5495c-0.42379,0.43704 -0.9403,0.65556 -1.5495,0.65556h-9.25727v7.31046h10.76704c0.58272,0 1.0926,0.21852 1.52963,0.65556c0.43704,0.43704 0.65556,0.95354 0.65556,1.5495c0,0.59596 -0.21852,1.11246 -0.65556,1.5495c-0.43704,0.43704 -0.94692,0.65556 -1.52963,0.65556h-12.87277l-0.07946,-0.03973z"
+              data-paper-data="{&quot;glyphName&quot;:&quot;E&quot;,&quot;glyphIndex&quot;:9,&quot;lastGlyphOfWord&quot;:true,&quot;word&quot;:2}">
+            </path>
+          </g>
+          <g data-paper-data="{&quot;fillRule&quot;:&quot;evenodd&quot;,&quot;fillRuleOriginal&quot;:&quot;evenodd&quot;,&quot;isIcon&quot;:true,&quot;iconStyle&quot;:&quot;standalone&quot;,&quot;selectedEffects&quot;:{&quot;container&quot;:&quot;&quot;,&quot;transformation&quot;:&quot;&quot;,&quot;pattern&quot;:&quot;&quot;},&quot;bounds&quot;:{&quot;x&quot;:201.30849453929235,&quot;y&quot;:115,&quot;width&quot;:147.38301092141532,&quot;height&quot;:147.38301092141535},&quot;iconType&quot;:&quot;icon&quot;,&quot;rawIconId&quot;:&quot;1709134&quot;,&quot;isDetailed&quot;:false,&quot;suitableAsStandaloneIcon&quot;:true}"
+            fill-rule="evenodd">
+            <path
+              d="M246.6241,145.60901l26.79692,26.79692c0.87201,0.87201 2.286,0.87201 3.15802,0l26.79692,-26.79692c0.87201,-0.87201 0.87201,-2.286 0,-3.15802l-26.79692,-26.79694c-0.87201,-0.87207 -2.286,-0.87207 -3.15802,0l-26.79692,26.79694c-0.87201,0.87201 -0.87201,2.286 0,3.15802zM275.00003,120.39112l23.6389,23.63888l-23.6389,23.6389l-23.6389,-23.6389zM201.96254,190.27054l26.79694,26.79692c0.87201,0.87201 2.286,0.87201 3.15802,0l26.79692,-26.79692c0.87201,-0.87201 0.87201,-2.286 0,-3.15802l-26.79692,-26.79692c-0.87201,-0.87201 -2.286,-0.87201 -3.15802,0l-26.79694,26.79692c-0.87207,0.87201 -0.87207,2.286 0,3.15802zM291.28563,190.27054l26.79692,26.79692c0.87201,0.87201 2.286,0.87201 3.15802,0l26.79692,-26.79692c0.87201,-0.87201 0.87201,-2.286 0,-3.15802l-26.79692,-26.79692c-0.87201,-0.87201 -2.286,-0.87201 -3.15802,0l-26.79692,26.79692c-0.87201,0.87201 -0.87201,2.286 0,3.15802zM230.33849,165.05263l23.6389,23.6389l-23.6389,23.6389l-23.63888,-23.6389zM319.66156,165.05263l23.6389,23.6389l-23.6389,23.6389l-23.6389,-23.6389zM246.6241,234.93208l26.79692,26.79692c0.87201,0.87201 2.286,0.87201 3.15802,0l26.79692,-26.79692c0.87201,-0.87201 0.87201,-2.286 0,-3.15802l-26.79692,-26.79692c-0.87201,-0.87201 -2.286,-0.87201 -3.15802,0l-26.79692,26.79692c-0.87201,0.87201 -0.87201,2.286 0,3.15802zM275.00003,209.71417l23.6389,23.6389l-23.6389,23.6389l-23.6389,-23.6389z"
+              data-paper-data="{&quot;isPathIcon&quot;:true}"></path>
+          </g>
+        </g>
+      </g>
+    </svg>
+
+
+  </div>
+
 
   <div class="prose">
 
     <h1 class="pt-20">Tienda de Pedidos Tailwind branch</h1>
 
-
-    
-
     <h2 id="saludoInicial"> saludo inicial</h2>
     <h3 id="cliente"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa quam ipsum veniam, tempora totam
-        fuga voluptates laboriosam laudantium debitis laborum ex doloribus. Itaque excepturi, fugit veniam numquam unde
-        nihil expedita.</h3>
-    <p id="pedido"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero recusandae architecto fuga suscipit, dolor maiores, incidunt temporibus veritatis beatae eligendi, nobis illum. Repellendus eos sapiente quo illo similique voluptatibus quos.
-    Quod fugit ipsa maxime inventore, est repellat obcaecati consequuntur distinctio nihil officia tempore praesentium corporis numquam mollitia commodi porro sunt ipsum dolorum neque hic. Praesentium officia eius qui ullam deserunt.
-    At perspiciatis non exercitationem laborum, similique fugit iusto ab asperiores labore optio maxime suscipit sint minima doloremque totam soluta necessitatibus magni nostrum ad autem? Incidunt eveniet illum rem iure debitis.
-    Cupiditate distinctio quasi repellendus et modi ipsam veniam, iusto error dolor voluptas maxime, eligendi earum temporibus soluta nesciunt esse eius numquam explicabo? Minima eligendi, dicta suscipit consequuntur amet commodi laudantium.
-    Corrupti aliquid unde, quidem minima animi quos est praesentium natus excepturi delectus corporis repellendus ad quis quia eius sit. Nam quasi a pariatur, iusto at error tenetur incidunt suscipit? Id!
-    Commodi minima laudantium similique mollitia, porro officia iste dolores nostrum est libero veniam, asperiores maxime sapiente maiores ipsam debitis harum sit accusantium. Recusandae doloribus in tempore repellendus, pariatur dolorum alias.
-    Sed accusamus non, totam quam sit dolor animi eaque dolore tenetur aperiam fuga facere molestiae! Dolor, cumque provident. Tenetur hic corrupti dignissimos inventore cumque repellat a. Excepturi suscipit ad omnis?
-    Ipsum eveniet obcaecati, nisi eum nulla nostrum alias perferendis esse, itaque delectus maxime repellendus quasi fuga? Inventore, voluptatem officia dicta ea dolore animi voluptatum, fugit adipisci ipsa accusantium voluptates magnam?
-    Totam debitis id eos quae. Eaque cum pariatur laudantium incidunt ipsa! Fugiat pariatur, quis sed facere dolor a quisquam ducimus voluptate laborum nam nihil blanditiis accusamus excepturi qui veniam fuga.
-    Libero, nemo perferendis eius accusantium iste nobis nulla aspernatur possimus delectus earum officiis, fuga maiores aliquam eligendi hic voluptatibus qui necessitatibus nisi sapiente ut est accusamus? Itaque dicta velit asperiores!
-    Distinctio dolor cum explicabo velit accusamus, quod odio minima, aspernatur temporibus illo culpa sed blanditiis sapiente aperiam sint amet officiis quae molestias modi nesciunt obcaecati! Vel animi numquam atque esse?
-    Quos enim tenetur quasi vero laboriosam earum eius unde ipsa sed voluptatem porro sunt iste perferendis mollitia minima asperiores quae, magni nihil non quaerat maiores! Facere eligendi qui veniam aliquam.
-    Beatae voluptatibus expedita amet eaque sequi dolores laborum porro sit necessitatibus inventore! Optio ea voluptas iusto velit soluta esse, voluptatem magnam suscipit minus, molestias excepturi facere! Incidunt totam dolor sit?
-    In consectetur consequatur officia fuga eveniet voluptas unde, voluptatum quidem? Corrupti nobis ea soluta dicta magnam incidunt veritatis, ut error totam. Illum porro quibusdam repellat vel eligendi molestias natus molestiae.
-    Maiores quaerat soluta asperiores expedita deserunt dolores esse libero, consectetur et voluptatibus qui, tempora magnam? Quam possimus inventore enim laborum quibusdam corporis dolorem doloribus, labore officia ipsum! Nisi, dignissimos architecto?</p>
+      fuga voluptates laboriosam laudantium debitis laborum ex doloribus. Itaque excepturi, fugit veniam numquam unde
+      nihil expedita.</h3>
+    <p id="pedido"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero recusandae architecto fuga suscipit,
+      dolor maiores, incidunt temporibus veritatis beatae eligendi, nobis illum. Repellendus eos sapiente quo illo
+      similique voluptatibus quos.
+      Quod fugit ipsa maxime inventore, est repellat obcaecati consequuntur distinctio nihil officia tempore praesentium
+      corporis numquam mollitia commodi porro sunt ipsum dolorum neque hic. Praesentium officia eius qui ullam deserunt.
+      At perspiciatis non exercitationem laborum, similique fugit iusto ab asperiores labore optio maxime suscipit sint
+      minima doloremque totam soluta necessitatibus magni nostrum ad autem? Incidunt eveniet illum rem iure debitis.
+      Cupiditate distinctio quasi repellendus et modi ipsam veniam, iusto error dolor voluptas maxime, eligendi earum
+      temporibus soluta nesciunt esse eius numquam explicabo? Minima eligendi, dicta suscipit consequuntur amet commodi
+      laudantium.
+      Corrupti aliquid unde, quidem minima animi quos est praesentium natus excepturi delectus corporis repellendus ad
+      quis quia eius sit. Nam quasi a pariatur, iusto at error tenetur incidunt suscipit? Id!
+      Commodi minima laudantium similique mollitia, porro officia iste dolores nostrum est libero veniam, asperiores
+      maxime sapiente maiores ipsam debitis harum sit accusantium. Recusandae doloribus in tempore repellendus, pariatur
+      dolorum alias.
+      Sed accusamus non, totam quam sit dolor animi eaque dolore tenetur aperiam fuga facere molestiae! Dolor, cumque
+      provident. Tenetur hic corrupti dignissimos inventore cumque repellat a. Excepturi suscipit ad omnis?
+      Ipsum eveniet obcaecati, nisi eum nulla nostrum alias perferendis esse, itaque delectus maxime repellendus quasi
+      fuga? Inventore, voluptatem officia dicta ea dolore animi voluptatum, fugit adipisci ipsa accusantium voluptates
+      magnam?
+      Totam debitis id eos quae. Eaque cum pariatur laudantium incidunt ipsa! Fugiat pariatur, quis sed facere dolor a
+      quisquam ducimus voluptate laborum nam nihil blanditiis accusamus excepturi qui veniam fuga.
+      Libero, nemo perferendis eius accusantium iste nobis nulla aspernatur possimus delectus earum officiis, fuga
+      maiores aliquam eligendi hic voluptatibus qui necessitatibus nisi sapiente ut est accusamus? Itaque dicta velit
+      asperiores!
+      Distinctio dolor cum explicabo velit accusamus, quod odio minima, aspernatur temporibus illo culpa sed blanditiis
+      sapiente aperiam sint amet officiis quae molestias modi nesciunt obcaecati! Vel animi numquam atque esse?
+      Quos enim tenetur quasi vero laboriosam earum eius unde ipsa sed voluptatem porro sunt iste perferendis mollitia
+      minima asperiores quae, magni nihil non quaerat maiores! Facere eligendi qui veniam aliquam.
+      Beatae voluptatibus expedita amet eaque sequi dolores laborum porro sit necessitatibus inventore! Optio ea
+      voluptas iusto velit soluta esse, voluptatem magnam suscipit minus, molestias excepturi facere! Incidunt totam
+      dolor sit?
+      In consectetur consequatur officia fuga eveniet voluptas unde, voluptatum quidem? Corrupti nobis ea soluta dicta
+      magnam incidunt veritatis, ut error totam. Illum porro quibusdam repellat vel eligendi molestias natus molestiae.
+      Maiores quaerat soluta asperiores expedita deserunt dolores esse libero, consectetur et voluptatibus qui, tempora
+      magnam? Quam possimus inventore enim laborum quibusdam corporis dolorem doloribus, labore officia ipsum! Nisi,
+      dignissimos architecto?</p>
     <h4 id="retiro"> </h4>
 
     <p id="saludo"> </p>
 
-</div>
+  </div>
 
 
 
-    <script src="./js/datos.js"></script>
-    <!-- <script src="./js/script.js"></script> -->
-    <script src="./js/func.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+  <script src="./js/datos.js"></script>
+  <!-- <script src="./js/script.js"></script> -->
+  <script src="./js/func.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
 </body>
 
 </html>
