@@ -12,9 +12,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
-<body class=" bg-gray-800 text-gray-300">
+<body id="body" class=" relative bg-gray-800 text-gray-300">
 
   <nav class="bg-gray-800 fixed w-screen z-50">
     <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -362,42 +363,59 @@
 
   </div>
 
+
+
   <!-- Modal section  log in form-->
 
-  <div id="logInForm" class="relative z-10 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+  <div id="logInForm" class="relative z-[51] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
 
-    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+    <div id="logInBg" class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
-    <div class="fixed inset-0 z-10 overflow-y-auto">
+    <div class=" fixed inset-0 z-10 overflow-y-auto">
+
+
+
       <div class="flex min-h-full items-center justify-center p-4 text-center sm:items-center sm:p-0">
 
         <div
-          class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-          <div class="  flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+          class="relative transform overflow-hidden rounded-lg bg-white  dark:bg-gray-800 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+
+          <div class=" flex justify-end  ">
+            <div onclick="cerrarLogin()" class=" m-2 cursor-pointer ">
+
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="  flex min-h-full items-center justify-center pb-12 px-4 sm:px-6 sm:pt-0 lg:px-8 lg:pt-0">
             <div class="w-full max-w-md space-y-8">
               <div>
-                <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                  alt="Your Company">
-                <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Sign in to your account
+
+                <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Accede a tu
+                  cuenta
                 </h2>
-                <p class="mt-2 text-center text-sm text-gray-600">
-                  Or
-                  <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">start your 14-day free trial</a>
+                <p class="mt-2 text-center text-sm text-gray-600 dark:text-gray-400">
+                  O
+                  <a href="#" onclick="deLoginARegister()"
+                    class="font-medium text-primary-600 hover:text-primary-500">Crea tu cuenta</a>
                 </p>
               </div>
               <form class="mt-8 space-y-6" action="#" method="POST">
                 <input type="hidden" name="remember" value="true">
                 <div class="-space-y-px rounded-md shadow-sm">
                   <div>
-                    <label for="email-address" class="sr-only">Email address</label>
+                    <label for="email-address" class="sr-only">Ingresa tu email</label>
                     <input id="email-address" name="email" type="email" autocomplete="email" required
-                      class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                      class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:border-primary-500 focus:outline-none focus:ring-primary-500 sm:text-sm"
                       placeholder="Email address">
                   </div>
                   <div>
                     <label for="password" class="sr-only">Password</label>
                     <input id="password" name="password" type="password" autocomplete="current-password" required
-                      class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                      class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:border-primary-500 focus:outline-none focus:ring-primary-500 sm:text-sm"
                       placeholder="Password">
                   </div>
                 </div>
@@ -405,20 +423,22 @@
                 <div class="flex items-center justify-between">
                   <div class="flex items-center">
                     <input id="remember-me" name="remember-me" type="checkbox"
-                      class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                    <label for="remember-me" class="ml-2 block text-sm text-gray-900">Remember me</label>
+                      class="h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500">
+                    <label for="remember-me" class="ml-2 block text-sm text-gray-900 dark:text-gray-400">Mantener mi
+                      sesion abierta</label>
                   </div>
 
                   <div class="text-sm">
-                    <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Forgot your password?</a>
+                    <a href="#" class="font-medium text-indprimaryigo-600 hover:text-primary-500">Olvidaste tu
+                      password?</a>
                   </div>
                 </div>
 
                 <div>
                   <button type="submit"
-                    class="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                    class="group relative flex w-full justify-center rounded-md border border-transparent bg-primary-600 py-2 px-4 text-sm font-medium text-white hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2">
                     <span class="absolute inset-y-0 left-0 flex items-center pl-3">
-                      <svg class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" viewBox="0 0 20 20"
+                      <svg class="h-5 w-5 text-primary-500 group-hover:text-primary-400" viewBox="0 0 20 20"
                         fill="currentColor" aria-hidden="true">
                         <path fill-rule="evenodd"
                           d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z"
@@ -446,75 +466,84 @@
 
   <!-- Modal section  register form-->
 
-  <div id="registerForm" class="relative z-10 " aria-labelledby="modal-title" role="dialog" aria-modal="true">
+  <div id="registerForm" class="relative z-[51] " aria-labelledby="modal-title" role="dialog" aria-modal="true">
 
-    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" onclick=""></div>
 
-    <div class="fixed inset-0 z-10 overflow-y-auto">
+    <div class="fixed inset-0  overflow-y-auto">
       <div class="flex items-center min-h-full  justify-center p-4 text-center sm:items-center sm:p-0">
 
         <div
           class="relative transform overflow-hidden rounded-lg bg-white dark:bg-gray-800 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
 
+          <div class=" flex justify-end  ">
+            <div onclick="cerrarRegister()" class=" m-2 cursor-pointer ">
 
-          <div
-            class="w-full mx-auto bg-white  md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800">
-            <div class="p-6 space-y-2 md:space-y-4 sm:p-8">
-              <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                Crea tu cuenta
-              </h1>
-              <form id="formRegister" class="space-y-1 md:space-y-4" action="#">
-                <div>
-                  <label for="email" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Ingresa tu
-                    email</label>
-                  <input type="email" name="email" id="email"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="name@company.com" required="">
-                </div>
-                <div>
-                  <label for="password"
-                    class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                  <input type="password" name="password" id="password" placeholder="••••••••"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    required="">
-                </div>
-                <div>
-                  <label for="Nombre"
-                    class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Ingresa tu nombre</label>
-                  <input type="text" name="Nombre" id="Nombre" placeholder="Nombre"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    required="">
-                </div>
-                <div>
-                  <label for="Apellido"
-                    class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Ingresa tu apellido</label>
-                  <input type="text" name="Apellido" id="Apellido" placeholder="Apellido"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    required="">
-                </div>
-                <div class="flex items-start">
-                  <div class="flex items-center h-5">
-                    <input id="terms" aria-describedby="terms" type="checkbox"
-                      class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
-                      required="">
-                  </div>
-                  <div class="ml-3 text-sm" >
-                    <label for="terms" class="font-light text-gray-500 dark:text-gray-300">Acepto los <a
-                        class="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">Términos y Condiciones</a></label>
-                  </div>
-                </div>
-                <button type="submit" id="crearCuenta" disabled
-                  class="disabled:cursor-not-allowed disabled:opacity-70 w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                  Crear la cuenta</button>
-                <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-                  Ya tienen una cuenta? <a href="#"
-                    class="font-medium text-primary-600 hover:underline dark:text-primary-500">Ingresa aquí</a>
-                </p>
-              </form>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
             </div>
-
-
           </div>
+
+          <div class="p-6 pt-0 space-y-2 md:space-y-4 sm:p-8 sm:pt-0">
+            <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+              Crea tu cuenta
+            </h1>
+            <form id="formRegister" class="space-y-1 md:space-y-4" action="#">
+              <div>
+                <label for="email" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Ingresa tu
+                  email</label>
+                <input type="email" name="email" id="email"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  placeholder="name@company.com" required="">
+                <p id="usuExistente" class="text-primary-500 hidden ">*el usuario ya existe</p>
+              </div>
+              <div>
+                <label for="password"
+                  class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                <input type="password" name="password" id="password" placeholder="••••••••"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  required="">
+              </div>
+              <div>
+                <label for="Nombre" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Ingresa tu
+                  nombre</label>
+                <input type="text" name="Nombre" id="Nombre" placeholder="Nombre"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  required="">
+              </div>
+              <div>
+                <label for="Apellido" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Ingresa tu
+                  apellido</label>
+                <input type="text" name="Apellido" id="Apellido" placeholder="Apellido"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  required="">
+              </div>
+              <div class="flex items-start">
+                <div class="flex items-center h-5">
+                  <input id="terms" aria-describedby="terms" type="checkbox"
+                    class="w-4 h-4 border border-gray-300 rounded text-primary-600 bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
+                    required="">
+                </div>
+                <div class="ml-3 text-sm">
+                  <label for="terms" class="font-light text-gray-500 dark:text-gray-300">Acepto los <a
+                      class="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">Términos y
+                      Condiciones</a></label>
+                </div>
+              </div>
+              <button type="submit" id="crearCuenta" disabled
+                class="disabled:cursor-not-allowed disabled:opacity-70 w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                Crear la cuenta</button>
+              <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+                Ya tienen una cuenta? <a href="#" onclick="deRegisterALogin()"
+                  class="font-medium text-primary-600 hover:underline dark:text-primary-500">Ingresa aquí</a>
+              </p>
+            </form>
+          </div>
+
+
+
         </div>
       </div>
 
@@ -523,74 +552,85 @@
 
     </div>
 
+  </div>
+
+  <div class="prose text-gray-200">
+
+    <h1 class="pt-20">Tienda de Pedidos Tailwind branch</h1>
+
+    <h2 id="saludoInicial"> saludo inicial</h2>
+    <h3 id="cliente"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa quam ipsum veniam, tempora totam
+      fuga voluptates laboriosam laudantium debitis laborum ex doloribus. Itaque excepturi, fugit veniam numquam
+      unde
+      nihil expedita.</h3>
+    <p id="pedido"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero recusandae architecto fuga
+      suscipit,
+      dolor maiores, incidunt temporibus veritatis beatae eligendi, nobis illum. Repellendus eos sapiente quo illo
+      similique voluptatibus quos.
+      Quod fugit ipsa maxime inventore, est repellat obcaecati consequuntur distinctio nihil officia tempore
+      praesentium
+      corporis numquam mollitia commodi porro sunt ipsum dolorum neque hic. Praesentium officia eius qui ullam
+      deserunt.
+      At perspiciatis non exercitationem laborum, similique fugit iusto ab asperiores labore optio maxime suscipit
+      sint
+      minima doloremque totam soluta necessitatibus magni nostrum ad autem? Incidunt eveniet illum rem iure debitis.
+      Cupiditate distinctio quasi repellendus et modi ipsam veniam, iusto error dolor voluptas maxime, eligendi
+      earum
+      temporibus soluta nesciunt esse eius numquam explicabo? Minima eligendi, dicta suscipit consequuntur amet
+      commodi
+      laudantium.
+      Corrupti aliquid unde, quidem minima animi quos est praesentium natus excepturi delectus corporis repellendus
+      ad
+      quis quia eius sit. Nam quasi a pariatur, iusto at error tenetur incidunt suscipit? Id!
+      Commodi minima laudantium similique mollitia, porro officia iste dolores nostrum est libero veniam, asperiores
+      maxime sapiente maiores ipsam debitis harum sit accusantium. Recusandae doloribus in tempore repellendus,
+      pariatur
+      dolorum alias.
+      Sed accusamus non, totam quam sit dolor animi eaque dolore tenetur aperiam fuga facere molestiae! Dolor,
+      cumque
+      provident. Tenetur hic corrupti dignissimos inventore cumque repellat a. Excepturi suscipit ad omnis?
+      Ipsum eveniet obcaecati, nisi eum nulla nostrum alias perferendis esse, itaque delectus maxime repellendus
+      quasi
+      fuga? Inventore, voluptatem officia dicta ea dolore animi voluptatum, fugit adipisci ipsa accusantium
+      voluptates
+      magnam?
+      Totam debitis id eos quae. Eaque cum pariatur laudantium incidunt ipsa! Fugiat pariatur, quis sed facere dolor
+      a
+      quisquam ducimus voluptate laborum nam nihil blanditiis accusamus excepturi qui veniam fuga.
+      Libero, nemo perferendis eius accusantium iste nobis nulla aspernatur possimus delectus earum officiis, fuga
+      maiores aliquam eligendi hic voluptatibus qui necessitatibus nisi sapiente ut est accusamus? Itaque dicta
+      velit
+      asperiores!
+      Distinctio dolor cum explicabo velit accusamus, quod odio minima, aspernatur temporibus illo culpa sed
+      blanditiis
+      sapiente aperiam sint amet officiis quae molestias modi nesciunt obcaecati! Vel animi numquam atque esse?
+      Quos enim tenetur quasi vero laboriosam earum eius unde ipsa sed voluptatem porro sunt iste perferendis
+      mollitia
+      minima asperiores quae, magni nihil non quaerat maiores! Facere eligendi qui veniam aliquam.
+      Beatae voluptatibus expedita amet eaque sequi dolores laborum porro sit necessitatibus inventore! Optio ea
+      voluptas iusto velit soluta esse, voluptatem magnam suscipit minus, molestias excepturi facere! Incidunt totam
+      dolor sit?
+      In consectetur consequatur officia fuga eveniet voluptas unde, voluptatum quidem? Corrupti nobis ea soluta
+      dicta
+      magnam incidunt veritatis, ut error totam. Illum porro quibusdam repellat vel eligendi molestias natus
+      molestiae.
+      Maiores quaerat soluta asperiores expedita deserunt dolores esse libero, consectetur et voluptatibus qui,
+      tempora
+      magnam? Quam possimus inventore enim laborum quibusdam corporis dolorem doloribus, labore officia ipsum! Nisi,
+      dignissimos architecto?</p>
+    <h4 id="retiro"> </h4>
+
+    <p id="saludo"> </p>
+
+  </div>
 
 
-    <div class="prose text-gray-200">
 
-      <h1 class="pt-20">Tienda de Pedidos Tailwind branch</h1>
-
-      <h2 id="saludoInicial"> saludo inicial</h2>
-      <h3 id="cliente"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa quam ipsum veniam, tempora totam
-        fuga voluptates laboriosam laudantium debitis laborum ex doloribus. Itaque excepturi, fugit veniam numquam unde
-        nihil expedita.</h3>
-      <p id="pedido"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero recusandae architecto fuga
-        suscipit,
-        dolor maiores, incidunt temporibus veritatis beatae eligendi, nobis illum. Repellendus eos sapiente quo illo
-        similique voluptatibus quos.
-        Quod fugit ipsa maxime inventore, est repellat obcaecati consequuntur distinctio nihil officia tempore
-        praesentium
-        corporis numquam mollitia commodi porro sunt ipsum dolorum neque hic. Praesentium officia eius qui ullam
-        deserunt.
-        At perspiciatis non exercitationem laborum, similique fugit iusto ab asperiores labore optio maxime suscipit
-        sint
-        minima doloremque totam soluta necessitatibus magni nostrum ad autem? Incidunt eveniet illum rem iure debitis.
-        Cupiditate distinctio quasi repellendus et modi ipsam veniam, iusto error dolor voluptas maxime, eligendi earum
-        temporibus soluta nesciunt esse eius numquam explicabo? Minima eligendi, dicta suscipit consequuntur amet
-        commodi
-        laudantium.
-        Corrupti aliquid unde, quidem minima animi quos est praesentium natus excepturi delectus corporis repellendus ad
-        quis quia eius sit. Nam quasi a pariatur, iusto at error tenetur incidunt suscipit? Id!
-        Commodi minima laudantium similique mollitia, porro officia iste dolores nostrum est libero veniam, asperiores
-        maxime sapiente maiores ipsam debitis harum sit accusantium. Recusandae doloribus in tempore repellendus,
-        pariatur
-        dolorum alias.
-        Sed accusamus non, totam quam sit dolor animi eaque dolore tenetur aperiam fuga facere molestiae! Dolor, cumque
-        provident. Tenetur hic corrupti dignissimos inventore cumque repellat a. Excepturi suscipit ad omnis?
-        Ipsum eveniet obcaecati, nisi eum nulla nostrum alias perferendis esse, itaque delectus maxime repellendus quasi
-        fuga? Inventore, voluptatem officia dicta ea dolore animi voluptatum, fugit adipisci ipsa accusantium voluptates
-        magnam?
-        Totam debitis id eos quae. Eaque cum pariatur laudantium incidunt ipsa! Fugiat pariatur, quis sed facere dolor a
-        quisquam ducimus voluptate laborum nam nihil blanditiis accusamus excepturi qui veniam fuga.
-        Libero, nemo perferendis eius accusantium iste nobis nulla aspernatur possimus delectus earum officiis, fuga
-        maiores aliquam eligendi hic voluptatibus qui necessitatibus nisi sapiente ut est accusamus? Itaque dicta velit
-        asperiores!
-        Distinctio dolor cum explicabo velit accusamus, quod odio minima, aspernatur temporibus illo culpa sed
-        blanditiis
-        sapiente aperiam sint amet officiis quae molestias modi nesciunt obcaecati! Vel animi numquam atque esse?
-        Quos enim tenetur quasi vero laboriosam earum eius unde ipsa sed voluptatem porro sunt iste perferendis mollitia
-        minima asperiores quae, magni nihil non quaerat maiores! Facere eligendi qui veniam aliquam.
-        Beatae voluptatibus expedita amet eaque sequi dolores laborum porro sit necessitatibus inventore! Optio ea
-        voluptas iusto velit soluta esse, voluptatem magnam suscipit minus, molestias excepturi facere! Incidunt totam
-        dolor sit?
-        In consectetur consequatur officia fuga eveniet voluptas unde, voluptatum quidem? Corrupti nobis ea soluta dicta
-        magnam incidunt veritatis, ut error totam. Illum porro quibusdam repellat vel eligendi molestias natus
-        molestiae.
-        Maiores quaerat soluta asperiores expedita deserunt dolores esse libero, consectetur et voluptatibus qui,
-        tempora
-        magnam? Quam possimus inventore enim laborum quibusdam corporis dolorem doloribus, labore officia ipsum! Nisi,
-        dignissimos architecto?</p>
-      <h4 id="retiro"> </h4>
-
-      <p id="saludo"> </p>
-
-    </div>
-
-
-
-    <script src="./js/datos.js"></script>
-    <script src="./js/script.js"></script>
-    <script src="./js/func.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+  <script src="./js/datos.js"></script>
+  <script src="./js/script.js"></script>
+  <script src="./js/func.js"></script>
+  <script src="./js/toast.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
 </body>
 
 </html>

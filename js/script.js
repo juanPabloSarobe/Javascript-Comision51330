@@ -109,6 +109,28 @@ function newUserPrompt() {
     alert('Usuario creado correctamente')
 }
 
+function verifUsuario(val) {
+
+    if (usuarioReg.some((usu) => usu.email === val)) {
+        return true
+    }
+    return false
+}
+
+
+function crearNuevoUsuario(arrNewUser) {
+
+    const formNuevoUsuario = new Usuarios(
+        usuarioReg[usuarioReg.length - 1].idUsuario + 1,
+        0,
+        arrNewUser[0],
+        arrNewUser[1],
+        arrNewUser[2],
+        arrNewUser[3]
+    )
+    formNuevoUsuario.insertarUsuario()
+}
+
 
 function acceder() {
 
@@ -271,7 +293,7 @@ function abonarProductos() {
 
 
 
-    pedidoFinal = 'Detalle de su pedido:\n' + listaFinal +'Cantidad de Productos total: ' + cantidadProductos + '\n\tPrecio Neto total:'
+    pedidoFinal = 'Detalle de su pedido:\n' + listaFinal + 'Cantidad de Productos total: ' + cantidadProductos + '\n\tPrecio Neto total:'
         + precioNeto + '\n\tPrecioFinal: ' + precioNeto * 1.21
     return confirm(pedidoFinal + '\n\nDESEA ACEPTAR EL PEDIDO?')
 
@@ -318,31 +340,31 @@ function fechaRetiro() {
 
 
 
-function init (){
-usuario = acceder()
+function init() {
+    usuario = acceder()
 
-if (acceso) {
-    alert('Bienvenido/a ' + usuarioReg[idUsuEncontrado].nombre + ' a nuestro portal de compras. \nPor favor elige uno de los siguientes productos')
-    document.getElementById('saludoInicial').innerHTML = 'MUCHAS GRACIAS POR ELEGIRNOS'
-    cliente.innerHTML = usuarioReg[idUsuEncontrado].nombre.toUpperCase() +' '+ usuarioReg[idUsuEncontrado].apellido.toUpperCase()
-    comprarProducto()
+    if (acceso) {
+        alert('Bienvenido/a ' + usuarioReg[idUsuEncontrado].nombre + ' a nuestro portal de compras. \nPor favor elige uno de los siguientes productos')
+        document.getElementById('saludoInicial').innerHTML = 'MUCHAS GRACIAS POR ELEGIRNOS'
+        cliente.innerHTML = usuarioReg[idUsuEncontrado].nombre.toUpperCase() + ' ' + usuarioReg[idUsuEncontrado].apellido.toUpperCase()
+        comprarProducto()
 
 
-}
-
-if (prodSeleccionados.length != 0) {
-    if (!abonarProductos()) {
-        alert('Lamentamos que cancele su compra, muchas gracias!!!')
-        pedido.innerHTML = pedidoFinal
-        saludo.innerHTML = 'Pedido no completado, lamentamos que cancele su compra, disculpe las molestias. Muchas gracias!!!'
-    } else {
-        diaCompra = fechaRetiro()
-        pedido.innerHTML = pedidoFinal
-        retiro.innerHTML = '\n\nDia de retiro: ' + diaCompra
-        saludo.innerHTML = 'MUCHAS GRACIAS POR SU COMPRA'
-        alert('MUCHAS GRACIAS POR ELEGIRNOS\n\nCliente: ' + usuarioReg[idUsuEncontrado].nombre.toUpperCase() +' '+ usuarioReg[idUsuEncontrado].apellido.toUpperCase()+ '\n' + pedidoFinal + '\n\nDia de retiro: ' + diaCompra)
     }
-}
+
+    if (prodSeleccionados.length != 0) {
+        if (!abonarProductos()) {
+            alert('Lamentamos que cancele su compra, muchas gracias!!!')
+            pedido.innerHTML = pedidoFinal
+            saludo.innerHTML = 'Pedido no completado, lamentamos que cancele su compra, disculpe las molestias. Muchas gracias!!!'
+        } else {
+            diaCompra = fechaRetiro()
+            pedido.innerHTML = pedidoFinal
+            retiro.innerHTML = '\n\nDia de retiro: ' + diaCompra
+            saludo.innerHTML = 'MUCHAS GRACIAS POR SU COMPRA'
+            alert('MUCHAS GRACIAS POR ELEGIRNOS\n\nCliente: ' + usuarioReg[idUsuEncontrado].nombre.toUpperCase() + ' ' + usuarioReg[idUsuEncontrado].apellido.toUpperCase() + '\n' + pedidoFinal + '\n\nDia de retiro: ' + diaCompra)
+        }
+    }
 
 }
 
