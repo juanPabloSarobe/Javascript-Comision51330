@@ -1,7 +1,3 @@
-const cliente = document.getElementById("cliente")
-const pedido = document.getElementById('pedido')
-const retiro = document.getElementById('retiro')
-const saludo = document.getElementById('saludo')
 
 
 const usuarioReg = [{
@@ -31,6 +27,7 @@ let prodSeleccionados = []
 let nuevaLista = []
 let usuario
 let idUsuEncontrado
+let indexUsuEncontrado
 let password
 let acceso = false
 let codigoProd
@@ -95,7 +92,7 @@ productosArr.forEach(element => {
 const nuevoUsuario = new Usuarios(1002, 0, '12', '12', 'Pedro', 'Martinez', 'Argentina', 'buenos Aires', 'La Plata');
 nuevoUsuario.insertarUsuario()
 
-function newUserPrompt() {
+/* function newUserPrompt() {
     const promptUsuario = new Usuarios(
 
         usuarioReg[usuarioReg.length - 1].idUsuario + 1,
@@ -107,15 +104,23 @@ function newUserPrompt() {
 
     promptUsuario.insertarUsuario()
     alert('Usuario creado correctamente')
-}
+} */
+
+
 
 function verifUsuario(val) {
 
     if (usuarioReg.some((usu) => usu.email === val)) {
-        return true
+       
+        indexUsuEncontrado = usuarioReg.findIndex(function (usuEnc) {
+            return usuEnc.email === val
+        })
+        
+       return true
     }
     return false
 }
+
 
 
 function crearNuevoUsuario(arrNewUser) {
