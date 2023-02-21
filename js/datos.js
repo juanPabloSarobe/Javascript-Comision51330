@@ -1,4 +1,4 @@
-const productosArr = [  ["Camiseta básica de algodón", "Una camiseta básica hecha de algodón suave y cómodo", 10, 50],
+/* const productosArr = [  ["Camiseta básica de algodón", "Una camiseta básica hecha de algodón suave y cómodo", 10, 50,],
   ["Jeans skinny", "Jeans ajustados con estilo disponibles en diferentes lavados y colores", 50, 40],
   ["Vestido de verano", "Vestido fresco y cómodo con estampados y colores vibrantes para el verano", 35, 60],
   ["Chaqueta de cuero sintético", "Chaqueta de cuero sintético de alta calidad", 75, 20],
@@ -62,4 +62,70 @@ const productosArr = [  ["Camiseta básica de algodón", "Una camiseta básica h
   ["Pantalones acampanados", "Pantalones acampanados elegantes y cómodos en diferentes colores", 70, 10],
   ["Pantalones de pana", "Pantalones de pana cálidos y cómodos en diferentes colores", 60, 12],
   ["Pantalones cortos", "Pantalones cortos frescos y cómodos en diferentes colores", 40, 14]
+] */
+
+
+
+const productosArr = [
+	["Camiseta básica de algodón", "Una camiseta básica hecha de algodón suave y cómodo", 10, 50, "img1.jpeg", 1.54, 1, 1, "Oferta verano clasico", false, "Unisex"], 
+	["Jeans skinny", "Jeans ajustados con estilo disponibles en diferentes lavados y colores", 50, 40, "img2.jpeg", 4.08, 2, 6, "Oferta verano", true, "Femenino"], 
+	["Vestido de verano", "Vestido fresco y cómodo con estampados y colores vibrantes para el verano", 35, 60, "img3.jpeg", 1.86, 8, 7, "Verano", false, "Femenino"], 
+	["Chaqueta de cuero sintético", "Chaqueta de cuero sintético de alta calidad", 75, 0, "img4.jpeg", 3.78, 7, 5, "Cuero noche oferta", false, "Masculino"]
 ]
+
+const categorias = [
+  {
+    "idCategoria": 1, 
+    "Categoria": "Remera"}, 
+  {
+    "idCategoria": 2, 
+    "Categoria": "Pantalon"}, 
+  {
+    "idCategoria": 3, 
+    "Categoria": "Zapatilla"}, 
+  {
+    "idCategoria": 4, 
+    "Categoria": "Zapato"}, 
+  {
+    "idCategoria": 5, 
+    "Categoria": "Gorra"}, 
+  {
+    "idCategoria": 7, 
+    "Categoria": "Campera"}, 
+  {
+    "idCategoria": 8, 
+    "Categoria": "Vestido"}, 
+  {
+    "idCategoria": 9, 
+    "Categoria": "Mochilas y bolsos"}, 
+  {
+    "idCategoria": 10, 
+    "Categoria": "Otros"}
+  ]
+
+  const carcas = [
+    {
+      "idMarca": 1, 
+      "Marca": "Adidas"}, 
+    {
+      "idMarca": 2, 
+      "Marca": "Topper"}, 
+    {
+      "idMarca": 3, 
+      "Marca": "Puma"}, 
+    {
+      "idMarca": 4, 
+      "Marca": "Nike"}, 
+    {
+      "idMarca": 5, 
+      "Marca": "Under Armor"}, 
+    {
+      "idMarca": 6, 
+      "Marca": "Levis"}, 
+    {
+      "idMarca": 7, 
+      "Marca": "Calvin Klein"}, 
+    {
+      "idMarca": 8, 
+      "Marca": "Generico"}
+    ]

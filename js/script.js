@@ -58,13 +58,19 @@ class Usuarios {
 }
 
 class Productos {
-    constructor(idProd, nombreProd, descripProd, precioProd, stockProd, imagenProd) {
+    constructor(idProd, nombreProd, descripProd, precioProd, stockProd, imagenProd, valoracion, categoria, marca, palclaves, destacado, sexo) {
         this.idProd = idProd
         this.nombreProd = nombreProd
         this.descripProd = descripProd
         this.precioProd = precioProd
         this.stockProd = stockProd
         this.imagenProd = imagenProd
+        this.valoracion = valoracion
+        this.categoria = categoria
+        this.marca = marca
+        this.palclaves = palclaves
+        this.destacado = destacado
+        this.sexo = sexo
     }
 
     cargarProducto() {
@@ -82,7 +88,7 @@ productosArr.forEach(element => {
 
 
     const producto = new Productos(
-        newId, element[0], element[1], element[2], element[3]
+        newId, element[0], element[1], element[2], element[3], element[4], element[5], element[6], element[7], element[8], element[9], element[10]
 
     )
     producto.cargarProducto()
@@ -111,12 +117,12 @@ nuevoUsuario.insertarUsuario()
 function verifUsuario(val) {
 
     if (usuarioReg.some((usu) => usu.email === val)) {
-       
+
         indexUsuEncontrado = usuarioReg.findIndex(function (usuEnc) {
             return usuEnc.email === val
         })
-        
-       return true
+
+        return true
     }
     return false
 }
@@ -194,6 +200,10 @@ function acceder() {
 function avisarCancel() {
     alert("accion cancelada por el usuario")
 }
+
+
+
+
 
 function comprarProducto() {
 
@@ -372,5 +382,103 @@ function init() {
     }
 
 }
+
+
+
+const contenedor = document.getElementById("zonaProductos");
+
+listaProductos.forEach((producto, indice) => {
+
+    let card = document.createElement("div");
+
+    card.id = 'producto'+producto.idProd
+    card.classList.add("w-full", "relative",  "hover:scale-110", "transition-transform", "max-w-sm",  "bg-gray-50", "border", "border-gray-200", "rounded-lg", "shadow", "dark:bg-gray-800", "dark:border-gray-700");
+    producto.stockProd > 0 ? card.classList.add("conStock") : ""
+    producto.destacado ? card.classList.add("destacado"):""
+
+    card.innerHTML = `
+    
+
+    
+        <div id="" class=" ">
+
+            <a href="#">
+                <img class="p-8 rounded-t-lg" src="./res/img/prod/${producto.imagenProd}" alt="product image" />
+            </a>
+
+            <div class="px-5 pb-5">
+                <a href="#">
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">${producto.nombreProd}</h5>
+                </a>
+                    <p class="text-lg font-light tracking-tight text-gray-600 dark:text-white">${producto.descripProd}</p>
+                <div class="flex items-center mt-2.5 mb-5">
+                    <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <title>First star</title>
+                        <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                        </path>
+                    </svg>
+                    <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <title>Second star</title>
+                        <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                        </path>
+                    </svg>
+                    <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <title>Third star</title>
+                        <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                        </path>
+                    </svg>
+                    <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <title>Fourth star</title>
+                        <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                        </path>
+                    </svg>
+                    <svg aria-hidden="true" class="w-5 h-5 text-gray-300" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <title>Fifth star</title>
+                        <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                        </path>
+                    </svg>
+                    <span
+                    class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">${producto.valoracion}
+                    </span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-3xl font-bold text-gray-900 dark:text-white">$${producto.precioProd}</span>
+                    <button onClick="comprar(${indice})" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                        Agragar al Carrito
+
+                    </button>
+                    
+                </div>
+            </div>
+
+        </div>
+        <div class="absolute inset-0 ">
+
+            <div class=" bg-gray-700 opacity-60 absolute inset-0 rounded-lg cursor-not-allowed flex items-center">
+            </div>
+            <p class="text-primary-600 opacity-100 absolute top-[45%] left-[15%] cursor-not-allowed font-bold text-center mx-auto text-5xl -rotate-45" >Sin Stock</p>
+            
+        </div>
+
+    `
+
+
+    contenedor.appendChild(card);
+});
+
+    const comprar = (indice) => {
+        alert(`elegiste el ${listaProductos[indice].nombreProd}`);
+    };
+
 
 
