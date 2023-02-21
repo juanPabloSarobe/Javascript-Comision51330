@@ -68,9 +68,14 @@
 
 const productosArr = [
 	["Camiseta básica de algodón", "Una camiseta básica hecha de algodón suave y cómodo", 10, 50, "img1.jpeg", 1.54, 1, 1, "Oferta verano clasico", false, "Unisex"], 
-	["Jeans skinny", "Jeans ajustados con estilo disponibles en diferentes lavados y colores", 50, 40, "img2.jpeg", 4.08, 2, 6, "Oferta verano", true, "Femenino"], 
+	["Jeans skinny", "Jeans ajustados con estilo disponibles en diferentes lavados y colores", 50, 40, "img2.jpeg", 4.08, 2, 6, "Oferta verano", false, "Femenino"], 
 	["Vestido de verano", "Vestido fresco y cómodo con estampados y colores vibrantes para el verano", 35, 60, "img3.jpeg", 1.86, 8, 7, "Verano", false, "Femenino"], 
-	["Chaqueta de cuero sintético", "Chaqueta de cuero sintético de alta calidad", 75, 0, "img4.jpeg", 3.78, 7, 5, "Cuero noche oferta", false, "Masculino"]
+	["Chaqueta de cuero sintético", "Chaqueta de cuero sintético de alta calidad", 75, 10, "img4.jpeg", 3.78, 7, 5, "Cuero noche oferta", true, "Masculino"],
+  ["Camiseta básica de algodón", "Una camiseta básica hecha de algodón suave y cómodo", 10, 0, "img1.jpeg", 1.54, 1, 1, "Oferta verano clasico", false, "Unisex"], 
+	["Jeans skinny", "Jeans ajustados con estilo disponibles en diferentes lavados y colores", 50, 40, "img2.jpeg", 4.08, 2, 6, "Oferta verano", false, "Femenino"], 
+	["Vestido de verano", "Vestido fresco y cómodo con estampados y colores vibrantes para el verano", 35, 60, "img3.jpeg", 1.86, 8, 7, "Verano", false, "Femenino"], 
+	["Chaqueta de cuero sintético", "Chaqueta de cuero sintético de alta calidad", 75, 10, "img4.jpeg", 3.78, 7, 5, "Cuero noche oferta", false, "Masculino"]
+
 ]
 
 const categorias = [

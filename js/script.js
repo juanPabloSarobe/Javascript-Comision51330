@@ -392,7 +392,7 @@ listaProductos.forEach((producto, indice) => {
     let card = document.createElement("div");
 
     card.id = 'producto'+producto.idProd
-    card.classList.add("w-full", "relative",  "hover:scale-110", "transition-transform", "max-w-sm",  "bg-gray-50", "border", "border-gray-200", "rounded-lg", "shadow", "dark:bg-gray-800", "dark:border-gray-700");
+    card.classList.add("w-full", "relative",  "hover:scale-105", "transition-transform", "max-w-sm",  "bg-gray-50", "border", "border-gray-200", "rounded-lg", "shadow", "dark:bg-gray-800", "dark:border-gray-700");
     producto.stockProd > 0 ? card.classList.add("conStock") : ""
     producto.destacado ? card.classList.add("destacado"):""
 
