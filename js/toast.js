@@ -44,6 +44,7 @@ function toast(tipo, msj) {
     <div class="ml-3 text-sm font-normal">${msj}</div>
     </div>
     `;
+    
 
 
 

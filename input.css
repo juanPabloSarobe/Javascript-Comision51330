@@ -1,14 +1,13 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
 
 @layer components {
   
   .destacado{
-    @apply flex bg-destacado-200 md:col-span-2 md:max-w-5xl !important
+    @apply flex bg-destacado-200 dark:bg-[#6d6443] md:justify-center md:col-span-2 md:max-w-5xl !important
   }
   .destacado > div:first-child{
-    @apply block md:flex items-center
+    @apply block md:flex items-center md:pb-10
   }
   
   .conStock > div:last-child{
@@ -22,3 +21,4 @@
     @apply hover:scale-105
   }
 }
+@tailwind utilities;

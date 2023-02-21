@@ -391,62 +391,50 @@ listaProductos.forEach((producto, indice) => {
 
     let card = document.createElement("div");
 
-    card.id = 'producto'+producto.idProd
-    card.classList.add("w-full", "relative",  "hover:scale-105", "transition-transform", "max-w-sm",  "bg-gray-50", "border", "border-gray-200", "rounded-lg", "shadow", "dark:bg-gray-800", "dark:border-gray-700");
+    card.id = 'producto' + producto.idProd
+    card.classList.add("w-full", "relative", "hover:scale-105", "transition-transform", "max-w-sm", "bg-gray-50", "border", "border-gray-200", "rounded-lg", "shadow", "dark:bg-gray-800", "dark:border-gray-700");
     producto.stockProd > 0 ? card.classList.add("conStock") : ""
-    producto.destacado ? card.classList.add("destacado"):""
+    producto.destacado ? card.classList.add("destacado") : ""
 
-    card.innerHTML = `
-    
-
-    
-        <div id="" class=" ">
-
-            <a href="#">
-                <img class="p-8 rounded-t-lg" src="./res/img/prod/${producto.imagenProd}" alt="product image" />
-            </a>
-
-            <div class="px-5 pb-5">
-                <a href="#">
-                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">${producto.nombreProd}</h5>
-                </a>
-                    <p class="text-lg font-light tracking-tight text-gray-600 dark:text-white">${producto.descripProd}</p>
-                <div class="flex items-center mt-2.5 mb-5">
-                    <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+    let estrellas = ''
+    for (let i = 0; i < Math.round(producto.valoracion); i++) {
+        estrellas += `
+        <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">
                         <title>First star</title>
                         <path
                         d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
                         </path>
                     </svg>
-                    <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+        `
+
+    }
+    for (let i = Math.round(producto.valoracion); i < 5; i++) {
+        estrellas += `
+        <svg aria-hidden="true" class="w-5 h-5 text-gray-300" fill="currentColor" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">
-                        <title>Second star</title>
+                        <title>First star</title>
                         <path
                         d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
                         </path>
                     </svg>
-                    <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <title>Third star</title>
-                        <path
-                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                        </path>
-                    </svg>
-                    <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <title>Fourth star</title>
-                        <path
-                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                        </path>
-                    </svg>
-                    <svg aria-hidden="true" class="w-5 h-5 text-gray-300" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <title>Fifth star</title>
-                        <path
-                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                        </path>
-                    </svg>
+        `
+
+    }
+
+    card.innerHTML = `
+        <div id="" class=" ">
+            <div class=" flex justify-center">
+                <img class="p-4 mt-4 rounded-3xl" src="./res/img/prod/${producto.imagenProd}" alt="product image" />
+            </div>
+
+            <div class="px-5 pb-5 md:self-end">
+                <div >
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">${producto.nombreProd}</h5>
+                </div>
+                    <p class="text-lg font-light tracking-tight text-gray-600 dark:text-white">${producto.descripProd}</p>
+                <div class="flex items-center mt-2.5 mb-5">
+                    ${estrellas}
                     <span
                     class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">${producto.valoracion}
                     </span>
@@ -454,7 +442,7 @@ listaProductos.forEach((producto, indice) => {
                 <div class="flex items-center justify-between">
                     <span class="text-3xl font-bold text-gray-900 dark:text-white">$${producto.precioProd}</span>
                     <button onClick="comprar(${indice})" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
-                        Agragar al Carrito
+                        Agregar al Carrito
 
                     </button>
                     
@@ -476,9 +464,13 @@ listaProductos.forEach((producto, indice) => {
     contenedor.appendChild(card);
 });
 
-    const comprar = (indice) => {
-        alert(`elegiste el ${listaProductos[indice].nombreProd}`);
-    };
+const comprar = (indice) => {
+    toast('success', `
+${listaProductos[indice].nombreProd}
+Agregado al carrito
+`)
+
+};
 
 
 
