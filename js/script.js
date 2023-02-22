@@ -98,20 +98,6 @@ productosArr.forEach(element => {
 const nuevoUsuario = new Usuarios(1002, 0, '12', '12', 'Pedro', 'Martinez', 'Argentina', 'buenos Aires', 'La Plata');
 nuevoUsuario.insertarUsuario()
 
-/* function newUserPrompt() {
-    const promptUsuario = new Usuarios(
-
-        usuarioReg[usuarioReg.length - 1].idUsuario + 1,
-        0,
-        prompt('inserte email'),
-        prompt('Inserte password'),
-        prompt('Indique su nombre'),
-        prompt('Indique su apellido'))
-
-    promptUsuario.insertarUsuario()
-    alert('Usuario creado correctamente')
-} */
-
 
 
 function verifUsuario(val) {
@@ -386,19 +372,36 @@ function init() {
 
 
 const contenedor = document.getElementById("zonaProductos");
+window.onload = (e) =>{
+    generarProductos(listaProductos)
+}
 
-listaProductos.forEach((producto, indice) => {
+function filtrarlista(idCat){
 
-    let card = document.createElement("div");
+    const nuevoArray = listaProductos.filter(obj => {
+        return obj.categoria === idCat;
+    });
+    
+    generarProductos(nuevoArray)
 
-    card.id = 'producto' + producto.idProd
-    card.classList.add("w-full", "relative", "hover:scale-105", "transition-transform", "max-w-sm", "bg-gray-50", "border", "border-gray-200", "rounded-lg", "shadow", "dark:bg-gray-800", "dark:border-gray-700");
-    producto.stockProd > 0 ? card.classList.add("conStock") : ""
-    producto.destacado ? card.classList.add("destacado") : ""
+}
+function generarProductos(arrProd) {
 
-    let estrellas = ''
-    for (let i = 0; i < Math.round(producto.valoracion); i++) {
-        estrellas += `
+    contenedor.innerHTML = ""
+    console.log(contenedor)
+
+    arrProd.forEach((producto, indice) => {
+
+        let card = document.createElement("div");
+
+        card.id = 'producto' + producto.idProd
+        card.classList.add("w-full", "relative", "hover:scale-105", "transition-transform", "max-w-sm", "bg-gray-50", "border", "border-gray-200", "rounded-lg", "shadow", "dark:bg-gray-800", "dark:border-gray-700");
+        producto.stockProd > 0 ? card.classList.add("conStock") : ""
+        producto.destacado ? card.classList.add("destacado") : ""
+
+        let estrellas = ''
+        for (let i = 0; i < Math.round(producto.valoracion); i++) {
+            estrellas += `
         <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">
                         <title>First star</title>
@@ -408,9 +411,9 @@ listaProductos.forEach((producto, indice) => {
                     </svg>
         `
 
-    }
-    for (let i = Math.round(producto.valoracion); i < 5; i++) {
-        estrellas += `
+        }
+        for (let i = Math.round(producto.valoracion); i < 5; i++) {
+            estrellas += `
         <svg aria-hidden="true" class="w-5 h-5 text-gray-300" fill="currentColor" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">
                         <title>First star</title>
@@ -420,9 +423,9 @@ listaProductos.forEach((producto, indice) => {
                     </svg>
         `
 
-    }
+        }
 
-    card.innerHTML = `
+        card.innerHTML = `
         <div id="" class=" ">
             <div class=" flex justify-center">
                 <img class="p-4 mt-4 rounded-3xl" src="./res/img/prod/${producto.imagenProd}" alt="product image" />
@@ -458,11 +461,12 @@ listaProductos.forEach((producto, indice) => {
             
         </div>
 
-    `
+        `
 
 
-    contenedor.appendChild(card);
-});
+        contenedor.appendChild(card);
+    })
+}
 
 const comprar = (indice) => {
     toast('success', `
