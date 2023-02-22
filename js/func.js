@@ -6,7 +6,8 @@ const userMenu = d.getElementById('userMenu')
 const mobileMenuButton = d.getElementById('mobileMenuButton')
 const mobileMenu = d.querySelector('#mobileMenu')
 const navbarTitulo = d.querySelector('#navbarTitulo')
-
+const searchDropdown = d.querySelector('#search-dropdown')
+const searchOnMenu = d.querySelector('#searchOnMenu')
 
 
 /* menu de usuario */
@@ -76,6 +77,10 @@ function menuUsuToggle(){
 }
 
 
+searchDropdown.addEventListener('keyup',() => filtraPalabraClave(searchDropdown.value))
+
+searchOnMenu.addEventListener('keyup', () => filtraPalabraClave(searchOnMenu.value))
+searchDropdown.addEventListener('change',()=> toggleMobileMenu())
 
 terms.addEventListener('change', () => {
     if (terms.checked) {

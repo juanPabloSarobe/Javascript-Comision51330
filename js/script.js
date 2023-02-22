@@ -58,7 +58,7 @@ class Usuarios {
 }
 
 class Productos {
-    constructor(idProd, nombreProd, descripProd, precioProd, stockProd, imagenProd, valoracion, categoria, marca, palclaves, destacado, sexo) {
+    constructor(idProd, nombreProd, descripProd, precioProd, stockProd, imagenProd, valoracion, categoria, marca, palclaves, destacado, sexo, busqueda) {
         this.idProd = idProd
         this.nombreProd = nombreProd
         this.descripProd = descripProd
@@ -71,6 +71,7 @@ class Productos {
         this.palclaves = palclaves
         this.destacado = destacado
         this.sexo = sexo
+        this.busqueda = busqueda
     }
 
     cargarProducto() {
@@ -85,10 +86,15 @@ productosArr.forEach(element => {
     } else {
         newId = listaProductos[listaProductos.length - 1].idProd + 1
     }
-
+    const e6 = categorias.find(obj => obj.idCategoria == element[6])
+    const e7 = marcas.find(obj => obj.idMarca == element[7])
 
     const producto = new Productos(
-        newId, element[0], element[1], element[2], element[3], element[4], element[5], element[6], element[7], element[8], element[9], element[10]
+        newId, element[0], element[1], 
+        element[2], element[3], element[4], 
+        element[5], e6.Categoria, e7.Marca, 
+        element[8], element[9], element[10],
+        `${element[0]} ${element[1]} ${e6.Categoria}  ${e7.Marca} ${element[8]} ${element[10]}  `
 
     )
     producto.cargarProducto()
@@ -375,11 +381,24 @@ const contenedor = document.getElementById("zonaProductos");
 window.onload = (e) =>{
     generarProductos(listaProductos)
 }
+console.log(listaProductos)
 
-function filtrarlista(idCat){
+
+function filtraPalabraClave(str){
+   
+
+    const nuevoArray2 = listaProductos.filter(obj =>{
+        return obj.busqueda.toLowerCase().includes(str.toLowerCase())
+    })
+
+    generarProductos(nuevoArray2)
+}
+
+
+function filtrarlista(cat){
 
     const nuevoArray = listaProductos.filter(obj => {
-        return obj.categoria === idCat;
+        return obj.categoria.toLowerCase() === cat.toLowerCase();
     });
     
     generarProductos(nuevoArray)
@@ -388,7 +407,7 @@ function filtrarlista(idCat){
 function generarProductos(arrProd) {
 
     contenedor.innerHTML = ""
-    console.log(contenedor)
+   
 
     arrProd.forEach((producto, indice) => {
 
@@ -436,7 +455,9 @@ function generarProductos(arrProd) {
                     <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">${producto.nombreProd}</h5>
                 </div>
                     <p class="text-lg font-light tracking-tight text-gray-600 dark:text-white">${producto.descripProd}</p>
-                <div class="flex items-center mt-2.5 mb-5">
+                    <h3 class="text-2xl font-extrabold text-primary-600 text-right">${producto.marca}</h3>
+                    <p class="text-xs text-gray-500 text-right font-light " >${producto.sexo}</p>
+                    <div class="flex items-center mt-2.5 mb-5">
                     ${estrellas}
                     <span
                     class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">${producto.valoracion}
