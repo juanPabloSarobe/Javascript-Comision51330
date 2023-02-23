@@ -85,8 +85,8 @@ function menuUsuToggle(){
 searchNav.addEventListener('keyup',() => filtraPalabraClave(searchNav.value))
 
 formNavBar.addEventListener('submit', (e)=>{
-   
-    e.preventDefault
+    e.preventDefault()
+    
     crearToastFiltro('filtro', 'filtrado por: '+ searchNav.value , 1000)
     searchNav.value =""
 })
@@ -94,7 +94,7 @@ formNavBar.addEventListener('submit', (e)=>{
 searchOnMenu.addEventListener('keyup', () => filtraPalabraClave(searchOnMenu.value))
 
 formDropdown.addEventListener(`submit`,(e)=> {    
-    e.preventDefault
+    e.preventDefault()
     mobileMenu.classList.add('hidden')
     crearToastFiltro('filtro', 'filtrado por: '+ searchOnMenu.value , 1000)
     searchOnMenu.value =""
