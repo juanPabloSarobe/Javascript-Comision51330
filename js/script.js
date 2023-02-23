@@ -1,5 +1,4 @@
 
-
 const usuarioReg = [{
     idUsuario: 1001,
     tipoUsuario: 0,
@@ -90,9 +89,9 @@ productosArr.forEach(element => {
     const e7 = marcas.find(obj => obj.idMarca == element[7])
 
     const producto = new Productos(
-        newId, element[0], element[1], 
-        element[2], element[3], element[4], 
-        element[5], e6.Categoria, e7.Marca, 
+        newId, element[0], element[1],
+        element[2], element[3], element[4],
+        element[5], e6.Categoria, e7.Marca,
         element[8], element[9], element[10],
         `${element[0]} ${element[1]} ${e6.Categoria}  ${e7.Marca} ${element[8]} ${element[10]}  `
 
@@ -375,19 +374,33 @@ function init() {
 
 }
 
-
+/* Nueva seccion de funciones-------------------------------------- */
 
 const contenedor = document.getElementById("zonaProductos");
-window.onload = (e) =>{
-    generarProductos(listaProductos)
+const seccionCategorias = document.querySelector("#seccionCategorias")
+const catSelected = document.getElementsByClassName("catSelected")
+
+
+
+
+function catSelectedFalse() {
+    for (let i = 0; i < categorias.length; i++) {
+        document.getElementById(`selected${i}`).classList.add('hidden')
+
+    }
 }
-console.log(listaProductos)
 
 
-function filtraPalabraClave(str){
-   
 
-    const nuevoArray2 = listaProductos.filter(obj =>{
+window.onload = (e) => {
+    generarProductos(listaProductos)
+    generarCategorias(categorias)
+}
+
+
+function filtraPalabraClave(str) {
+    catSelectedFalse()
+    const nuevoArray2 = listaProductos.filter(obj => {
         return obj.busqueda.toLowerCase().includes(str.toLowerCase())
     })
 
@@ -395,19 +408,31 @@ function filtraPalabraClave(str){
 }
 
 
-function filtrarlista(cat){
+function filtrarPorCategoria(cat, tabInx) {
+
+    catSelectedFalse()
 
     const nuevoArray = listaProductos.filter(obj => {
         return obj.categoria.toLowerCase() === cat.toLowerCase();
     });
-    
+
     generarProductos(nuevoArray)
 
+    document.getElementById(`selected${tabInx}`).classList.remove('hidden')
+    toastFiltro('filtro', 'filtrado por: '+cat)
 }
+
+function limpiarFiltros() {
+    catSelectedFalse()
+    generarProductos(listaProductos)
+
+}
+
+
 function generarProductos(arrProd) {
 
     contenedor.innerHTML = ""
-   
+
 
     arrProd.forEach((producto, indice) => {
 
@@ -465,7 +490,7 @@ function generarProductos(arrProd) {
                 </div>
                 <div class="flex items-center justify-between">
                     <span class="text-3xl font-bold text-gray-900 dark:text-white">$${producto.precioProd}</span>
-                    <button onClick="comprar(${indice})" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                    <button onClick="comprar(${producto.idProd})" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
                         Agregar al Carrito
 
                     </button>
@@ -487,15 +512,66 @@ function generarProductos(arrProd) {
 
         contenedor.appendChild(card);
     })
+
 }
 
-const comprar = (indice) => {
-    toast('success', `
-${listaProductos[indice].nombreProd}
-Agregado al carrito
-`)
+const comprar = (id) => {
 
+    const prodSelec = listaProductos.find(obj => obj.idProd == id)
+    console.log(prodSelec)
+    toast('success', `
+${prodSelec.nombreProd} agregado al carrito
+`
+)
+
+prodSeleccionados.push([prodSelec, 1])
+console.log(prodSeleccionados)
 };
 
 
 
+function generarCategorias(arrCat) {
+    seccionCategorias.innerHTML = ""
+
+
+    let itemCat = document.createElement('div')
+
+    itemCat.classList.add("relative", "w-full", "flex", "snap-x", "gap-10", "overflowx-x-auto", "mx-auto", "h-36", "items-center")
+
+    const divInicial = `<div class="snap-center shrink-0 cursor-pointer" onclick="limpiarFiltros()" >
+        <div class=" shrink-0 w-16 sm:w-24 ml-5 text-gray-800 dark:text-gray-200"> Categorias: </div>
+    </div>`
+    let cadaCateg = ""
+    arrCat.forEach((item, indice) => {
+
+        cadaCateg +=
+            ` <div tabindex="${indice}" id="${item.Categoria}" onclick="filtrarPorCategoria(this.id, ${indice})" class="relative w-32 h-32 shrink-0  snap-center cursor-pointer focus:circuloInterior">
+            <div class="rounded-full overflow-hidden  ">
+                 <img src="./res/img/prod/${item.path}" alt="" class=" object-cover h-32 w-32">
+            </div>
+            <div class=" absolute -bottom-0.5 bg-white dark:bg-gray-800 dark:text-gray-200 dark:ring-gray-600 dark:ring-3 left-0 right-0 text-center rounded-lg ring-2 ring-primary-300 text-primary-400">
+                <h6 class="">${item.Categoria}</h6>
+            </div>
+  
+            <div id="selected${indice}" class="hidden absolute w-7 h-7 top-0 right-2 bg-white  rounded-full catSelected">
+                <svg class="text-green-600 bg-white rounded-full " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                 </svg>
+          
+            </div>
+        </div>
+        `
+    })
+
+    const divFinal =
+        `<div class="snap-center shrink-0">
+      <div class="shrink-0 w-4 sm:w-48"></div>
+    </div>
+    `
+
+    itemCat.innerHTML = divInicial + cadaCateg + divFinal
+
+    seccionCategorias.appendChild(itemCat)
+
+
+}

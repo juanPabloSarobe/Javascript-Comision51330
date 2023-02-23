@@ -20,5 +20,16 @@
   .vistaAmpliada{
     @apply hover:scale-105
   }
+
+ 
+  .circuloInterior > div:first-child{
+    @apply ring-primary-500 ring-4
+  }
+
+  body::-webkit-scrollbar{
+    display: none;
+  }
+
+  
 }
 @tailwind utilities;

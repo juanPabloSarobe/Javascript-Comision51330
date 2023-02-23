@@ -234,46 +234,77 @@
 
 <!-- Seccion de filtros -->
 
-<div class="relative  overflow-auto bg-white dark:bg-gray-600 mt-8">
+<div id="seccionCategorias" class="relative  overflow-auto bg-white dark:bg-gray-600 mt-8">
 
-  <div  class=" relative w-full flex snap-x gap-10 overflowx-x-auto  mx-auto  h-36 items-center  ">
+  <div  class=" relative w-full  snap-x gap-10 overflowx-x-auto flex mx-auto  h-48 items-center  ">
    
     <div class="snap-center shrink-0 " >
       <div class=" shrink-0 w-16 sm:w-24 ml-5 text-gray-800 dark:text-gray-200"> Categorias: </div>
     </div>
-    <div tabindex="0" onclick="filtrarlista('remera')" class="bg-slate-600 w-32 h-32 shrink-0 rounded-full overflow-hidden snap-center cursor-pointer  focus:ring-primary-500 focus:ring-4">
-      <img src="./res/img/prod/remeras.jpeg" alt="" class=" object-cover h-32 w-32">
-  </div>
-    <div tabindex="1" onclick="filtrarlista('pantalon')" class="bg-slate-600 w-32 h-32 shrink-0 rounded-full overflow-hidden snap-center cursor-pointer focus:ring-primary-500 focus:ring-4">
-      <img src="./res/img/prod/pantalones.jpeg" alt="" class=" object-cover h-32 w-32">
+
+    <div tabindex="0" onclick="filtrarPorCategoria('remera')" class="relative w-32 h-32 shrink-0  snap-center cursor-pointer focus:circuloInterior">
+      <div  id="circulo1" class="rounded-full overflow-hidden  ">
+        <img src="./res/img/prod/imgCat1.jpeg" alt="" class=" object-cover h-32 w-32">
+      </div>
+      <div class=" absolute -bottom-0.5 bg-white left-0 right-0 text-center rounded-lg ring-2 ring-primary-300 text-primary-400">
+        <h6 class="">Remeras</h6>
+      </div>
+
+      <div id="catSelected0" class=" absolute w-7 h-7 top-0 right-2 bg-white z-50 rounded-full">
+        <svg class="text-green-600 bg-white rounded-full" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        
+      </div>
     </div>
-    <div tabindex="2" class="bg-slate-600 w-32 h-32 shrink-0 rounded-full overflow-hidden snap-center cursor-pointer focus:ring-primary-500 focus:ring-4">
-      <img src="./res/img/prod/remeras.jpeg" alt="" class=" object-cover h-32 w-32">
+    <div tabindex="0" onclick="filtrarPorCategoria('remera')" class="relative w-32 h-32 shrink-0  snap-center cursor-pointer focus:circuloInterior">
+      <div  id="circulo1" class="rounded-full overflow-hidden  ">
+        <img src="./res/img/prod/imgCat1.jpeg" alt="" class=" object-cover h-32 w-32">
+      </div>
+      <div class=" absolute -bottom-0.5 bg-white left-0 right-0 text-center rounded-lg ring-2 ring-primary-300 text-primary-400">
+        <h6 class="">Remeras</h6>
+      </div>
+
+      <div id="catSelected0" class=" absolute w-7 h-7 top-0 right-2 bg-white z-50 rounded-full">
+        <svg class="text-green-600 bg-white rounded-full" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        
+      </div>
     </div>
-    <div tabindex="3" class="bg-slate-600 w-32 h-32 shrink-0  rounded-full overflow-hidden snap-center cursor-pointer focus:ring-primary-500 focus:ring-4">
-      <img src="./res/img/prod/pantalones.jpeg" alt="" class=" object-cover h-32 w-32">
+    <div tabindex="0" onclick="filtrarPorCategoria('remera')" class="relative w-32 h-32 shrink-0  snap-center cursor-pointer focus:circuloInterior">
+      <div  id="circulo1" class="rounded-full overflow-hidden  ">
+        <img src="./res/img/prod/imgCat1.jpeg" alt="" class=" object-cover h-32 w-32">
+      </div>
+      <div class=" absolute -bottom-0.5 bg-white left-0 right-0 text-center rounded-lg ring-2 ring-primary-300 text-primary-400">
+        <h6 class="">Remeras</h6>
+      </div>
+
+      <div id="catSelected0" class=" absolute w-7 h-7 top-0 right-2 bg-white z-50 rounded-full">
+        <svg class="text-green-600 bg-white rounded-full" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        
+      </div>
     </div>
-    <div tabindex="4" class="bg-slate-600 w-32 h-32 shrink-0 rounded-full overflow-hidden snap-center cursor-pointer focus:ring-primary-500 focus:ring-4">
-      <img src="./res/img/prod/remeras.jpeg" alt="" class=" object-cover h-32 w-32">
+    <div tabindex="0" onclick="filtrarPorCategoria('remera')" class="relative w-32 h-32 shrink-0  snap-center cursor-pointer focus:circuloInterior">
+      <div  id="circulo1" class="rounded-full overflow-hidden  ">
+        <img src="./res/img/prod/imgCat1.jpeg" alt="" class=" object-cover h-32 w-32">
+      </div>
+      <div class=" absolute -bottom-0.5 bg-white dark:bg-gray-800 dark:text-gray-200 dark:ring-gray-600 dark:ring-3 left-0 right-0 text-center rounded-lg ring-2 ring-primary-300 text-primary-400">
+        <h6 class="">Remeras</h6>
+      </div>
+
+      <div id="catSelected0" class=" absolute w-7 h-7 top-0 right-2 bg-white z-50 rounded-full catSelected">
+        <svg class="text-green-600 bg-white rounded-full" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        
+      </div>
     </div>
-    <div tabindex="5" class="bg-slate-600 w-32 h-32 shrink-0 rounded-full overflow-hidden snap-center cursor-pointer focus:ring-primary-500 focus:ring-4">
-      <img src="./res/img/prod/pantalones.jpeg" alt="" class=" object-cover h-32 w-32">
-    </div>
-    <div tabindex="6" class="bg-slate-600 w-32 h-32 shrink-0 rounded-full overflow-hidden snap-center cursor-pointer focus:ring-primary-500 focus:ring-4">
-      <img src="./res/img/prod/remeras.jpeg" alt="" class=" object-cover h-32 w-32">
-    </div>
-    <div tabindex="7" class="bg-slate-600 w-32 h-32 shrink-0 rounded-full overflow-hidden snap-center cursor-pointer focus:ring-primary-500 focus:ring-4">
-      <img src="./res/img/prod/pantalones.jpeg" alt="" class=" object-cover h-32 w-32">
-    </div>
-    <div tabindex="8"class="bg-slate-600 w-32 h-32 shrink-0 rounded-full overflow-hidden snap-center cursor-pointer focus:ring-primary-500 focus:ring-4">
-      <img src="./res/img/prod/remeras.jpeg" alt="" class=" object-cover h-32 w-32">
-    </div>
-    <div tabindex="9"class="bg-slate-600 w-32 h-32 shrink-0 rounded-full overflow-hidden snap-center cursor-pointer focus:ring-primary-500 focus:ring-4">
-      <img src="./res/img/prod/pantalones.jpeg" alt="" class=" object-cover h-32 w-32">
-    </div>
-    <div tabindex="10"class="bg-slate-600 w-32 h-32 shrink-0 rounded-full overflow-hidden snap-center cursor-pointer focus:ring-primary-500 focus:ring-4">
-      <img src="./res/img/prod/remeras.jpeg" alt="" class=" object-cover h-32 w-32">
-    </div>
+
+  
+
     <div class="snap-center shrink-0">
       <div class="shrink-0 w-4 sm:w-48"></div>
     </div>
@@ -477,7 +508,7 @@
 
 
   <!-- iniciacion de las clases, para que tailwind las compile en el css final y poder usarlas con el creador de tarjetas -->
-  <div class=" destacado conStock hidden">
+  <div class=" destacado conStock hidden bottom-20" >
   </div>
   <div class="hidden animate__animated animate__fadeInUp fixed right-5 top-20 z-[51]">
     <div
@@ -514,6 +545,18 @@
     </div>
 
   </div>
+
+
+    <div id="toastFiltro" class="animate__animated animate__fadeInUp hidden fixed left-5 bottom-20 z-[51]">
+
+      <div 
+      class="  flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-700"
+      role="alert">
+      ${icono}
+      <div class="ml-3 text-sm font-normal text-gray-800 bg-red-100 rounded-lg dark:bg-gray-800 dark:text-white">${msj}</div>
+    </div>
+  </div>
+  
 
 
   <!-- fin de iniciacion de claes -->
