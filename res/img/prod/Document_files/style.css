@@ -1138,10 +1138,6 @@ body::-webkit-scrollbar{
   width: 100vw;
 }
 
-.w-1\/2 {
-  width: 50%;
-}
-
 .max-w-7xl {
   max-width: 80rem;
 }
@@ -1471,11 +1467,6 @@ body::-webkit-scrollbar{
 .bg-red-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(153 27 27 / var(--tw-bg-opacity));
-}
-
-.bg-gray-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-70 {

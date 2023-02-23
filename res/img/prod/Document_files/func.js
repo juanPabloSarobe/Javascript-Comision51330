@@ -6,13 +6,10 @@ const userMenu = d.getElementById('userMenu')
 const mobileMenuButton = d.getElementById('mobileMenuButton')
 const mobileMenu = d.querySelector('#mobileMenu')
 const navbarTitulo = d.querySelector('#navbarTitulo')
-const searchNav = d.querySelector('#searchNav')
+const searchDropdown = d.querySelector('#search-dropdown')
 const searchOnMenu = d.querySelector('#searchOnMenu')
 const formDropdown = d.querySelector('#formDropdown')
-const formNavBar = d.querySelector('#formNavBar')
 const modalBg = d.querySelector('#modalBg')
-
-
 
 
 /* menu de usuario */
@@ -82,24 +79,17 @@ function menuUsuToggle(){
 }
 
 
-searchNav.addEventListener('keyup',() => filtraPalabraClave(searchNav.value))
+searchDropdown.addEventListener('keyup',() => filtraPalabraClave(searchDropdown.value))
 
-formNavBar.addEventListener('submit', (e)=>{
-   
-    e.preventDefault
-    crearToastFiltro('filtro', 'filtrado por: '+ searchNav.value , 1000)
-    searchNav.value =""
-})
-
-searchOnMenu.addEventListener('keyup', () => filtraPalabraClave(searchOnMenu.value))
-
-formDropdown.addEventListener(`submit`,(e)=> {    
+formDropdown.addEventListener(`submit`,(e)=> {
+    
     e.preventDefault
     mobileMenu.classList.add('hidden')
     crearToastFiltro('filtro', 'filtrado por: '+ searchOnMenu.value , 1000)
     searchOnMenu.value =""
 })
 
+searchOnMenu.addEventListener('keyup', () => filtraPalabraClave(searchOnMenu.value))
 
 modalBg.addEventListener('click', () => {
     toggleMobileMenu()

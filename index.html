@@ -81,12 +81,12 @@
           <div class="hidden sm:ml-1 sm:block">
             <div class="flex space-x-4">
 
-
-              <form>
+               <!-- SEARCH de la navbar!!! --> 
+              <form id="formNavBar">
                 <div class="flex w-60">
 
                   <div class="relative w-full">
-                    <input type="search" id="search-dropdown"
+                    <input type="search" id="searchNav"
                       class=" block p-2.5 w-full z-40 text-sm text-gray-900 bg-gray-50 rounded-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-red-500 focus:border-red-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:focus:bg-gray-500 dark:text-white dark:focus:border-red-500"
                       placeholder="Buscar..." required>
                     <button type="submit"
@@ -181,17 +181,24 @@
       </div>
     </div>
 
-    <!-- Mobile menu -->
-    <div id="mobileMenu" class="hidden sm:hidden">
-      <div class="space-y-1 px-2 pt-2 pb-3">
+    <!-- Mobile menu SEARCH DEL MENU DESPLAGABLE VERSION MOBILE -->
+    
+  </nav>
 
-        <a href="zonaProductos"
+  <div id="mobileMenu" class="hidden sm:hidden fixex  inset-0 ">
+    <div id="modalBg" class="fixed inset-0 min-h-screen bg-gray-500 opacity-75 z-[52]">
+
+    </div>
+      <div id="" class="fixed top-0 h-screen w-1/2  bg-gray-800 space-y-1 rounded-sm shadow-md px-2 pt-2 pb-3 z-[53]">
+
+        <a href="#zonaProductos" onclick="toggleMobileMenu()"
           class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Productos</a>
 
-        <a href="#"
+        <a href="#footer" onclick="toggleMobileMenu()"
           class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contacto</a>
 
-        <form>
+        
+        <form id="formDropdown">
           <div class="flex w-full">
 
             <div class="relative w-full">
@@ -208,14 +215,18 @@
                 <span class="sr-only">buscar</span>
               </button>
             </div>
+
           </div>
         </form>
       </div>
+
     </div>
-  </nav>
+  
+  </div>
+  
 
   <!-- cartel prncipal -->
-  <div class="  pt-16 w-screen h-[50vh] flex flex-col justify-center items-center bg-primary-700 ">
+  <div class=" pt-16 w-screen h-[50vh] flex flex-col justify-center items-center bg-primary-700 ">
 
     <div class="flex flex-col items-center">
       <svg xmlns="http://www.w3.org/2000/svg" class=" h-20 w-20 m-6 text-gray-800 "  
@@ -234,7 +245,7 @@
 
 <!-- Seccion de filtros -->
 
-<div id="seccionCategorias" class="relative  overflow-auto bg-white dark:bg-gray-600 mt-8">
+<div id="seccionCategorias" class="relative  overflow-auto bg-gray-100 dark:bg-gray-600 mt-8">
 
   <div  class=" relative w-full  snap-x gap-10 overflowx-x-auto flex mx-auto  h-48 items-center  ">
    
@@ -650,7 +661,9 @@
 
   </div>
 
-  
+  <footer id="footer">
+
+  </footer>
 
 
 
