@@ -109,32 +109,43 @@ function toastFiltro(tipo, msj) {
 
     toastFiltro = document.createElement("div");
     toastFiltro.id = 'toastFiltro'
-    toastFiltro.classList.add("animate__animated", "animate__fadeInUp", "fixed", "left-5", "bottom-20", "z-[51]");
+    toastFiltro.classList.add("animate__animated", "animate__fadeInUp", "fixed", "left-5", "bottom-10", "z-[51]");
 
     toastFiltro.innerHTML = `
-    <div 
-    class="  flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-200 dark:bg-gray-800"
-    role="alert">
-    ${icono}
-    <div class="ml-3 text-sm font-normal">${msj}</div>
+    <div class= "relative">
+        <div 
+            class="  flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-200 dark:bg-gray-800"
+            role="alert">
+            ${icono}
+            <div class="ml-3 text-sm font-normal">${msj}</div>
+        </div>
+        
+        <div onclick="toastOut()" class= "absolute -top-2 -right-2 rounded-full bg-gray-500 dark:bg-white text-white dark:text-black cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+      
+        </div>
+        
     </div>
+
     `;
 
     document.body.append(toastFiltro)
-/*     const myTimeout = setTimeout(toastOut, 2000);
+    
+}
+/* const myTimeout = setTimeout(toastOut, 2000); */
+
+function toastOut() {
+    document.getElementById("toastFiltro").classList.remove('animate__fadeInUp')
+    document.getElementById("toastFiltro").classList.add('animate__fadeOutUp')
+    
     const timeOutToast = setTimeout(cleanToast, 4000);
- */
-    function toastOut() {
-        document.getElementById("toastFiltro").classList.remove('animate__fadeInUp')
-        document.getElementById("toastFiltro").classList.add('animate__fadeOutUp')
 
+}
 
-    }
-
-    function cleanToast() {
-        toast.remove()
-
-    }
+function cleanToast() {
+    toast.remove()
 
 }
 
