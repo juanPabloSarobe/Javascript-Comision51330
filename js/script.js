@@ -393,6 +393,7 @@ function catSelectedFalse() {
 
 
 window.onload = (e) => {
+    
     generarProductos(listaProductos)
     generarCategorias(categorias)
 }

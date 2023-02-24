@@ -81,12 +81,12 @@
           <div class="hidden sm:ml-1 sm:block">
             <div class="flex space-x-4">
 
-               <!-- SEARCH de la navbar!!! --> 
+              <!-- SEARCH de la navbar!!! -->
               <form id="formNavBar">
                 <div class="flex w-60">
 
                   <div class="relative w-full">
-                    <input type="search" id="searchNav"
+                    <input type="search" id="search-dropdown"
                       class=" block p-2.5 w-full z-40 text-sm text-gray-900 bg-gray-50 rounded-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-red-500 focus:border-red-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:focus:bg-gray-500 dark:text-white dark:focus:border-red-500"
                       placeholder="Buscar..." required>
                     <button type="submit"
@@ -106,7 +106,7 @@
               <a href="#zonaProductos"
                 class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Productos</a>
 
-              <a href="#"
+              <a href="#footer"
                 class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contacto</a>
 
 
@@ -182,147 +182,165 @@
     </div>
 
     <!-- Mobile menu SEARCH DEL MENU DESPLAGABLE VERSION MOBILE -->
-    
+
   </nav>
 
   <div id="mobileMenu" class="hidden sm:hidden fixex  inset-0 ">
     <div id="modalBg" class="fixed inset-0 min-h-screen bg-gray-500 opacity-75 z-[52]">
 
     </div>
-      <div id="" class="fixed top-0 h-screen w-1/2  bg-gray-800 space-y-1 rounded-sm shadow-md px-2 pt-2 pb-3 z-[53]">
+    <div id="" class="fixed top-0 h-screen w-1/2  bg-gray-800 space-y-1 rounded-sm shadow-md px-2 pt-2 pb-3 z-[53]">
 
-        <a href="#zonaProductos" onclick="toggleMobileMenu()"
-          class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Productos</a>
+      <a href="#zonaProductos" onclick="toggleMobileMenu()"
+        class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Productos</a>
 
-        <a href="#footer" onclick="toggleMobileMenu()"
-          class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contacto</a>
+      <a href="#footer" onclick="toggleMobileMenu()"
+        class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contacto</a>
 
-        
-        <form id="formDropdown">
-          <div class="flex w-full">
 
-            <div class="relative w-full">
-              <input type="search" id="searchOnMenu"
-                class=" block p-2.5 w-full z-40 text-sm text-gray-900 bg-gray-50 rounded-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-red-500 focus:border-red-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-red-500"
-                placeholder="Buscar..." required>
-              <button type="submit"
-                class="z-30 absolute top-0 right-0 p-2.5 text-sm font-medium text-gray-900 hover:text-white bg-gray-50 rounded-r-lg border border-gray-300 hover:bg-red-700  outline-red-300 focus:outline-none focus:border-red-300 focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
-                <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                </svg>
-                <span class="sr-only">buscar</span>
-              </button>
-            </div>
+      <form id="formDropdown">
+        <div class="flex w-full">
 
+          <div class="relative w-full">
+            <input type="search" id="searchOnMenu"
+              class=" block p-2.5 w-full z-40 text-sm text-gray-900 bg-gray-50 rounded-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-red-500 focus:border-red-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-red-500"
+              placeholder="Buscar..." required>
+            <button type="submit"
+              class="z-30 absolute top-0 right-0 p-2.5 text-sm font-medium text-gray-900 hover:text-white bg-gray-50 rounded-r-lg border border-gray-300 hover:bg-red-700  outline-red-300 focus:outline-none focus:border-red-300 focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+              <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+              <span class="sr-only">buscar</span>
+            </button>
           </div>
-        </form>
-      </div>
 
+        </div>
+      </form>
     </div>
-  
+
   </div>
-  
+
+  </div>
+
 
   <!-- cartel prncipal -->
   <div class=" pt-16 w-screen h-[50vh] flex flex-col justify-center items-center bg-primary-700 ">
 
     <div class="flex flex-col items-center">
-      <svg xmlns="http://www.w3.org/2000/svg" class=" h-20 w-20 m-6 text-gray-800 "  
+      <svg xmlns="http://www.w3.org/2000/svg" class=" h-20 w-20 m-6 text-gray-800 "
         viewBox="201.30849453929235 115 147.38301092141532 147.38301092141535" stroke-width="3" stroke="currentColor">
-        
-          <path  d="M246.6241,145.60901l26.79692,26.79692c0.87201,0.87201 2.286,0.87201 3.15802,0l26.79692,-26.79692c0.87201,-0.87201 0.87201,-2.286 0,-3.15802l-26.79692,-26.79694c-0.87201,-0.87207 -2.286,-0.87207 -3.15802,0l-26.79692,26.79694c-0.87201,0.87201 -0.87201,2.286 0,3.15802zM275.00003,120.39112l23.6389,23.63888l-23.6389,23.6389l-23.6389,-23.6389zM201.96254,190.27054l26.79694,26.79692c0.87201,0.87201 2.286,0.87201 3.15802,0l26.79692,-26.79692c0.87201,-0.87201 0.87201,-2.286 0,-3.15802l-26.79692,-26.79692c-0.87201,-0.87201 -2.286,-0.87201 -3.15802,0l-26.79694,26.79692c-0.87207,0.87201 -0.87207,2.286 0,3.15802zM291.28563,190.27054l26.79692,26.79692c0.87201,0.87201 2.286,0.87201 3.15802,0l26.79692,-26.79692c0.87201,-0.87201 0.87201,-2.286 0,-3.15802l-26.79692,-26.79692c-0.87201,-0.87201 -2.286,-0.87201 -3.15802,0l-26.79692,26.79692c-0.87201,0.87201 -0.87201,2.286 0,3.15802zM230.33849,165.05263l23.6389,23.6389l-23.6389,23.6389l-23.63888,-23.6389zM319.66156,165.05263l23.6389,23.6389l-23.6389,23.6389l-23.6389,-23.6389zM246.6241,234.93208l26.79692,26.79692c0.87201,0.87201 2.286,0.87201 3.15802,0l26.79692,-26.79692c0.87201,-0.87201 0.87201,-2.286 0,-3.15802l-26.79692,-26.79692c-0.87201,-0.87201 -2.286,-0.87201 -3.15802,0l-26.79692,26.79692c-0.87201,0.87201 -0.87201,2.286 0,3.15802zM275.00003,209.71417l23.6389,23.6389l-23.6389,23.6389l-23.6389,-23.6389z"
-            ></path>
-        
+
+        <path
+          d="M246.6241,145.60901l26.79692,26.79692c0.87201,0.87201 2.286,0.87201 3.15802,0l26.79692,-26.79692c0.87201,-0.87201 0.87201,-2.286 0,-3.15802l-26.79692,-26.79694c-0.87201,-0.87207 -2.286,-0.87207 -3.15802,0l-26.79692,26.79694c-0.87201,0.87201 -0.87201,2.286 0,3.15802zM275.00003,120.39112l23.6389,23.63888l-23.6389,23.6389l-23.6389,-23.6389zM201.96254,190.27054l26.79694,26.79692c0.87201,0.87201 2.286,0.87201 3.15802,0l26.79692,-26.79692c0.87201,-0.87201 0.87201,-2.286 0,-3.15802l-26.79692,-26.79692c-0.87201,-0.87201 -2.286,-0.87201 -3.15802,0l-26.79694,26.79692c-0.87207,0.87201 -0.87207,2.286 0,3.15802zM291.28563,190.27054l26.79692,26.79692c0.87201,0.87201 2.286,0.87201 3.15802,0l26.79692,-26.79692c0.87201,-0.87201 0.87201,-2.286 0,-3.15802l-26.79692,-26.79692c-0.87201,-0.87201 -2.286,-0.87201 -3.15802,0l-26.79692,26.79692c-0.87201,0.87201 -0.87201,2.286 0,3.15802zM230.33849,165.05263l23.6389,23.6389l-23.6389,23.6389l-23.63888,-23.6389zM319.66156,165.05263l23.6389,23.6389l-23.6389,23.6389l-23.6389,-23.6389zM246.6241,234.93208l26.79692,26.79692c0.87201,0.87201 2.286,0.87201 3.15802,0l26.79692,-26.79692c0.87201,-0.87201 0.87201,-2.286 0,-3.15802l-26.79692,-26.79692c-0.87201,-0.87201 -2.286,-0.87201 -3.15802,0l-26.79692,26.79692c-0.87201,0.87201 -0.87201,2.286 0,3.15802zM275.00003,209.71417l23.6389,23.6389l-23.6389,23.6389l-23.6389,-23.6389z">
+        </path>
+
       </svg>
       <h1 class=" m-4 uppercase font-nunito text-center text-4xl font-extrabold text-gray-800 my-auto">coder store</h1>
-      <h2 class="uppercase mx-4 text-center text-xl font-semibold text-gray-800 my-auto"> El mejor eshop para vestirte</h2>
+      <h2 class="uppercase mx-4 text-center text-xl font-semibold text-gray-800 my-auto"> El mejor eshop para vestirte
+      </h2>
     </div>
 
 
   </div>
 
-<!-- Seccion de filtros -->
+  <!-- Seccion de filtros -->
 
-<div id="seccionCategorias" class="relative  overflow-auto bg-gray-100 dark:bg-gray-600 mt-8">
+  <div id="seccionCategorias" class="relative  overflow-auto bg-gray-100 dark:bg-gray-600 mt-8">
 
-  <div  class=" relative w-full  snap-x gap-10 overflowx-x-auto flex mx-auto  h-48 items-center  ">
-   
-    <div class="snap-center shrink-0 " >
-      <div class=" shrink-0 w-16 sm:w-24 ml-5 text-gray-800 dark:text-gray-200"> Categorias: </div>
+    <div class=" relative w-full  snap-x gap-10 overflowx-x-auto flex mx-auto  h-48 items-center  ">
+
+      <div class="snap-center shrink-0 ">
+        <div class=" shrink-0 w-16 sm:w-24 ml-5 text-gray-800 dark:text-gray-200"> Categorias: </div>
+      </div>
+
+      <div tabindex="0" onclick="filtrarPorCategoria('remera')"
+        class="relative w-32 h-32 shrink-0  snap-center cursor-pointer focus:circuloInterior">
+        <div id="circulo1" class="rounded-full overflow-hidden  ">
+          <img src="./res/img/prod/imgCat1.jpeg" alt="" class=" object-cover h-32 w-32">
+        </div>
+        <div
+          class=" absolute -bottom-0.5 bg-white left-0 right-0 text-center rounded-lg ring-2 ring-primary-300 text-primary-400">
+          <h6 class="">Remeras</h6>
+        </div>
+
+        <div id="catSelected0" class=" absolute w-7 h-7 top-0 right-2 bg-white z-50 rounded-full">
+          <svg class="text-green-600 bg-white rounded-full" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+
+        </div>
+      </div>
+      <div tabindex="0" onclick="filtrarPorCategoria('remera')"
+        class="relative w-32 h-32 shrink-0  snap-center cursor-pointer focus:circuloInterior">
+        <div id="circulo1" class="rounded-full overflow-hidden  ">
+          <img src="./res/img/prod/imgCat1.jpeg" alt="" class=" object-cover h-32 w-32">
+        </div>
+        <div
+          class=" absolute -bottom-0.5 bg-white left-0 right-0 text-center rounded-lg ring-2 ring-primary-300 text-primary-400">
+          <h6 class="">Remeras</h6>
+        </div>
+
+        <div id="catSelected0" class=" absolute w-7 h-7 top-0 right-2 bg-white z-50 rounded-full">
+          <svg class="text-green-600 bg-white rounded-full" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+
+        </div>
+      </div>
+      <div tabindex="0" onclick="filtrarPorCategoria('remera')"
+        class="relative w-32 h-32 shrink-0  snap-center cursor-pointer focus:circuloInterior">
+        <div id="circulo1" class="rounded-full overflow-hidden  ">
+          <img src="./res/img/prod/imgCat1.jpeg" alt="" class=" object-cover h-32 w-32">
+        </div>
+        <div
+          class=" absolute -bottom-0.5 bg-white left-0 right-0 text-center rounded-lg ring-2 ring-primary-300 text-primary-400">
+          <h6 class="">Remeras</h6>
+        </div>
+
+        <div id="catSelected0" class=" absolute w-7 h-7 top-0 right-2 bg-white z-50 rounded-full">
+          <svg class="text-green-600 bg-white rounded-full" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+
+        </div>
+      </div>
+      <div tabindex="0" onclick="filtrarPorCategoria('remera')"
+        class="relative w-32 h-32 shrink-0  snap-center cursor-pointer focus:circuloInterior">
+        <div id="circulo1" class="rounded-full overflow-hidden  ">
+          <img src="./res/img/prod/imgCat1.jpeg" alt="" class=" object-cover h-32 w-32">
+        </div>
+        <div
+          class=" absolute -bottom-0.5 bg-white dark:bg-gray-800 dark:text-gray-200 dark:ring-gray-600 dark:ring-3 left-0 right-0 text-center rounded-lg ring-2 ring-primary-300 text-primary-400">
+          <h6 class="">Remeras</h6>
+        </div>
+
+        <div id="catSelected0" class=" absolute w-7 h-7 top-0 right-2 bg-white z-50 rounded-full catSelected">
+          <svg class="text-green-600 bg-white rounded-full" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+
+        </div>
+      </div>
+
+
+
+      <div class="snap-center shrink-0">
+        <div class="shrink-0 w-4 sm:w-48"></div>
+      </div>
+
     </div>
 
-    <div tabindex="0" onclick="filtrarPorCategoria('remera')" class="relative w-32 h-32 shrink-0  snap-center cursor-pointer focus:circuloInterior">
-      <div  id="circulo1" class="rounded-full overflow-hidden  ">
-        <img src="./res/img/prod/imgCat1.jpeg" alt="" class=" object-cover h-32 w-32">
-      </div>
-      <div class=" absolute -bottom-0.5 bg-white left-0 right-0 text-center rounded-lg ring-2 ring-primary-300 text-primary-400">
-        <h6 class="">Remeras</h6>
-      </div>
-
-      <div id="catSelected0" class=" absolute w-7 h-7 top-0 right-2 bg-white z-50 rounded-full">
-        <svg class="text-green-600 bg-white rounded-full" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-        
-      </div>
-    </div>
-    <div tabindex="0" onclick="filtrarPorCategoria('remera')" class="relative w-32 h-32 shrink-0  snap-center cursor-pointer focus:circuloInterior">
-      <div  id="circulo1" class="rounded-full overflow-hidden  ">
-        <img src="./res/img/prod/imgCat1.jpeg" alt="" class=" object-cover h-32 w-32">
-      </div>
-      <div class=" absolute -bottom-0.5 bg-white left-0 right-0 text-center rounded-lg ring-2 ring-primary-300 text-primary-400">
-        <h6 class="">Remeras</h6>
-      </div>
-
-      <div id="catSelected0" class=" absolute w-7 h-7 top-0 right-2 bg-white z-50 rounded-full">
-        <svg class="text-green-600 bg-white rounded-full" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-        
-      </div>
-    </div>
-    <div tabindex="0" onclick="filtrarPorCategoria('remera')" class="relative w-32 h-32 shrink-0  snap-center cursor-pointer focus:circuloInterior">
-      <div  id="circulo1" class="rounded-full overflow-hidden  ">
-        <img src="./res/img/prod/imgCat1.jpeg" alt="" class=" object-cover h-32 w-32">
-      </div>
-      <div class=" absolute -bottom-0.5 bg-white left-0 right-0 text-center rounded-lg ring-2 ring-primary-300 text-primary-400">
-        <h6 class="">Remeras</h6>
-      </div>
-
-      <div id="catSelected0" class=" absolute w-7 h-7 top-0 right-2 bg-white z-50 rounded-full">
-        <svg class="text-green-600 bg-white rounded-full" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-        
-      </div>
-    </div>
-    <div tabindex="0" onclick="filtrarPorCategoria('remera')" class="relative w-32 h-32 shrink-0  snap-center cursor-pointer focus:circuloInterior">
-      <div  id="circulo1" class="rounded-full overflow-hidden  ">
-        <img src="./res/img/prod/imgCat1.jpeg" alt="" class=" object-cover h-32 w-32">
-      </div>
-      <div class=" absolute -bottom-0.5 bg-white dark:bg-gray-800 dark:text-gray-200 dark:ring-gray-600 dark:ring-3 left-0 right-0 text-center rounded-lg ring-2 ring-primary-300 text-primary-400">
-        <h6 class="">Remeras</h6>
-      </div>
-
-      <div id="catSelected0" class=" absolute w-7 h-7 top-0 right-2 bg-white z-50 rounded-full catSelected">
-        <svg class="text-green-600 bg-white rounded-full" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-        
-      </div>
-    </div>
-
-  
-
-    <div class="snap-center shrink-0">
-      <div class="shrink-0 w-4 sm:w-48"></div>
-    </div>
-    
   </div>
-  
-    </div>
 
 
 
@@ -519,7 +537,7 @@
 
 
   <!-- iniciacion de las clases, para que tailwind las compile en el css final y poder usarlas con el creador de tarjetas -->
-  <div class=" destacado conStock hidden bottom-20" >
+  <div class=" destacado conStock hidden bottom-20">
   </div>
   <div class="hidden animate__animated animate__fadeInUp fixed right-5 top-20 z-[51]">
     <div
@@ -558,25 +576,27 @@
   </div>
 
 
-    <div id="toastFiltro" class="animate__animated animate__fadeInUp hidden fixed left-5 bottom-10 z-[51]">
+  <div id="toastFiltro" class="animate__animated animate__fadeInUp hidden fixed left-5 bottom-10 z-[51]">
 
-      <div 
+    <div
       class="  flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-700"
       role="alert">
       ${icono}
-      <div class="ml-3 text-sm font-normal text-gray-800 bg-red-100 rounded-lg dark:bg-gray-800 dark:text-white">${msj}</div>
-    </div>
-    <div class= "absolute -top-2 -right-2 rounded-full bg-black dark:bg-white text-white dark:text-black cursor-pointer">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-black">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-    </svg>
-    
+      <div class="ml-3 text-sm font-normal text-gray-800 bg-red-100 rounded-lg dark:bg-gray-800 dark:text-white">${msj}
       </div>
+    </div>
+    <div class="absolute -top-2 -right-2 rounded-full bg-black dark:bg-white text-white dark:text-black cursor-pointer">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+        class="w-6 h-6 text-black">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+
+    </div>
   </div>
-  
 
 
-  <!-- fin de iniciacion de claes -->
+
+  <!-- fin de iniciacion de clases -->
 
   <div id="zonaProductos"
     class=" p-4 mx-auto my-4  lg:max-w-6xl grid grid-cols-1 grid-flow-dense md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center  ">
