@@ -89,11 +89,6 @@ searchNav.addEventListener('keyup',(e) => {
     }
 })
 
-/* searchNav.addEventListener("submit", (e)=> {
-    e.preventDefault()
-    crearToastFiltro('filtro', 'filtrado por: '+ searchNav.value , 1000)
-    searchNav.value =""
-}) */
 
 formNavBar.addEventListener("submit", (e)=>{
     e.preventDefault()
