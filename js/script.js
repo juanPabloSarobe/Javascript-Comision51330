@@ -35,8 +35,9 @@ let carrito = {
     idCarrito: "",
     usuario: {},
     contenidoCarrito: [],
-    costoEnvio: "",
-    total: 0
+    costoEnvio: 0,
+    total: 0,
+    items: 0
 }
 
 
@@ -324,7 +325,7 @@ function generarProductos(arrProd) {
 
 }
 
-const comprar = (id) => {
+function comprar(id) {
 
     const prodSelec = listaProductos.find(obj => obj.idProd == id)
     
@@ -360,14 +361,20 @@ const comprar = (id) => {
                     ${prodSelec.nombreProd} agregado al carrito
                     `)
              calcularTotal()
+             
         }
     }
 
     console.log(carrito)
 };
 
+function cuentaProductos(){
+    itemsBotonCarrito.innerHTML = carrito.items
+}
+
 function calcularTotal(){
     let valorTotal = 0
+    let itemsTotal = 0
     carrito.contenidoCarrito.forEach(element => {
         let valorParcial = 0
         for (let i = 0; i < element[1]; i++) {
@@ -375,11 +382,13 @@ function calcularTotal(){
             console.log(valorParcial)
         }
         valorTotal += valorParcial
+        itemsTotal += element[1]
         console.log(valorTotal)
 
     })
     carrito.total = valorTotal
-
+    carrito.items = itemsTotal
+    cuentaProductos()
     
 }
 

@@ -11,6 +11,7 @@ const searchOnMenu = d.querySelector('#searchOnMenu')
 const formDropdown = d.querySelector('#formDropdown')
 const formNavBar = d.querySelector('#formNavBar')
 const modalBg = d.querySelector('#modalBg')
+const botonCarrito = d.querySelector('#botonCarrito')
 
 
 
@@ -37,6 +38,13 @@ const formLogin = d.querySelector('#formLogin')
 const usuLabel = d.querySelector('#usuLabel')
 const usuIncorrecto = d.querySelector('#usuIncorrecto')
 const rememberMe = d.querySelector('#remember-me')
+
+/* Carrito de compras */
+const menuCarrito = d.querySelector('#menuCarrito')
+const cerrarCarrito = d.querySelector('#cerrarCarrito')
+const modalBgCarrito = d.querySelector('#modalBgCarrito')
+const itemsBotonCarrito = d.querySelector('#itemsBotonCarrito')
+
 let usuarioRegistrado
 
 function toggleMenu() {
@@ -83,6 +91,13 @@ function menuUsuToggle(){
     menuItemsRegistrado.classList.toggle('hidden')
 }
 
+function toogleCarrito(){
+    menuCarrito.classList.toggle('hidden')
+}
+
+botonCarrito.addEventListener('click', ()=>toogleCarrito())
+cerrarCarrito.addEventListener('click',()=> toogleCarrito())
+modalBgCarrito.addEventListener('click',()=> toogleCarrito())
 
 searchNav.addEventListener('keyup',(e) => {
     e.preventDefault()
