@@ -576,6 +576,4 @@ function generarCategorias(arrCat) {
     itemCat.innerHTML = divInicial + cadaCateg + divFinal
 
     seccionCategorias.appendChild(itemCat)
-
-
 }
