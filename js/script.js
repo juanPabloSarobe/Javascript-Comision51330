@@ -21,11 +21,29 @@ const tiposUsuario = [{
 }
 ]
 
+let usuEncontrado = {
+    idUsuario: "",
+    email: "",
+    nombre: "",
+    apellido: "",
+    pais: "",
+    estado: "",
+    localidad: "",
+}
+
+let carrito = {
+    idCarrito: "",
+    usuario: {},
+    contenidoCarrito: [],
+    costoEnvio: "",
+    total: 0
+}
+
+
 const listaProductos = []
 let prodSeleccionados = []
 let nuevaLista = []
 let usuario
-let idUsuEncontrado
 let indexUsuEncontrado
 let password
 let acceso = false
@@ -134,245 +152,6 @@ function crearNuevoUsuario(arrNewUser) {
 }
 
 
-function acceder() {
-
-    do {
-
-        usuario = prompt('Bienvenido a la tienda de compras. \nPor favor introduzca su email registrado')
-
-        if (usuario == null) {
-            avisarCancel()
-            break
-
-        } else if (usuarioReg.some((usu) => usu.email === usuario)) {
-
-            idUsuEncontrado = usuarioReg.findIndex(function (usuEnc) {
-                return usuEnc.email === usuario
-
-            })
-
-            password = prompt('Ahora introduzca su password')
-
-            if (password == null) {
-                avisarCancel()
-                break
-            } else if (password === usuarioReg[idUsuEncontrado].password) {
-                acceso = true
-
-
-            } else {
-                acceso = false
-            }
-
-
-        } else {
-
-            if (confirm('Usuario no registrado, desea crear un nuevo usuario?')) {
-                newUserPrompt()
-                continue
-            } else {
-                avisarCancel()
-                break
-            }
-
-
-
-        }
-
-        if (acceso == false) {
-            alert('Datos de acceso no válidos. por favor reintente')
-        }
-    } while (acceso !== true);
-
-    return usuario
-
-}
-
-function avisarCancel() {
-    alert("accion cancelada por el usuario")
-}
-
-
-
-
-
-function comprarProducto() {
-
-    while (continuaComprando !== false) {
-        let listaParaMostrar = listaProductos
-
-        do {
-            if (nuevaLista.length != 0) {
-                listaParaMostrar = nuevaLista
-            }
-            if (continuaComprando !== false && codigoProd !== null) {
-                codigoProd = prompt('Por favor indique el codigo del producto deseado \nSi el producto no aparece busquelo introduciendo parte de su nombre, por ej: zapa o vestido\n\n' + lista(listaParaMostrar))
-
-            }
-            validacion = verificaCodigo(codigoProd)
-            listaParaMostrar = validacion[1]
-
-        } while (validacion[0] == false && codigoProd !== null)
-
-        if (codigoProd !== null) {
-            let cantidad = ingresarCantidad()
-            prodSeleccionados.push([codigoProd, cantidad])
-        } else {
-            codigoProd = ''
-        }
-
-        continuaComprando = confirm('desea seguir comprando?')
-
-
-    }
-}
-
-function lista(listProdArr) {
-    listaProd = ''
-    if (listProdArr.length == 0) { listProdArr = listaProductos }
-
-    listProdArr.forEach(e => {
-        listaProd += 'codigo: ' + e.idProd + '  -   Producto: ' + e.nombreProd + '\n'
-
-    });
-    return listaProd
-}
-
-
-
-
-function verificaCodigo(codigo) {
-    let codVerif = false
-    nuevaLista = []
-    if (codigo == null) {
-        avisarCancel()
-        codVerif = false
-        continuaComprando = false
-    } else if (listaProductos.some((e) => e.idProd == codigo)) {
-        return codVerif = true
-    } else {
-        nuevaLista = listaProductos.filter((elem) => elem.nombreProd.toLowerCase().includes(codigo.toLowerCase()))
-    }
-
-    if (!codVerif && codigo !== null && nuevaLista.length === 0) { alert('el codigo ingresado no es correcto, por favor reintente') }
-    return [codVerif, nuevaLista]
-}
-
-function ingresarCantidad() {
-
-    do {
-        cantidad = parseInt(prompt('Por favor indique la cantidad de unidades'))
-    } while (isNaN(cantidad));
-
-
-    return cantidad
-
-}
-
-function abonarProductos() {
-    prodSeleccionados.forEach(e => {
-        const element = e[0]
-
-        const elemento = listaProductos.find(function (item) {
-            return item.idProd == element
-        })
-
-        if (elemento) {
-            listaFinal += `
-            item: ${elemento.idProd} Producto: ${elemento.nombreProd} 
-            Cantidad solicitada: ${e[1]} - Cantidad disponible: ${elemento.stockProd}
-            Precio unitario: ${elemento.precioProd}
-            
-            `
-            if (e[1] <= elemento.stockProd) {
-                cantidadProductos += e[1]
-                precioNeto += e[1] * elemento.precioProd
-
-            } else {
-                cantidadProductos += elemento.stockProd
-                precioNeto += elemento.stockProd * elemento.precioProd
-            }
-        }
-
-
-    })
-
-
-
-    pedidoFinal = 'Detalle de su pedido:\n' + listaFinal + 'Cantidad de Productos total: ' + cantidadProductos + '\n\tPrecio Neto total:'
-        + precioNeto + '\n\tPrecioFinal: ' + precioNeto * 1.21
-    return confirm(pedidoFinal + '\n\nDESEA ACEPTAR EL PEDIDO?')
-
-}
-
-
-
-function fechaRetiro() {
-    do {
-
-        diaCompra = prompt('indique el nombre del dia para ir a retirar')
-        if (diaCompra == null) {
-            diaCompra = 'repetir'
-        } else {
-            diaCompra = diaCompra.toLowerCase()
-        }
-        switch (diaCompra) {
-            case 'lunes':
-                alert('Día no disponible')
-                diaCompra = 'repetir'
-                break;
-            case 'martes':
-            case 'miercoles':
-            case 'viernes':
-                alert('Día habilitado')
-                break;
-            case 'jueves':
-                alert('Día Feriado')
-                diaCompra = 'repetir'
-                break;
-            case 'sabado':
-            case 'domingo':
-                alert('El negocio esta cerrado')
-                diaCompra = 'repetir'
-                break
-            default:
-                alert('valor ingresado incorrecto')
-
-                diaCompra = 'repetir'
-        }
-    } while (diaCompra == 'repetir')
-    return diaCompra
-}
-
-
-
-function init() {
-    usuario = acceder()
-
-    if (acceso) {
-        alert('Bienvenido/a ' + usuarioReg[idUsuEncontrado].nombre + ' a nuestro portal de compras. \nPor favor elige uno de los siguientes productos')
-        document.getElementById('saludoInicial').innerHTML = 'MUCHAS GRACIAS POR ELEGIRNOS'
-        cliente.innerHTML = usuarioReg[idUsuEncontrado].nombre.toUpperCase() + ' ' + usuarioReg[idUsuEncontrado].apellido.toUpperCase()
-        comprarProducto()
-
-
-    }
-
-    if (prodSeleccionados.length != 0) {
-        if (!abonarProductos()) {
-            alert('Lamentamos que cancele su compra, muchas gracias!!!')
-            pedido.innerHTML = pedidoFinal
-            saludo.innerHTML = 'Pedido no completado, lamentamos que cancele su compra, disculpe las molestias. Muchas gracias!!!'
-        } else {
-            diaCompra = fechaRetiro()
-            pedido.innerHTML = pedidoFinal
-            retiro.innerHTML = '\n\nDia de retiro: ' + diaCompra
-            saludo.innerHTML = 'MUCHAS GRACIAS POR SU COMPRA'
-            alert('MUCHAS GRACIAS POR ELEGIRNOS\n\nCliente: ' + usuarioReg[idUsuEncontrado].nombre.toUpperCase() + ' ' + usuarioReg[idUsuEncontrado].apellido.toUpperCase() + '\n' + pedidoFinal + '\n\nDia de retiro: ' + diaCompra)
-        }
-    }
-
-}
 
 /* Nueva seccion de funciones-------------------------------------- */
 
@@ -393,11 +172,37 @@ function catSelectedFalse() {
 
 
 window.onload = (e) => {
-    
+
     generarProductos(listaProductos)
     generarCategorias(categorias)
+    confirm('borrar storage??') ? localStorage.clear() : ''
+    recuperaUsuarioRegistrado()
+    verificaCarritoAbierto()
+
 }
 
+function guardaCarrito() {
+    localStorage.setItem('carritoLocal', JSON.stringify(carrito))
+}
+
+function verificaCarritoAbierto() {
+
+    const carritoAbierto = JSON.parse(localStorage.getItem('carritoLocal'))
+    if (carritoAbierto !== null) {
+
+        if (carritoAbierto.idCarrito !== "") {
+            carrito = carritoAbierto
+        } else {
+            carrito.idCarrito = Date.now()
+            guardaCarrito()
+        }
+    } else {
+        carrito.idCarrito = Date.now()
+        guardaCarrito()
+
+    }
+
+}
 
 function filtraPalabraClave(str) {
     catSelectedFalse()
@@ -407,7 +212,7 @@ function filtraPalabraClave(str) {
 
     generarProductos(nuevoArray2)
     toastOut()
-    
+
 }
 
 
@@ -422,7 +227,7 @@ function filtrarPorCategoria(cat, tabInx) {
     generarProductos(nuevoArray)
 
     document.getElementById(`selected${tabInx}`).classList.remove('hidden')
-    crearToastFiltro('filtro', 'filtrado por: '+cat)
+    crearToastFiltro('filtro', 'filtrado por: ' + cat)
 }
 
 function limpiarFiltros() {
@@ -522,15 +327,61 @@ function generarProductos(arrProd) {
 const comprar = (id) => {
 
     const prodSelec = listaProductos.find(obj => obj.idProd == id)
-    console.log(prodSelec)
-    toast('success', `
-${prodSelec.nombreProd} agregado al carrito
-`
-)
+    
+    if (carrito.contenidoCarrito.length === 0) {
+        carrito.contenidoCarrito.push([prodSelec, 1])
+        toast('success', `
+                    ${prodSelec.nombreProd} agregado al carrito
+                    `
+                     )
+        calcularTotal()
 
-prodSeleccionados.push([prodSelec, 1])
-console.log(prodSeleccionados)
+    } else {
+        if (carrito.contenidoCarrito.some(e => {
+            return e[0].idProd == prodSelec.idProd
+        })) {
+            const indice2 = carrito.contenidoCarrito.find(e => {
+             return e[0].idProd == prodSelec.idProd
+            })
+                if (indice2[1] < prodSelec.stockProd){
+                    indice2[1]++
+                    toast('success', `
+                    ${prodSelec.nombreProd} agregado al carrito
+                    `
+                     )
+                     calcularTotal()
+                    
+                }else{
+                    toast('error', 'Lo sentimos pero no queda mas Stock')
+                }
+        } else {
+            carrito.contenidoCarrito.push([prodSelec, 1])
+            toast('success', `
+                    ${prodSelec.nombreProd} agregado al carrito
+                    `)
+             calcularTotal()
+        }
+    }
+
+    console.log(carrito)
 };
+
+function calcularTotal(){
+    let valorTotal = 0
+    carrito.contenidoCarrito.forEach(element => {
+        let valorParcial = 0
+        for (let i = 0; i < element[1]; i++) {
+            valorParcial += element[0].precioProd
+            console.log(valorParcial)
+        }
+        valorTotal += valorParcial
+        console.log(valorTotal)
+
+    })
+    carrito.total = valorTotal
+
+    
+}
 
 
 

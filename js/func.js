@@ -36,6 +36,8 @@ const passLogin = d.querySelector('#passwordLogin')
 const formLogin = d.querySelector('#formLogin')
 const usuLabel = d.querySelector('#usuLabel')
 const usuIncorrecto = d.querySelector('#usuIncorrecto')
+const rememberMe = d.querySelector('#remember-me')
+let usuarioRegistrado
 
 function toggleMenu() {
     userMenu.classList.toggle('hidden')
@@ -135,12 +137,9 @@ formLogin.addEventListener('submit', (e) => {
     } else {
 
         if (v[1] === usuarioReg[indexUsuEncontrado].password) {
-            usuLabel.innerHTML = usuarioReg[indexUsuEncontrado].nombre
-            usuLabel.classList.remove('hidden')
-            navbarTitulo.classList.add('hidden')
-            acceso = true
+            registraUsuario(indexUsuEncontrado)
+            
             cerrarLogin()
-            menuUsuToggle()
             toast('success','Usuario identificado correctamente')
         } else {
             usuIncorrecto.classList.remove('hidden')
@@ -152,6 +151,47 @@ formLogin.addEventListener('submit', (e) => {
 
 
 
+function registraUsuario(index) {
+                
+    usuEncontrado.idUsuario = usuarioReg[index].idUsuario
+    usuEncontrado.email = usuarioReg[index].email
+    usuEncontrado.nombre = usuarioReg[index].nombre
+    usuEncontrado.apellido = usuarioReg[index].apellido
+    usuEncontrado.pais = usuarioReg[index].pais
+    usuEncontrado.localidad = usuarioReg[index].localidad
+    usuEncontrado.estado = usuarioReg[index].estado
+    
+    muestraUsuarioRegistrado()
+    rememberMe.checked ? localStorage.setItem('usuRegistrado', JSON.stringify(usuEncontrado)): ''
+
+    if (rememberMe.checked){
+        localStorage.setItem('usuRegistrado', JSON.stringify(usuEncontrado))
+        carrito.usuario = usuEncontrado
+        console.log(carrito)
+        guardaCarrito()
+    }else{
+        carrito.usuario = usuEncontrado
+        console.log(carrito)
+    }
+
+    acceso = true
+}
+
+function muestraUsuarioRegistrado(){
+    usuLabel.innerHTML = usuEncontrado.nombre
+    usuLabel.classList.remove('hidden')
+    navbarTitulo.classList.add( 'hidden')
+    menuUsuToggle()
+}
+
+function recuperaUsuarioRegistrado(){
+    usuarioRegistrado = JSON.parse(localStorage.getItem('usuRegistrado'))
+    if (usuarioRegistrado != null){
+        usuEncontrado = usuarioRegistrado
+        muestraUsuarioRegistrado()
+    }
+   
+}
 
 formRegister.addEventListener('submit', (e) => {
     e.preventDefault()
