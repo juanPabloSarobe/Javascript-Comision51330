@@ -393,8 +393,6 @@ function calcularTotal(){
     
 }
 
-
-
 function generarCategorias(arrCat) {
     seccionCategorias.innerHTML = ""
 
