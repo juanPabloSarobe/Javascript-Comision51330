@@ -312,16 +312,16 @@
         <h3 class="uppercase text-gray-800 font-nunito mt-2 dark:text-white">Calcular envío</h3>
         
         <div class=" flex">
-          <input class="m-1 mr-3 text-primary-700 checked:ring-primary-500" type="radio" name="envio" id="sinEnvio" checked>
+          <input onclick="procesarEnvio(this)" class="m-1 mr-3 text-primary-700 checked:ring-primary-500" type="radio" name="envio" id="sinEnvio" checked>
           <div>
             <label for="sinEnvio"> Retiro en showroom - <strong> Sin costo</strong> </label>
           </div>
         </div>
 
         <div class="flex">
-          <input class="m-1 mr-3 text-primary-700 checked:ring-primary-500" type="radio" name="envio" id="conEnvio" >
+          <input onclick="procesarEnvio(this)" class="m-1 mr-3 text-primary-700 checked:ring-primary-500" type="radio" name="envio" id="conEnvio" >
           <div>
-            <label for="conEnvio">Envio a todo el país por Correo Argentino - $1200</label>
+            <label id="conEnvio" for="conEnvio">Envio a todo el país por Correo Argentino - $120 </label>
           </div>
         </div>
           

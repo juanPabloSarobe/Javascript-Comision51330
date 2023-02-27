@@ -47,6 +47,7 @@ const itemsBotonCarrito = d.querySelector('#itemsBotonCarrito')
 const sectionProductos = d.querySelector('#sectionProductos')
 const subtotalDiv = d.querySelector('#subtotalDiv')
 const totalDiv = d.querySelector('#totalDiv')
+const conEnvio = d.querySelector('#conEnvio')
 
 
 let usuarioRegistrado
