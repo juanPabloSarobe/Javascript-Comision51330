@@ -328,13 +328,13 @@ function generarProductos(arrProd) {
 function comprar(id) {
 
     const prodSelec = listaProductos.find(obj => obj.idProd == id)
-    
+
     if (carrito.contenidoCarrito.length === 0) {
         carrito.contenidoCarrito.push([prodSelec, 1])
         toast('success', `
                     ${prodSelec.nombreProd} agregado al carrito
                     `
-                     )
+        )
         calcularTotal()
 
     } else {
@@ -342,44 +342,44 @@ function comprar(id) {
             return e[0].idProd == prodSelec.idProd
         })) {
             const indice2 = carrito.contenidoCarrito.find(e => {
-             return e[0].idProd == prodSelec.idProd
+                return e[0].idProd == prodSelec.idProd
             })
-                if (indice2[1] < prodSelec.stockProd){
-                    indice2[1]++
-                    toast('success', `
+            if (indice2[1] < prodSelec.stockProd) {
+                indice2[1]++
+                toast('success', `
                     ${prodSelec.nombreProd} agregado al carrito
                     `
-                     )
-                     calcularTotal()
-                    
-                }else{
-                    toast('error', 'Lo sentimos pero no queda mas Stock')
-                }
+                )
+                calcularTotal()
+
+            } else {
+                toast('error', 'Lo sentimos pero no queda mas Stock')
+            }
         } else {
             carrito.contenidoCarrito.push([prodSelec, 1])
             toast('success', `
                     ${prodSelec.nombreProd} agregado al carrito
                     `)
-             calcularTotal()
-             
+            calcularTotal()
+
         }
     }
 
     console.log(carrito)
 };
 
-function cuentaProductos(){
+function cuentaProductos() {
     itemsBotonCarrito.innerHTML = carrito.items
 }
 
-function calcularTotal(){
+function calcularTotal() {
     let valorTotal = 0
     let itemsTotal = 0
     carrito.contenidoCarrito.forEach(element => {
         let valorParcial = 0
         for (let i = 0; i < element[1]; i++) {
             valorParcial += element[0].precioProd
-           
+
         }
         valorTotal += valorParcial
         itemsTotal += element[1]
@@ -387,10 +387,12 @@ function calcularTotal(){
     })
     carrito.total = valorTotal
     carrito.items = itemsTotal
-    carrito.items > 0 ? (itemsBotonCarrito.classList.remove('hidden'), itemsBotonCarrito.classList.add('inline-flex')):""
-    carrito.items >= 10 ? itemsBotonCarrito.classList.add("w-6"):""
+    carrito.items > 0 ? (itemsBotonCarrito.classList.remove('hidden'), itemsBotonCarrito.classList.add('inline-flex')) : ""
+    carrito.items >= 10 ? itemsBotonCarrito.classList.add("w-6") : ""
     cuentaProductos()
-    
+    generarItemsCarrito()
+    actualizaTotalCarrito()
+
 }
 
 function generarCategorias(arrCat) {
@@ -435,4 +437,73 @@ function generarCategorias(arrCat) {
     itemCat.innerHTML = divInicial + cadaCateg + divFinal
 
     seccionCategorias.appendChild(itemCat)
+}
+
+
+function generarItemsCarrito() {
+    sectionProductos.innerHTML = ""
+    let itemCarrito = document.createElement('div')
+
+    let cadaItem = ""
+
+    carrito.contenidoCarrito.forEach((prod, index) => {
+        cadaItem +=
+            `
+        <div id="item${prod[0].idProd}" class="">
+          <div class="flex justify-between m-2">
+            <div class="w-16 min-w-[4rem] h-16 rounded-full overflow-hidden border border-gray-300">
+              <img src="./res/img/prod/${prod[0].imagenProd}" alt="">
+            </div>
+            <div class="flex-grow max-w-[110px] sm:max-w-[170px]  ml-2 text-gray-800 dark:text-white">
+              <h4 class=" truncate mr-0.5">${prod[0].nombreProd}</h4>
+              <h5 class="font-semibold ">$${prod[0].precioProd}</h5>
+              <div class="flex">
+                <div>
+                  <button>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-6 h-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M18 12H6" />
+                    </svg>
+                  </button>
+                    
+                </div>
+                <div class=" mx-2">
+                    ${prod[1]}
+                </div>
+                <div>
+                  <button>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-6 h-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                    </svg>
+                  </button>
+                    
+                  
+                </div>
+              </div>
+            </div>
+            <div class="text-black dark:text-white font-extrabold">
+              $${(prod[0].precioProd * prod[1])}
+            </div>
+            <div class="text-gray-800 dark:text-white mx-1">
+              <button>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                </svg>
+              </button>
+              
+            </div>
+          </div>
+          <hr class="bg-gray-300 h-0.5 mx-2">
+        </div>
+    `
+    })
+    itemCarrito.innerHTML = cadaItem
+    sectionProductos.appendChild(itemCarrito)
+
+}
+
+function actualizaTotalCarrito(){
+    subtotalDiv.innerHTML = `$${carrito.total}`
+    totalDiv.innerHTML = `$${carrito.total + carrito.costoEnvio}`
 }

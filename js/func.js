@@ -44,6 +44,10 @@ const menuCarrito = d.querySelector('#menuCarrito')
 const cerrarCarrito = d.querySelector('#cerrarCarrito')
 const modalBgCarrito = d.querySelector('#modalBgCarrito')
 const itemsBotonCarrito = d.querySelector('#itemsBotonCarrito')
+const sectionProductos = d.querySelector('#sectionProductos')
+const subtotalDiv = d.querySelector('#subtotalDiv')
+const totalDiv = d.querySelector('#totalDiv')
+
 
 let usuarioRegistrado
 
