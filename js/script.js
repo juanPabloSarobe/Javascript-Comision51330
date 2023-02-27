@@ -379,15 +379,16 @@ function calcularTotal(){
         let valorParcial = 0
         for (let i = 0; i < element[1]; i++) {
             valorParcial += element[0].precioProd
-            console.log(valorParcial)
+           
         }
         valorTotal += valorParcial
         itemsTotal += element[1]
-        console.log(valorTotal)
 
     })
     carrito.total = valorTotal
     carrito.items = itemsTotal
+    carrito.items > 0 ? (itemsBotonCarrito.classList.remove('hidden'), itemsBotonCarrito.classList.add('inline-flex')):""
+    carrito.items >= 10 ? itemsBotonCarrito.classList.add("w-6"):""
     cuentaProductos()
     
 }
