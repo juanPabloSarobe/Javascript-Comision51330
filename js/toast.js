@@ -161,6 +161,7 @@ function cleanToast() {
 
 
 
+/* Funcion sin terminar, esperando aprender AWAIT!!!!! */
 
 let resultado
 function confirmacion(tipo, msj, evento) {

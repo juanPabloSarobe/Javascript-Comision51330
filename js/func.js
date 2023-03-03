@@ -1,3 +1,6 @@
+
+
+/* En este archivo se maneja las vinculaciones con el DOM */
 const d = document
 
 /* Navbar */
@@ -13,13 +16,9 @@ const formNavBar = d.querySelector('#formNavBar')
 const modalBg = d.querySelector('#modalBg')
 const botonCarrito = d.querySelector('#botonCarrito')
 
-
-
-
 /* menu de usuario */
 const menuItemsLogin = d.querySelector('#menuItemsLogin')
 const menuItemsRegistrado = d.querySelector('#menuItemsRegistrado')
-
 
 /* Register Form */
 const email = d.querySelector('#email')
@@ -52,7 +51,12 @@ const conEnvio = d.querySelector('#conEnvio')
 const btnSeguirComprando = d.querySelector('#btnSeguirComprando')
 
 
-let usuarioRegistrado
+
+const contenedor = d.getElementById("zonaProductos");
+const seccionCategorias = d.querySelector("#seccionCategorias")
+const catSelected = d.getElementsByClassName("catSelected")
+
+
 
 function toggleMenu() {
     userMenu.classList.toggle('hidden')
@@ -61,7 +65,6 @@ function toggleMenu() {
 function toggleMobileMenu() {
     mobileMenu.classList.toggle('hidden')
 }
-
 
 emailLogin.addEventListener('input', () => {
     usuIncorrecto.classList.add('hidden')

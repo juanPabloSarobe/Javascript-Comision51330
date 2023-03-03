@@ -1,3 +1,5 @@
+/* ARchivo donde se ejecuta la logica de funcionamiento de la app */
+
 
 const usuarioReg = [{
     idUsuario: 1001,
@@ -12,7 +14,7 @@ const usuarioReg = [{
 
 }]
 
-
+/* aun sin implementar */
 const tiposUsuario = [{
     id: 0, tipo: 'Cliente'
 }
@@ -39,24 +41,16 @@ let carrito = {
     total: 0,
     items: 0
 }
+
 const costEnvio = 120
-
-
 const listaProductos = []
 let prodSeleccionados = []
-let nuevaLista = []
-let usuario
 let indexUsuEncontrado
 let password
 let acceso = false
-let codigoProd
 let listaProd = ''
-let continuaComprando
-let codigoVerificado
-let listaFinal = ''
-let precioNeto = 0
-let pedidoFinal = ''
-let cantidadProductos = 0
+let usuarioRegistrado
+
 
 
 class Usuarios {
@@ -124,6 +118,16 @@ const nuevoUsuario = new Usuarios(1002, 0, '12', '12', 'Pedro', 'Martinez', 'Arg
 nuevoUsuario.insertarUsuario()
 
 
+window.onload = (e) => {
+    generarProductos(listaProductos)
+    generarCategorias(categorias)
+    recuperaUsuarioRegistrado()
+    verificaCarritoAbierto()
+    calcularTotal()
+
+}
+
+
 
 function verifUsuario(val) {
 
@@ -137,8 +141,6 @@ function verifUsuario(val) {
     }
     return false
 }
-
-
 
 function crearNuevoUsuario(arrNewUser) {
 
@@ -154,16 +156,6 @@ function crearNuevoUsuario(arrNewUser) {
 }
 
 
-
-/* Nueva seccion de funciones-------------------------------------- */
-
-const contenedor = document.getElementById("zonaProductos");
-const seccionCategorias = document.querySelector("#seccionCategorias")
-const catSelected = document.getElementsByClassName("catSelected")
-
-
-
-
 function catSelectedFalse() {
     for (let i = 0; i < categorias.length; i++) {
         document.getElementById(`selected${i}`).classList.add('hidden')
@@ -172,16 +164,6 @@ function catSelectedFalse() {
 }
 
 
-
-window.onload = (e) => {
-
-    generarProductos(listaProductos)
-    generarCategorias(categorias)
-    recuperaUsuarioRegistrado()
-    verificaCarritoAbierto()
-    calcularTotal()
-
-}
 function borrarLocalStorage(){
     localStorage.clear()
     toast('success','Local Storage borrado Se volvera a cargar la página en 3 segundos')
@@ -414,7 +396,6 @@ function comprar(id) {
         }
     }
 
-    console.log(carrito)
 };
 
 function cuentaProductos() {
@@ -448,7 +429,6 @@ function calcularTotal() {
 
 function generarCategorias(arrCat) {
     seccionCategorias.innerHTML = ""
-
 
     let itemCat = document.createElement('div')
 
@@ -559,7 +539,6 @@ function actualizaTotalCarrito(){
     totalDiv.innerHTML = `$${carrito.total + carrito.costoEnvio}`
     carrito.costoEnvio == 120 ? (sinEnvio.checked = false, conEnvio.checked = true) : (sinEnvio.checked = true, conEnvio.checked = false)
     guardaCarrito()
-
 
 }
 
