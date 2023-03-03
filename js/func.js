@@ -47,7 +47,9 @@ const itemsBotonCarrito = d.querySelector('#itemsBotonCarrito')
 const sectionProductos = d.querySelector('#sectionProductos')
 const subtotalDiv = d.querySelector('#subtotalDiv')
 const totalDiv = d.querySelector('#totalDiv')
+const sinEnvio = d.querySelector('#sinEnvio')
 const conEnvio = d.querySelector('#conEnvio')
+const btnSeguirComprando = d.querySelector('#btnSeguirComprando')
 
 
 let usuarioRegistrado
@@ -103,6 +105,7 @@ function toogleCarrito(){
 botonCarrito.addEventListener('click', ()=>toogleCarrito())
 cerrarCarrito.addEventListener('click',()=> toogleCarrito())
 modalBgCarrito.addEventListener('click',()=> toogleCarrito())
+btnSeguirComprando.addEventListener('click',()=> toogleCarrito())
 
 searchNav.addEventListener('keyup',(e) => {
     e.preventDefault()
@@ -182,16 +185,13 @@ function registraUsuario(index) {
     usuEncontrado.estado = usuarioReg[index].estado
     
     muestraUsuarioRegistrado()
-    rememberMe.checked ? localStorage.setItem('usuRegistrado', JSON.stringify(usuEncontrado)): ''
-
+    
     if (rememberMe.checked){
         localStorage.setItem('usuRegistrado', JSON.stringify(usuEncontrado))
         carrito.usuario = usuEncontrado
-        console.log(carrito)
         guardaCarrito()
     }else{
-        carrito.usuario = usuEncontrado
-        console.log(carrito)
+        sessionStorage.setItem('usuRegistrado', JSON.stringify(usuEncontrado))
     }
 
     acceso = true

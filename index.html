@@ -5,11 +5,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>CoderStore</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="style/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="shortcut icon" href="./res/img/prod/logoCoderStore.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -168,9 +169,14 @@
                   class="block px-4 py-2 text-sm hover:bg-gray-300 text-gray-700 dark:bg-gray-600 dark:hover:bg-gray-700 dark:text-gray-300"
                   role="menuitem" tabindex="-1" id="itemTuPerfil">Tu perfil</a>
                 <a href="#"
-                  onclick="confirmacion('','Esta seguro que desea cerrar sesion?','cierreSesion'); toggleMenu()"
+                  onclick="confirmacion('','Esta seguro que desea cerrar sesion? <br> Funcion aun no implementada, esperando para practicar Async','cierreSesion'); toggleMenu()"
                   class="block px-4 py-2 text-sm hover:bg-gray-300 text-gray-700 dark:bg-gray-600 dark:hover:bg-gray-700 dark:text-gray-300"
                   role="menuitem" tabindex="-1" id="ItemCerrarSesion">Cerrar Sesión</a>
+              </div>
+              <div>
+                <a href="#" onclick="borrarLocalStorage()"
+                  class="block px-4 py-2 text-sm hover:bg-gray-300 text-gray-700 dark:bg-gray-600 dark:hover:bg-gray-700 dark:text-gray-300"
+                  role="menuitem" tabindex="-1" id="itemTemp" >Borrar Local Storage (Only for debug)</a>
               </div>
             </div>
           </div>
@@ -312,7 +318,7 @@
         <h3 class="uppercase text-gray-800 font-nunito mt-2 dark:text-white">Calcular envío</h3>
         
         <div class=" flex">
-          <input onclick="procesarEnvio(this)" class="m-1 mr-3 text-primary-700 checked:ring-primary-500" type="radio" name="envio" id="sinEnvio" checked>
+          <input onclick="procesarEnvio(this)" class="m-1 mr-3 text-primary-700 checked:ring-primary-500" type="radio" name="envio" id="sinEnvio" >
           <div>
             <label for="sinEnvio"> Retiro en showroom - <strong> Sin costo</strong> </label>
           </div>
@@ -351,7 +357,7 @@
         </button>
       </div>
       <div class="mx-2">
-        <button class="bg-gray-400  dark:bg-gray-300  hover:bg-gray-500 dark:hover:bg-gray-400 w-full py-2 ">
+        <button id="btnSeguirComprando" class="bg-gray-400  dark:bg-gray-300  hover:bg-gray-500 dark:hover:bg-gray-400 w-full py-2 ">
           <h3 class="uppercase font-semibold text-lg text-gray-800 font-nunito mx-2 ">seguir comprando</h3>
         </button>
       </div>

@@ -177,12 +177,20 @@ window.onload = (e) => {
 
     generarProductos(listaProductos)
     generarCategorias(categorias)
-    confirm('borrar storage??') ? localStorage.clear() : ''
     recuperaUsuarioRegistrado()
     verificaCarritoAbierto()
+    calcularTotal()
 
 }
-
+function borrarLocalStorage(){
+    localStorage.clear()
+    toast('success','Local Storage borrado Se volvera a cargar la página en 3 segundos')
+    setTimeout(winReload,3000)
+    
+}
+function winReload(){
+    window.location.reload()
+}
 function guardaCarrito() {
     localStorage.setItem('carritoLocal', JSON.stringify(carrito))
 }
@@ -194,6 +202,8 @@ function verificaCarritoAbierto() {
 
         if (carritoAbierto.idCarrito !== "") {
             carrito = carritoAbierto
+            generarItemsCarrito()
+            actualizaTotalCarrito()
         } else {
             carrito.idCarrito = Date.now()
             guardaCarrito()
@@ -431,6 +441,8 @@ function calcularTotal() {
     cuentaProductos()
     generarItemsCarrito()
     actualizaTotalCarrito()
+    guardaCarrito()
+
 
 }
 
@@ -545,6 +557,10 @@ function generarItemsCarrito() {
 function actualizaTotalCarrito(){
     subtotalDiv.innerHTML = `$${carrito.total}`
     totalDiv.innerHTML = `$${carrito.total + carrito.costoEnvio}`
+    carrito.costoEnvio == 120 ? (sinEnvio.checked = false, conEnvio.checked = true) : (sinEnvio.checked = true, conEnvio.checked = false)
+    guardaCarrito()
+
+
 }
 
 function procesarEnvio(radio){
