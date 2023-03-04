@@ -124,7 +124,13 @@ formNavBar.addEventListener("submit", (e)=>{
     searchNav.value = ""
 })
 
-searchOnMenu.addEventListener('keyup', () => filtraPalabraClave(searchOnMenu.value))
+searchOnMenu.addEventListener('keyup', (e) => {
+    e.preventDefault()
+    if (e.key != "Enter"){
+    filtraPalabraClave(searchOnMenu.value)
+    }
+
+})
 
 formDropdown.addEventListener("submit",(e)=> {    
     e.preventDefault()
