@@ -380,7 +380,7 @@
   </div>
 
   <!-- Seccion checkOut -------------------------------------------- -->
-  <div id="checkout" class=" hidden overflow-hidden overscroll-contain fixex inset-0 ">
+  <div id="checkout" class="  overflow-hidden overscroll-contain fixex inset-0 ">
     <div id="modalBgCheckout" class="fixed inset-0 min-h-screen bg-gray-500 opacity-75 z-[53]">
 
     </div>
@@ -405,21 +405,199 @@
 
 
       <div id="zonaCheckout" class="flex flex-col-reverse md:flex-row justify-end m-0 dm:m-2  max-h-[92%] ">
-        <div id="zonaValuesCheckout" class=" md:w-2/3 md:h-auto h-2/3 border border-gray-500">
-          
+        <div id="zonaValuesCheckout"
+          class=" md:w-2/3 md:h-auto h-1/2 overflow-auto max-h-[650px] overscroll-auto bg-white rounded-lg mt-4 sm:mt-0 sm:mx-4 shadow-lg border border-gray-500">
 
+          <div class="px-6 pt-0 sm:px-8 sm:pt-0 sm:flex sm:justify-between ">
 
+            <h2 class="mt-1 ml-1 text-left text-xl font-bold tracking-tight text-gray-900 dark:text-white">Datos de
+              envío y Pago
+            </h2>
+            <p class="mt-0.5 ml-1 text-left sm:text-right text-sm text-gray-600 dark:text-gray-400 sm:self-center">
+              Ya tienes cuenta?
+              <br class="hidden sm:block">
+              <a href="#" onclick="abrirLogin()"
+                class="font-medium text-primary-600 hover:text-primary-500">Ingresar</a>
+              o
+              <a href="#" onclick="abrirRegister()" class="font-medium text-primary-500 hover:text-primary-400">Crear
+                cuenta</a>
+            </p>
+          </div>
+
+          <div class="p-6 pt-1  space-y-2 md:space-y-4 sm:p-8 sm:pt-4">
+            <form id="formCheckout" class="space-y-1 md:space-y-4" action="#">
+              <div>
+                <h2 class="mt-1 ml-1 text-left text-sm font-semibold text-gray-700 dark:text-white">Complete sus datos
+                </h2>
+              </div>
+              <div>
+
+                <input type="email" name="email" id="email"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  placeholder="email" required="">
+                <p id="usuExistente" class="text-primary-500 hidden ">*el usuario ya existe</p>
+              </div>
+              
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 ">
+                <div>
+                  <input type="text" name="Nombre" id="nombre" placeholder="Nombre"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    required="">
+                </div>
+                <div>
+                  <input type="text" name="Apellido" id="apellido" placeholder="Apellido"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    required="">
+                </div>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 ">
+                <div>
+                  <input type="text" name="Pais" id="pais" placeholder="País"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    required="">
+                </div>
+                <div>
+                  <input type="text" name="Provincia" id="provincia" placeholder="Provincia"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    required="">
+                </div>
+
+              </div>
+              <div>
+
+                <input type="text" name="Localidad" id="localidad"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  placeholder="Localidad" required="">
+               
+              </div>
+              <div>
+
+                <input type="text" name="Direccion" id="direccion"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  placeholder="Dirección" required="">
+             </div>
+
+             <section>
+              <div id="accordionCollapsedPagos">
+                <h2 class="text-center"> Medios de Pago
+                  <button id="accordionTitlePagos1" type="button"
+                    class="flex items-center justify-between w-full p-3 font-light text-left bg-gray-200 text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <span class=" ">Tarjeta de crédito o débito</span>
+                    <div class="flex">
+                      <svg id="accordionTitlePagosIcon1" class="w-6 h-6 transition ease-in-out delay-150 -rotate-90 shrink-0"
+                        fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </div>
+                  </button>
+    
+                </h2>
+    
+                <div id="accordionBodyPagos1" class="transition ease-in-out duration-1000 w-full  hidden">
+                  <div class=" font-light  dark:bg-gray-900 w-full">
+
+                    <div class="flex justify-between mx-2">
+                      <div class="uppercase font-bold text-3xl text-gray-800 font-nunito mt-2 dark:text-white">Total
+                      </div>
+                      <div id="totalDivCheckout"
+                        class="uppercase font-bold text-3xl text-gray-800 font-nunito mt-2 dark:text-white">$0
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <!-- acordion 2 -->
+
+                <h2 >
+                  <button id="accordionTitlePagos2" type="button"
+                    class="flex items-center justify-between w-full p-3 font-light text-left bg-gray-200 text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <span class=" ">Transferencia Bancaria</span>
+                    <div class="flex">
+                      <svg id="accordionTitlePagosIcon2" class="w-6 h-6 transition ease-in-out delay-150 -rotate-90 shrink-0"
+                        fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </div>
+                  </button>
+    
+                </h2>
+    
+                <div id="accordionBodyPagos2" class="transition ease-in-out duration-1000 w-full  hidden">
+                  <div class=" font-light  dark:bg-gray-900 w-full">
+                    
+                    <div class="flex justify-between mx-2">
+                      <div class="uppercase font-bold text-3xl text-gray-800 font-nunito mt-2 dark:text-white">Total
+                      </div>
+                      <div id="totalDivCheckout"
+                        class="uppercase font-bold text-3xl text-gray-800 font-nunito mt-2 dark:text-white">$0
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <!-- Accordion 3 -->
+
+                <h2>
+                  <button id="accordionTitlePagos3" type="button"
+                    class="flex items-center justify-between w-full p-3 font-light text-left bg-gray-200 text-gray-500 border border-b-0 border-gray-200 rounded-b-xl focus:rounded-b-none focus:rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <span class="flex ">
+                      <img class="h-6" src="./res/img/logo-mercado-pago.webp" alt="logo mercado pago">
+                    </span>
+                    
+                    <div class="flex">
+                      <svg id="accordionTitlePagosIcon3" class="w-6 h-6 transition ease-in-out delay-150 -rotate-90 shrink-0"
+                        fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </div>
+                  </button>
+    
+                </h2>
+    
+                <div id="accordionBodyPagos3" class="transition ease-in-out duration-1000 w-full hidden">
+                  <div class=" font-light  dark:bg-gray-900 w-full">
+                    
+                    <div class="flex justify-between mx-2">
+                      <div class="uppercase font-bold text-3xl text-gray-800 font-nunito mt-2 dark:text-white">Total
+                      </div>
+                      <div id="totalDivCheckout"
+                        class="uppercase font-bold text-3xl text-gray-800 font-nunito mt-2 dark:text-white">$0
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+             </section>
+
+             
+
+              <button type="submit" id="crearCuenta" disabled
+                class="disabled:cursor-not-allowed disabled:opacity-70 w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                Crear la cuenta</button>
+
+            </form>
+          </div>
         </div>
 
-        <div id="zonaCarritoCheckout" class="md:w-1/3 md:h-auto  overflow-auto max-h-[650px] overscroll-auto">
+        <div id="zonaCarritoCheckout" class="h-1/2 md:w-1/3 md:h-auto min-h-[65px] overflow-auto max-h-[850px] overscroll-auto">
 
-          <div id="accordionCollapsed">
+          <div id="accordionCollapsed" class="h-1/2 md:h-auto">
             <h2>
               <button id="accordionCollapseTitle" type="button"
-                class="flex md:hidden items-center justify-between w-full p-5 font-medium text-left bg-gray-300 text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800">
+                class="flex md:hidden items-center justify-between w-full p-3 font-medium text-left bg-gray-300 text-gray-500 border border-b-0 border-gray-200 rounded-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800">
                 <span class="uppercase ">Carrito de compras</span>
                 <div class="flex">
-                  <span class="mx-3">$15000</span>
+                  <span id="accordionTitlePrecio" class="mx-3">$15000</span>
                   <svg id="accordionTitleIcon" class="w-6 h-6 transition ease-in-out delay-150 rotate-180 shrink-0"
                     fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
@@ -491,7 +669,7 @@
 
 
       </div>
-      
+
 
     </div>
 
@@ -620,7 +798,7 @@
 
   <!-- Modal section  log in form-->
 
-  <div id="logInForm" class="relative z-[51] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+  <div id="logInForm" class="relative z-[61] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
 
     <div id="logInBg" class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
@@ -719,7 +897,7 @@
 
   <!-- Modal section  register form-->
 
-  <div id="registerForm" class="relative z-[51] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+  <div id="registerForm" class="relative z-[60] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
 
     <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" onclick=""></div>
 
@@ -789,7 +967,7 @@
                 class="disabled:cursor-not-allowed disabled:opacity-70 w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                 Crear la cuenta</button>
               <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-                Ya tienen una cuenta? <a href="#" onclick="deRegisterALogin()"
+                Ya tienes una cuenta? <a href="#" onclick="deRegisterALogin()"
                   class="font-medium text-primary-600 hover:underline dark:text-primary-500">Ingresa aquí</a>
               </p>
             </form>

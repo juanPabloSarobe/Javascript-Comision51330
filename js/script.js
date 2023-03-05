@@ -10,7 +10,8 @@ const usuarioReg = [{
     apellido: 'Sarobe',
     pais: 'Argentina',
     estado: 'Neuquen',
-    Localidad: 'Neuquen',
+    localidad: 'Neuquen',
+    direccion: 'San Martin 1923'
 
 }]
 
@@ -54,7 +55,7 @@ let usuarioRegistrado
 
 
 class Usuarios {
-    constructor(idUsuario, tipoUsuario, email, password, nombre, apellido, pais, estado, localidad,) {
+    constructor(idUsuario, tipoUsuario, email, password, nombre, apellido, pais, estado, localidad,direccion) {
         this.idUsuario = idUsuario
         this.tipoUsuario = tipoUsuario
         this.email = email
@@ -64,6 +65,8 @@ class Usuarios {
         this.pais = pais
         this.estado = estado
         this.localidad = localidad
+        this.direccion = direccion
+
     }
     insertarUsuario() {
         usuarioReg.push(this)
@@ -114,7 +117,7 @@ productosArr.forEach(element => {
 
 })
 
-const nuevoUsuario = new Usuarios(1002, 0, '12', '12', 'Pedro', 'Martinez', 'Argentina', 'buenos Aires', 'La Plata');
+const nuevoUsuario = new Usuarios(1002, 0, '12', '12', 'Pedro', 'Martinez', 'Argentina', 'buenos Aires', 'La Plata', 'Calle 13 452, entre 65 y 66');
 nuevoUsuario.insertarUsuario()
 
 
@@ -575,6 +578,7 @@ function generarItemsCarrito() {
 function actualizaTotalCarrito(){
     subtotalDiv.innerHTML = `$${carrito.total}`
     subtotalDivChechout.innerHTML = `$${carrito.total}`
+    accordionTitlePrecio.innerHTML = `$${carrito.total}`
     envioDivCheckout.innerHTML = `$${carrito.costoEnvio}`
     totalDiv.innerHTML = `$${carrito.total + carrito.costoEnvio}`
     totalDivCheckout.innerHTML = `$${carrito.total + carrito.costoEnvio}`

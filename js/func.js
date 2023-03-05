@@ -63,6 +63,16 @@ const sectionProductosCheckout = d.querySelector('#sectionProductosCheckout')
 const subtotalDivChechout = d.querySelector('#subtotalDivChechout')
 const envioDivCheckout = d.querySelector('#envioDivCheckout')
 const totalDivCheckout = d.querySelector('#totalDivCheckout')
+const accordionTitlePrecio = d.querySelector('#accordionTitlePrecio')
+const accordionTitlePagos1 = d.querySelector('#accordionTitlePagos1')
+const accordionTitlePagos2 = d.querySelector('#accordionTitlePagos2')
+const accordionTitlePagos3 = d.querySelector('#accordionTitlePagos3')
+const accordionTitlePagosIcon1 = d.querySelector('#accordionTitlePagosIcon1')
+const accordionTitlePagosIcon2 = d.querySelector('#accordionTitlePagosIcon2')
+const accordionTitlePagosIcon3 = d.querySelector('#accordionTitlePagosIcon3')
+const accordionBodyPagos1 = d.querySelector('#accordionBodyPagos1')
+const accordionBodyPagos2 = d.querySelector('#accordionBodyPagos2')
+const accordionBodyPagos3 = d.querySelector('#accordionBodyPagos3')
 
 
 const contenedor = d.getElementById("zonaProductos");
@@ -84,8 +94,39 @@ function toogleAccordionTitleIcon(){accordionTitleIcon.classList.toggle('rotate-
 accordionCollapseTitle.addEventListener('click', ()=>{
     toogleaccordionCollapseBody()
     toogleAccordionTitleIcon()
-
+    
 })
+
+function toogleAccordionBodyPagos1(){accordionBodyPagos1.classList.toggle('hidden')}
+function toogleAccordionBodyPagos2(){accordionBodyPagos2.classList.toggle('hidden')}
+function toogleAccordionBodyPagos3(){accordionBodyPagos3.classList.toggle('hidden')}
+function toogleAccordionTitlePagos1(){accordionTitlePagos1.classList.toggle('hidden')}
+function toogleAccordionTitlePagos2(){accordionTitlePagos2.classList.toggle('hidden')}
+function toogleAccordionTitlePagos3(){accordionTitlePagos3.classList.toggle('hidden')}
+function toogleAccordionTitlePagosIcon1(){accordionTitlePagosIcon1.classList.toggle('-rotate-90')}
+function toogleAccordionTitlePagosIcon2(){accordionTitlePagosIcon2.classList.toggle('-rotate-90')}
+function toogleAccordionTitlePagosIcon3(){accordionTitlePagosIcon3.classList.toggle('-rotate-90')}
+
+accordionTitlePagos1.addEventListener('click', ()=>{
+    toogleAccordionBodyPagos1()
+    toogleAccordionTitlePagosIcon1()
+    toogleAccordionTitlePagos2()
+    toogleAccordionTitlePagos3()
+})
+accordionTitlePagos2.addEventListener('click', ()=>{
+    toogleAccordionBodyPagos2()
+    toogleAccordionTitlePagosIcon2()
+    toogleAccordionTitlePagos1()
+    toogleAccordionTitlePagos3()
+})
+accordionTitlePagos3.addEventListener('click', ()=>{
+    toogleAccordionBodyPagos3()
+    toogleAccordionTitlePagosIcon3()
+    toogleAccordionTitlePagos2()
+    toogleAccordionTitlePagos1()
+})
+
+
 
 function toggleMenu() {
     userMenu.classList.toggle('hidden')
