@@ -185,6 +185,7 @@ function verificaCarritoAbierto() {
         if (carritoAbierto.idCarrito !== "") {
             carrito = carritoAbierto
             generarItemsCarrito()
+            generarItemsCheckout()
             actualizaTotalCarrito()
         } else {
             carrito.idCarrito = Date.now()
@@ -422,6 +423,7 @@ function calcularTotal() {
     cuentaProductos()
     generarItemsCarrito()
     actualizaTotalCarrito()
+    generarItemsCheckout()
     guardaCarrito()
 
 
@@ -456,6 +458,7 @@ function generarCategorias(arrCat) {
           
             </div>
         </div>
+        
         `
     })
 
@@ -468,6 +471,41 @@ function generarCategorias(arrCat) {
     itemCat.innerHTML = divInicial + cadaCateg + divFinal
 
     seccionCategorias.appendChild(itemCat)
+}
+
+function generarItemsCheckout(){
+
+    sectionProductosCheckout.innerHTML = ""
+    let itemcheckout = document.createElement('div')
+    itemcheckout.classList.add('flex', 'flex-col')
+
+    let cadaItemCheckout = ""
+    
+    carrito.contenidoCarrito.forEach((prod) =>{
+        
+        cadaItemCheckout +=
+        `<div id="itemCheckout${prod[0].idProd}" class="flex flex-auto m-2 max-w-[100%]">
+                     
+        <div class="w-8 min-w-[2rem]  h-8 rounded-full overflow-hidden ">
+          <img src="./res/img/prod/${prod[0].imagenProd}" alt="">
+        </div>
+        <div class=" flex-grow max-w-full ml-2 text-gray-800 dark:text-white">
+          <h4 class=" max-w-[100%]  mr-0.5">${prod[0].nombreProd} X ${prod[1]}</h4>
+        
+
+        </div>
+        <div class="text-black dark:text-white font-extrabold">
+        $${prod[0].precioProd}
+        </div>
+
+      </div>
+      <hr class="bg-gray-300 h-0.5 mx-2">
+        `
+
+    })
+    itemcheckout.innerHTML = cadaItemCheckout
+    sectionProductosCheckout.appendChild(itemcheckout)
+
 }
 
 
@@ -536,7 +574,10 @@ function generarItemsCarrito() {
 
 function actualizaTotalCarrito(){
     subtotalDiv.innerHTML = `$${carrito.total}`
+    subtotalDivChechout.innerHTML = `$${carrito.total}`
+    envioDivCheckout.innerHTML = `$${carrito.costoEnvio}`
     totalDiv.innerHTML = `$${carrito.total + carrito.costoEnvio}`
+    totalDivCheckout.innerHTML = `$${carrito.total + carrito.costoEnvio}`
     carrito.costoEnvio == 120 ? (sinEnvio.checked = false, conEnvio.checked = true) : (sinEnvio.checked = true, conEnvio.checked = false)
     guardaCarrito()
 

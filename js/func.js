@@ -49,14 +49,43 @@ const totalDiv = d.querySelector('#totalDiv')
 const sinEnvio = d.querySelector('#sinEnvio')
 const conEnvio = d.querySelector('#conEnvio')
 const btnSeguirComprando = d.querySelector('#btnSeguirComprando')
+const btnFinCompra = d.querySelector('#btnFinCompra')
 
+/* Checkout */
+
+const cerrarCheckout = d.querySelector('#cerrarCheckout')
+const checkout = d.querySelector('#checkout')
+const modalBgCheckout = d.querySelector('#modalBgCheckout')
+const accordionCollapseTitle = d.querySelector('#accordionCollapseTitle')
+const accordionCollapseBody = d.querySelector('#accordionCollapseBody')
+const accordionTitleIcon = d.querySelector('#accordionTitleIcon')
+const sectionProductosCheckout = d.querySelector('#sectionProductosCheckout')
+const subtotalDivChechout = d.querySelector('#subtotalDivChechout')
+const envioDivCheckout = d.querySelector('#envioDivCheckout')
+const totalDivCheckout = d.querySelector('#totalDivCheckout')
 
 
 const contenedor = d.getElementById("zonaProductos");
 const seccionCategorias = d.querySelector("#seccionCategorias")
 const catSelected = d.getElementsByClassName("catSelected")
 
+function toogleCheckout() {checkout.classList.toggle('hidden')}
 
+cerrarCheckout.addEventListener('click',()=>{
+    toogleCheckout()
+})
+modalBgCheckout.addEventListener('click',()=>{
+    toogleCheckout()
+})
+
+function toogleaccordionCollapseBody(){accordionCollapseBody.classList.toggle('hidden')}
+function toogleAccordionTitleIcon(){accordionTitleIcon.classList.toggle('rotate-180')}
+
+accordionCollapseTitle.addEventListener('click', ()=>{
+    toogleaccordionCollapseBody()
+    toogleAccordionTitleIcon()
+
+})
 
 function toggleMenu() {
     userMenu.classList.toggle('hidden')
@@ -109,6 +138,10 @@ botonCarrito.addEventListener('click', ()=>toogleCarrito())
 cerrarCarrito.addEventListener('click',()=> toogleCarrito())
 modalBgCarrito.addEventListener('click',()=> toogleCarrito())
 btnSeguirComprando.addEventListener('click',()=> toogleCarrito())
+btnFinCompra.addEventListener('click',()=> { 
+    toogleCheckout()
+    toogleCarrito()
+})
 
 searchNav.addEventListener('keyup',(e) => {
     e.preventDefault()

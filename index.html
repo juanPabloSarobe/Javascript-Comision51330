@@ -176,7 +176,7 @@
               <div>
                 <a href="#" onclick="borrarLocalStorage()"
                   class="block px-4 py-2 text-sm hover:bg-gray-300 text-gray-700 dark:bg-gray-600 dark:hover:bg-gray-700 dark:text-gray-300"
-                  role="menuitem" tabindex="-1" id="itemTemp" >Borrar Local Storage (Only for debug)</a>
+                  role="menuitem" tabindex="-1" id="itemTemp">Borrar Local Storage (Only for debug)</a>
               </div>
             </div>
           </div>
@@ -229,39 +229,42 @@
   </div>
 
 
-<!-- Inicio seccion carrito----------------------------------- -->
+  <!-- Inicio seccion carrito----------------------------------- -->
 
 
   <div id="menuCarrito" class=" hidden fixex  inset-0 ">
     <div id="modalBgCarrito" class="fixed inset-0 min-h-screen bg-gray-500 opacity-75 z-[52]">
 
     </div>
-    
-    <div id="" class="fixed top-0 right-0 overflow-y-scroll h-screen max-w-[95vw] w-96  bg-gray-100 dark:bg-gray-600 space-y-1 rounded-l-xl shadow-xl shadow-gray-900 px-2 pt-2 pb-3 z-[53]">
-      
+
+    <div id=""
+      class="fixed top-0 right-0 overflow-y-scroll h-screen max-w-[95vw] w-96  bg-gray-100 dark:bg-gray-600 space-y-1 rounded-l-xl shadow-xl shadow-gray-900 px-2 pt-2 pb-3 z-[53]">
+
       <div class="flex justify-between ">
         <h3 class=" m-3 text-gray-800 dark:text-white uppercase font-nunito">Carrito de compras</h3>
-        
-        <div class="  text-gray-800 dark:text-white" >
+
+        <div class="  text-gray-800 dark:text-white">
           <button id="cerrarCarrito">
-               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 mt-1.5">
-              <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z" clip-rule="evenodd" />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 mt-1.5">
+              <path fill-rule="evenodd"
+                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                clip-rule="evenodd" />
             </svg>
           </button>
         </div>
-        
+
       </div>
       <hr class="bg-gray-300 h-0.5 mx-2">
-      
+
       <div class=" flex justify-between mx-2">
         <h3 class="uppercase text-gray-800 font-nunito my-2 dark:text-white">Producto</h3>
         <h3 class="uppercase text-gray-800 font-nunito my-2 dark:text-white">Subtotal</h3>
       </div>
-      
+
       <hr class="bg-gray-300 h-0.5 mx-2">
-      
+
       <section id="sectionProductos">
-         
+
         <div id="" class="hidden">
           <div class="flex justify-between m-2">
             <div class="w-16 min-w-[4rem] h-16 rounded-full overflow-hidden border border-gray-300">
@@ -274,24 +277,26 @@
                 <div>
                   <button>
 
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-6 h-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
+                      stroke="currentColor" class="w-6 h-6">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M18 12H6" />
                     </svg>
                   </button>
-                    
+
                 </div>
                 <div class=" mx-2">
-                    10
+                  10
                 </div>
                 <div>
                   <button>
 
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-6 h-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
+                      stroke="currentColor" class="w-6 h-6">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
                     </svg>
                   </button>
-                    
-                  
+
+
                 </div>
               </div>
             </div>
@@ -300,74 +305,197 @@
             </div>
             <div class="text-gray-800 dark:text-white mx-1">
               <button>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                  stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
                 </svg>
               </button>
-              
+
             </div>
           </div>
           <hr class="bg-gray-300 h-0.5 mx-2">
         </div>
-        
+
 
 
       </section>
-    
+
       <fieldset class="mx-2 flex flex-col gap-y-3 text-black dark:text-white">
         <h3 class="uppercase text-gray-800 font-nunito mt-2 dark:text-white">Calcular envío</h3>
-        
+
         <div class=" flex">
-          <input onclick="procesarEnvio(this)" class="m-1 mr-3 text-primary-700 checked:ring-primary-500" type="radio" name="envio" id="sinEnvio" >
+          <input onclick="procesarEnvio(this)" class="m-1 mr-3 text-primary-700 checked:ring-primary-500" type="radio"
+            name="envio" id="sinEnvio">
           <div>
             <label for="sinEnvio"> Retiro en showroom - <strong> Sin costo</strong> </label>
           </div>
         </div>
 
         <div class="flex">
-          <input onclick="procesarEnvio(this)" class="m-1 mr-3 text-primary-700 checked:ring-primary-500" type="radio" name="envio" id="conEnvio" >
+          <input onclick="procesarEnvio(this)" class="m-1 mr-3 text-primary-700 checked:ring-primary-500" type="radio"
+            name="envio" id="conEnvio">
           <div>
             <label id="conEnvio" for="conEnvio">Envio a todo el país por Correo Argentino - $120 </label>
           </div>
         </div>
-          
+
 
       </fieldset>
       <hr class="bg-gray-300 h-0.5 mx-2">
-      
+
       <section>
 
         <div class="bg-gray-400 rounded text-gray-800 font-nunito mx-2 my-3 py-3 px-1 dark:text-white">
           <div class="flex justify-between mb-2">
             <div>Subtotal (sin envío)</div>
-            <div id="subtotalDiv" >$0</div>
+            <div id="subtotalDiv">$0</div>
           </div>
           <hr class="bg-gray-300 h-0.5 mx-2 border-separate">
-         
+
           <div class="flex justify-between">
             <div class="uppercase font-bold text-3xl text-gray-800 font-nunito mt-2 dark:text-white">Total</div>
-            <div id="totalDiv" class="uppercase font-bold text-3xl text-gray-800 font-nunito mt-2 dark:text-white">$0</div>
+            <div id="totalDiv" class="uppercase font-bold text-3xl text-gray-800 font-nunito mt-2 dark:text-white">$0
+            </div>
           </div>
 
         </div>
       </section>
       <div class="mx-2">
-        <button class="bg-gray-500 dark:bg-white  hover:bg-gray-800 dark:hover:bg-gray-200  w-full py-4 ">
+        <button id="btnFinCompra"
+          class="bg-gray-500 dark:bg-white  hover:bg-gray-800 dark:hover:bg-gray-200  w-full py-4 ">
           <h3 class="uppercase font-bold text-xl dark:text-gray-800 font-nunito mx-2 text-white">Finalizar Compra</h3>
         </button>
       </div>
       <div class="mx-2">
-        <button id="btnSeguirComprando" class="bg-gray-400  dark:bg-gray-300  hover:bg-gray-500 dark:hover:bg-gray-400 w-full py-2 ">
+        <button id="btnSeguirComprando"
+          class="bg-gray-400  dark:bg-gray-300  hover:bg-gray-500 dark:hover:bg-gray-400 w-full py-2 ">
           <h3 class="uppercase font-semibold text-lg text-gray-800 font-nunito mx-2 ">seguir comprando</h3>
         </button>
+      </div>
+
+
+    </div>
+
+  </div>
+
+  <!-- Seccion checkOut -------------------------------------------- -->
+  <div id="checkout" class=" hidden overflow-hidden overscroll-contain fixex inset-0 ">
+    <div id="modalBgCheckout" class="fixed inset-0 min-h-screen bg-gray-500 opacity-75 z-[53]">
+
+    </div>
+
+    <div id=""
+      class="fixed inset-2 md:inset-10 overflow-y-hidden overscroll-contain md:max-w-[95vw]   bg-gray-50 dark:bg-gray-600 space-y-1 rounded-xl drop-shadow-xl shadow-gray-900 px-2 pt-2 pb-3 z-[54]">
+
+      <div class="flex justify-between ">
+        <h3 class=" m-3 text-gray-800 dark:text-white uppercase font-nunito">Checkout</h3>
+
+        <div class="  text-gray-800 dark:text-white">
+          <button id="cerrarCheckout">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 mt-1.5">
+              <path fill-rule="evenodd"
+                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                clip-rule="evenodd" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+
+
+      <div id="zonaCheckout" class="flex flex-col-reverse md:flex-row justify-end m-0 dm:m-2  max-h-[92%] ">
+        <div id="zonaValuesCheckout" class=" md:w-2/3 md:h-auto h-2/3 border border-gray-500">
+          
+
+
+        </div>
+
+        <div id="zonaCarritoCheckout" class="md:w-1/3 md:h-auto  overflow-auto max-h-[650px] overscroll-auto">
+
+          <div id="accordionCollapsed">
+            <h2>
+              <button id="accordionCollapseTitle" type="button"
+                class="flex md:hidden items-center justify-between w-full p-5 font-medium text-left bg-gray-300 text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800">
+                <span class="uppercase ">Carrito de compras</span>
+                <div class="flex">
+                  <span class="mx-3">$15000</span>
+                  <svg id="accordionTitleIcon" class="w-6 h-6 transition ease-in-out delay-150 rotate-180 shrink-0"
+                    fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+              </button>
+
+            </h2>
+
+            <div id="accordionCollapseBody" class="transition ease-in-out duration-1000 w-full md:flex hidden">
+              <div class=" font-light  dark:bg-gray-900 w-full">
+
+                <section id="sectionProductosCheckout" class="overflow-auto max-h-[450px] overscroll-auto">
+
+                  <div id="" class="flex ">
+                    <div class="flex flex-auto m-2 max-w-[100%]">
+
+                      <div class="w-8 min-w-[2rem]  h-8 rounded-full overflow-hidden ">
+                        <img src="./res/img/prod/img1.jpeg" alt="">
+                      </div>
+                      <div class=" flex-grow max-w-full ml-2 text-gray-800 dark:text-white">
+                        <h4 class=" max-w-[100%]  mr-0.5">Camisa Blanca con texto muy largo X10</h4>
+
+
+                      </div>
+                      <div class="text-black dark:text-white font-extrabold">
+                        $11.500
+                      </div>
+
+                    </div>
+                  </div>
+
+                </section>
+
+
+                <hr class="bg-gray-300 h-0.5 mx-2">
+
+                <section id="totalesCheckout">
+                  <div class="bg-gray-400 rounded text-gray-800 font-nunito mx-2 my-3 py-3 px-1 dark:text-white">
+                    <div class="flex justify-between mx-2 mb-2">
+                      <div>Subtotal</div>
+                      <div id="subtotalDivChechout">$0</div>
+                    </div>
+                    <hr class="bg-gray-300 h-0.5 mx-2 border-separate">
+                    <div class="flex justify-between mx-2 mb-2">
+                      <div>Envío</div>
+                      <div id="envioDivCheckout">$0</div>
+                    </div>
+                    <hr class="bg-gray-300 h-0.5 mx-2 border-separate">
+
+                    <div class="flex justify-between mx-2">
+                      <div class="uppercase font-bold text-3xl text-gray-800 font-nunito mt-2 dark:text-white">Total
+                      </div>
+                      <div id="totalDivCheckout"
+                        class="uppercase font-bold text-3xl text-gray-800 font-nunito mt-2 dark:text-white">$0
+                      </div>
+                    </div>
+
+                  </div>
+                </section>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
       </div>
       
 
     </div>
-  
+
   </div>
-
-
 
 
   <!-- cartel prncipal -->
@@ -744,6 +872,8 @@
 
   <!-- fin de iniciacion de clases -->
 
+  <!-- Seccion de productos -------------------------------------------------------- -->
+
   <div id="zonaProductos"
     class=" p-4 mx-auto my-4  lg:max-w-6xl grid grid-cols-1 grid-flow-dense md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center  ">
 
@@ -826,6 +956,8 @@
     </div>
 
   </div>
+
+
 
   <footer id="footer">
     <!-- aun pendiente ya que es de menor importancia -->
