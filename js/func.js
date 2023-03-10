@@ -73,6 +73,7 @@ const accordionTitlePagosIcon3 = d.querySelector('#accordionTitlePagosIcon3')
 const accordionBodyPagos1 = d.querySelector('#accordionBodyPagos1')
 const accordionBodyPagos2 = d.querySelector('#accordionBodyPagos2')
 const accordionBodyPagos3 = d.querySelector('#accordionBodyPagos3')
+const yaTieneCuenta = d.querySelector('#yaTieneCuenta')
 
 
 const contenedor = d.getElementById("zonaProductos");
@@ -102,10 +103,14 @@ function toogleAccordionBodyPagos2(){accordionBodyPagos2.classList.toggle('hidde
 function toogleAccordionBodyPagos3(){accordionBodyPagos3.classList.toggle('hidden')}
 function toogleAccordionTitlePagos1(){accordionTitlePagos1.classList.toggle('hidden')}
 function toogleAccordionTitlePagos2(){accordionTitlePagos2.classList.toggle('hidden')}
+function toogleAccordionTitlePagos2RoundedT(){accordionTitlePagos2.classList.toggle('rounded-t-xl')}
 function toogleAccordionTitlePagos3(){accordionTitlePagos3.classList.toggle('hidden')}
+function toogleAccordionTitlePagos3RoundedB(){accordionTitlePagos3.classList.toggle('rounded-b-xl')}
+function toogleAccordionTitlePagos3RoundedT(){accordionTitlePagos3.classList.toggle('rounded-t-xl')}
 function toogleAccordionTitlePagosIcon1(){accordionTitlePagosIcon1.classList.toggle('-rotate-90')}
 function toogleAccordionTitlePagosIcon2(){accordionTitlePagosIcon2.classList.toggle('-rotate-90')}
 function toogleAccordionTitlePagosIcon3(){accordionTitlePagosIcon3.classList.toggle('-rotate-90')}
+function toogleyaTieneCuenta(){yaTieneCuenta.classList.toggle('hidden')}
 
 accordionTitlePagos1.addEventListener('click', ()=>{
     toogleAccordionBodyPagos1()
@@ -118,12 +123,15 @@ accordionTitlePagos2.addEventListener('click', ()=>{
     toogleAccordionTitlePagosIcon2()
     toogleAccordionTitlePagos1()
     toogleAccordionTitlePagos3()
+    toogleAccordionTitlePagos2RoundedT()
 })
 accordionTitlePagos3.addEventListener('click', ()=>{
     toogleAccordionBodyPagos3()
     toogleAccordionTitlePagosIcon3()
     toogleAccordionTitlePagos2()
     toogleAccordionTitlePagos1()
+    toogleAccordionTitlePagos3RoundedB()
+    toogleAccordionTitlePagos3RoundedT()
 })
 
 
@@ -284,6 +292,7 @@ function muestraUsuarioRegistrado(){
     usuLabel.innerHTML = usuEncontrado.nombre
     usuLabel.classList.remove('hidden')
     navbarTitulo.classList.add( 'hidden')
+    toogleyaTieneCuenta()
     menuUsuToggle()
 }
 
