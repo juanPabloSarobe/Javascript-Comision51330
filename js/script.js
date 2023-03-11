@@ -128,6 +128,7 @@ window.onload = (e) => {
     recuperaUsuarioRegistrado()
     verificaCarritoAbierto()
     calcularTotal()
+    toogleCarritoYTotales()
 
    
 
@@ -191,6 +192,7 @@ function winReload(){
 }
 function guardaCarrito() {
     localStorage.setItem('carritoLocal', JSON.stringify(carrito))
+    
 }
 
 function verificaCarritoAbierto() {
@@ -602,6 +604,7 @@ function actualizaTotalCarrito(){
     totalDiv.innerHTML = `$${carrito.total + carrito.costoEnvio}`
     totalDivCheckout.innerHTML = `$${carrito.total + carrito.costoEnvio}`
     carrito.costoEnvio == 120 ? (sinEnvio.checked = false, conEnvio.checked = true) : (sinEnvio.checked = true, conEnvio.checked = false)
+    toogleCarritoYTotales()
     guardaCarrito()
 
 }

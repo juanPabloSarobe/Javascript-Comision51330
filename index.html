@@ -255,13 +255,15 @@
 
       </div>
       <hr class="bg-gray-300 h-0.5 mx-2">
-
       <div class=" flex justify-between mx-2">
         <h3 class="uppercase text-gray-800 font-nunito my-2 dark:text-white">Producto</h3>
         <h3 class="uppercase text-gray-800 font-nunito my-2 dark:text-white">Subtotal</h3>
       </div>
-
+      
       <hr class="bg-gray-300 h-0.5 mx-2">
+      <div id="carritoVacio" class="relative bg-yellow-100 h-12 w-full text-center  items-center text-black justify-center ">
+        <h2>El carrito esta vacio</h2>
+      </div>
 
       <section id="sectionProductos">
 
@@ -320,61 +322,63 @@
 
 
       </section>
-
-      <fieldset class="mx-2 flex flex-col gap-y-3 text-black dark:text-white">
-        <h3 class="uppercase text-gray-800 font-nunito mt-2 dark:text-white">Calcular envío</h3>
-
-        <div class=" flex">
-          <input onclick="procesarEnvio(this)" class="m-1 mr-3 text-primary-700 checked:ring-primary-500" type="radio"
-            name="envio" id="sinEnvio">
-          <div>
-            <label for="sinEnvio"> Retiro en showroom - <strong> Sin costo</strong> </label>
-          </div>
-        </div>
-
-        <div class="flex">
-          <input onclick="procesarEnvio(this)" class="m-1 mr-3 text-primary-700 checked:ring-primary-500" type="radio"
-            name="envio" id="conEnvio">
-          <div>
-            <label id="conEnvio" for="conEnvio">Envio a todo el país por Correo Argentino - $120 </label>
-          </div>
-        </div>
+      <div id="sectionCarritoTotales" class=" ">
 
 
-      </fieldset>
-      <hr class="bg-gray-300 h-0.5 mx-2">
+        <fieldset class="mx-2 flex flex-col gap-y-3 text-black dark:text-white">
+          <h3 class="uppercase text-gray-800 font-nunito mt-2 dark:text-white">Calcular envío</h3>
 
-      <section>
-
-        <div class="bg-gray-400 rounded text-gray-800 font-nunito mx-2 my-3 py-3 px-1 dark:text-white">
-          <div class="flex justify-between mb-2">
-            <div>Subtotal (sin envío)</div>
-            <div id="subtotalDiv">$0</div>
-          </div>
-          <hr class="bg-gray-300 h-0.5 mx-2 border-separate">
-
-          <div class="flex justify-between">
-            <div class="uppercase font-bold text-3xl text-gray-800 font-nunito mt-2 dark:text-white">Total</div>
-            <div id="totalDiv" class="uppercase font-bold text-3xl text-gray-800 font-nunito mt-2 dark:text-white">$0
+          <div class=" flex">
+            <input onclick="procesarEnvio(this)" class="m-1 mr-3 text-primary-700 checked:ring-primary-500" type="radio"
+              name="envio" id="sinEnvio">
+            <div>
+              <label for="sinEnvio"> Retiro en showroom - <strong> Sin costo</strong> </label>
             </div>
           </div>
 
+          <div class="flex">
+            <input onclick="procesarEnvio(this)" class="m-1 mr-3 text-primary-700 checked:ring-primary-500" type="radio"
+              name="envio" id="conEnvio">
+            <div>
+              <label id="conEnvio" for="conEnvio">Envio a todo el país por Correo Argentino - $120 </label>
+            </div>
+          </div>
+
+
+        </fieldset>
+        <hr class="bg-gray-300 h-0.5 mx-2">
+
+        <section>
+
+          <div class="bg-gray-400 rounded text-gray-800 font-nunito mx-2 my-3 py-3 px-1 dark:text-white">
+            <div class="flex justify-between mb-2">
+              <div>Subtotal (sin envío)</div>
+              <div id="subtotalDiv">$0</div>
+            </div>
+            <hr class="bg-gray-300 h-0.5 mx-2 border-separate">
+
+            <div class="flex justify-between">
+              <div class="uppercase font-bold text-3xl text-gray-800 font-nunito mt-2 dark:text-white">Total</div>
+              <div id="totalDiv" class="uppercase font-bold text-3xl text-gray-800 font-nunito mt-2 dark:text-white">$0
+              </div>
+            </div>
+
+          </div>
+        </section>
+        <div class="mx-2">
+          <button id="btnFinCompra"
+            class="bg-gray-500 dark:bg-white  hover:bg-gray-800 dark:hover:bg-gray-200  w-full py-4 ">
+            <h3 class="uppercase font-bold text-xl dark:text-gray-800 font-nunito mx-2 text-white">Finalizar Compra</h3>
+          </button>
         </div>
-      </section>
-      <div class="mx-2">
-        <button id="btnFinCompra"
-          class="bg-gray-500 dark:bg-white  hover:bg-gray-800 dark:hover:bg-gray-200  w-full py-4 ">
-          <h3 class="uppercase font-bold text-xl dark:text-gray-800 font-nunito mx-2 text-white">Finalizar Compra</h3>
-        </button>
-      </div>
-      <div class="mx-2">
-        <button id="btnSeguirComprando"
-          class="bg-gray-400  dark:bg-gray-300  hover:bg-gray-500 dark:hover:bg-gray-400 w-full py-2 ">
-          <h3 class="uppercase font-semibold text-lg text-gray-800 font-nunito mx-2 ">seguir comprando</h3>
-        </button>
-      </div>
+        <div class="mx-2">
+          <button id="btnSeguirComprando"
+            class="bg-gray-400  dark:bg-gray-300  hover:bg-gray-500 dark:hover:bg-gray-400 w-full py-2 ">
+            <h3 class="uppercase font-semibold text-lg text-gray-800 font-nunito mx-2 ">seguir comprando</h3>
+          </button>
+        </div>
 
-
+      </div>
     </div>
 
   </div>
@@ -1078,8 +1082,7 @@
                 <p id="usuExistente" class="text-primary-500 hidden ">*el usuario ya existe</p>
               </div>
               <div>
-                <label for="password"
-                  class="block  text-xs font-medium text-gray-900 dark:text-white">Password</label>
+                <label for="password" class="block  text-xs font-medium text-gray-900 dark:text-white">Password</label>
                 <input type="password" name="password" id="password" placeholder="••••••••"
                   class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   required="">
@@ -1092,7 +1095,7 @@
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     required="">
                 </div>
-                <div class="flex-grow md:ml-2 ml-0" >
+                <div class="flex-grow md:ml-2 ml-0">
                   <label for="Apellido" class="block  text-xs font-medium text-gray-900 dark:text-white">Ingresa tu
                     apellido</label>
                   <input type="text" name="Apellido" id="Apellido" placeholder="Apellido"
@@ -1105,18 +1108,18 @@
                 <div class="flex-grow md:mr-2 mr-0">
                   <label for="Pais" class="block text-xs font-medium text-gray-900 dark:text-white">Ingresa tu
                     pais</label>
-                    <input type="text" name="Pais" id="pais" placeholder="Pais"
+                  <input type="text" name="Pais" id="pais" placeholder="Pais"
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     required="">
-                  </div>
-                  <div class="flex-grow md:ml-2 ml-0">
-                    <label for="Provincia" class="block  text-xs font-medium text-gray-900 dark:text-white">Ingresa tu
-                      provincia</label>
-                      <input type="text" name="Provincia" id="provincia" placeholder="Provincia"
-                      class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                      required="">
-                    </div>
-                  </div>
+                </div>
+                <div class="flex-grow md:ml-2 ml-0">
+                  <label for="Provincia" class="block  text-xs font-medium text-gray-900 dark:text-white">Ingresa tu
+                    provincia</label>
+                  <input type="text" name="Provincia" id="provincia" placeholder="Provincia"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    required="">
+                </div>
+              </div>
               <div>
                 <label for="Localidad" class="block text-xs font-medium text-gray-900 dark:text-white">Ingresa tu
                   localidad</label>

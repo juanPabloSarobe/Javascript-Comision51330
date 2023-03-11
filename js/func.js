@@ -51,6 +51,8 @@ const sinEnvio = d.querySelector('#sinEnvio')
 const conEnvio = d.querySelector('#conEnvio')
 const btnSeguirComprando = d.querySelector('#btnSeguirComprando')
 const btnFinCompra = d.querySelector('#btnFinCompra')
+const carritoVacio = d.querySelector('#carritoVacio')
+const sectionCarritoTotales = d.querySelector('#sectionCarritoTotales')
 
 /* Checkout */
 
@@ -94,6 +96,27 @@ const seccionCategorias = d.querySelector("#seccionCategorias")
 const catSelected = d.getElementsByClassName("catSelected")
 
 function toogleCheckout() {checkout.classList.toggle('hidden')}
+
+function carritoLleno(){
+    sectionCarritoTotales.classList.remove('hidden')
+    carritoVacio.classList.remove('flex')
+    carritoVacio.classList.add('hidden')
+}
+function carritoVaciado(){
+    sectionCarritoTotales.classList.add('hidden')
+    carritoVacio.classList.add('flex')
+    carritoVacio.classList.remove('hidden')
+}
+
+function toogleCarritoYTotales(){
+
+    if(carrito.items === 0 ){
+        carritoVaciado()
+    }else if(carrito.items === 1){
+        carritoLleno()
+    }
+   
+}
 
 cerrarCheckout.addEventListener('click',()=>{
     toogleCheckout()
