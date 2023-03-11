@@ -56,7 +56,7 @@ let usuarioRegistrado
 
 
 class Usuarios {
-    constructor(idUsuario, tipoUsuario, email, password, nombre, apellido, pais, estado, localidad,direccion) {
+    constructor(idUsuario, tipoUsuario, email, password, nombre, apellido, pais, estado, localidad, direccion) {
         this.idUsuario = idUsuario
         this.tipoUsuario = tipoUsuario
         this.email = email
@@ -96,34 +96,64 @@ class Productos {
     }
 }
 
-productosArr.forEach(element => {
-    let newId = 0
-    if (listaProductos.length === 0) {
-        newId = 1
-    } else {
-        newId = listaProductos[listaProductos.length - 1].idProd + 1
-    }
-    const e6 = categorias.find(obj => obj.idCategoria == element[6])
-    const e7 = marcas.find(obj => obj.idMarca == element[7])
+function crearListaProductosDesdeArray() {
+    productosArr.forEach(element => {
+        let newId = 0
+        if (listaProductos.length === 0) {
+            newId = 1
+        } else {
+            newId = listaProductos[listaProductos.length - 1].idProd + 1
+        }
+        const e6 = categorias.find(obj => obj.idCategoria == element[6])
+        const e7 = marcas.find(obj => obj.idMarca == element[7])
 
-    const producto = new Productos(
-        newId, element[0], element[1],
-        element[2], element[3], element[4],
-        element[5], e6.Categoria, e7.Marca,
-        element[8], element[9], element[10],
-        `${element[0]} ${element[1]} ${e6.Categoria}  ${e7.Marca} ${element[8]} ${element[10]}  `
+        const producto = new Productos(
+            newId, element[0], element[1],
+            element[2], element[3], element[4],
+            element[5], e6.Categoria, e7.Marca,
+            element[8], element[9], element[10],
+            `${element[0]} ${element[1]} ${e6.Categoria}  ${e7.Marca} ${element[8]} ${element[10]}  `
 
-    )
-    producto.cargarProducto()
+        )
+        producto.cargarProducto()
 
-})
+    })
+}
 
-console.log(JSON.stringify(listaProductos) )
+function crearListaProductosDesdeJson(){
+    fetch( '../productos.json' )
+    .then( (res) => res.json())
+    .then( (data) => {
+        data.forEach(element =>{
+        const e6 = categorias.find(obj => obj.idCategoria == element.categoria)
+        const e7 = marcas.find(obj => obj.idMarca == element.marca)
+        
+
+        const producto = new Productos(
+            element.idProd, element.nombreProd , element.descripProd,
+            element.precioProd, element.stockProd, element.imagenProd,
+            element.valoracion, e6.Categoria, e7.Marca,
+            element.palclaves, element.destacado, element.sexo,
+            `${element.nombreProd} ${element.descripProd} ${e6.Categoria}  ${e7.Marca} ${element.palclaves} ${element.sexo}  `
+
+        )
+        producto.cargarProducto()
+
+
+        })
+
+        generarProductos(listaProductos)
+    })
+
+}
+
 const nuevoUsuario = new Usuarios(1002, 0, '12', '12', 'Pedro', 'Martinez', 'Argentina', 'buenos Aires', 'La Plata', 'Calle 13 452, entre 65 y 66');
 nuevoUsuario.insertarUsuario()
 
 
 window.onload = (e) => {
+    // crearListaProductosDesdeArray()
+    crearListaProductosDesdeJson()
     generarProductos(listaProductos)
     generarCategorias(categorias)
     recuperaUsuarioRegistrado()
@@ -131,7 +161,7 @@ window.onload = (e) => {
     calcularTotal()
     toogleCarritoYTotales()
 
-   
+
 
 }
 
@@ -166,7 +196,7 @@ function crearNuevoUsuario(arrNewUser) {
     )
     formNuevoUsuario.insertarUsuario()
 }
-function cargarUsuarioEnCheckout(){
+function cargarUsuarioEnCheckout() {
 
 }
 
@@ -179,21 +209,21 @@ function catSelectedFalse() {
 }
 
 
-function borrarLocalStorage(){
+function borrarLocalStorage() {
     localStorage.clear()
-    toast('success','Local Storage borrado Se volvera a cargar la página en 3 segundos')
-    setTimeout(winReload,3000)
-    
+    toast('success', 'Local Storage borrado Se volvera a cargar la página en 3 segundos')
+    setTimeout(winReload, 3000)
+
 }
 
 
 
-function winReload(){
+function winReload() {
     window.location.reload()
 }
 function guardaCarrito() {
     localStorage.setItem('carritoLocal', JSON.stringify(carrito))
-    
+
 }
 
 function verificaCarritoAbierto() {
@@ -338,8 +368,8 @@ function generarProductos(arrProd) {
 
 }
 
-function devolver(id){
-    
+function devolver(id) {
+
     const prodSelec = listaProductos.find(obj => obj.idProd == id)
 
     if (carrito.contenidoCarrito.some(e => {
@@ -360,26 +390,26 @@ function devolver(id){
             const indice3 = carrito.contenidoCarrito.findIndex(e => {
                 return e[0].idProd == prodSelec.idProd
             })
-            carrito.contenidoCarrito.splice(indice3,1)
+            carrito.contenidoCarrito.splice(indice3, 1)
             calcularTotal()
         }
     }
 }
 
-function devolverTodo(id){
-    
+function devolverTodo(id) {
+
     const prodSelec = listaProductos.find(obj => obj.idProd == id)
     const indice3 = carrito.contenidoCarrito.findIndex(e => {
         return e[0].idProd == prodSelec.idProd
     })
-    confirmacion('error',`esta seguro que desea eliminar el producto ${prodSelec.nombreProd}?`, prodSelec.nombreProd)
-    .then(()=>{
-        carrito.contenidoCarrito.splice(indice3,1)
-        calcularTotal()
-    })
-    .catch(()=>{
-        toast('success','Producto no eliminado')
-    })
+    confirmacion('error', `esta seguro que desea eliminar el producto ${prodSelec.nombreProd}?`, prodSelec.nombreProd)
+        .then(() => {
+            carrito.contenidoCarrito.splice(indice3, 1)
+            calcularTotal()
+        })
+        .catch(() => {
+            toast('success', 'Producto no eliminado')
+        })
 }
 
 function comprar(id) {
@@ -498,18 +528,18 @@ function generarCategorias(arrCat) {
     seccionCategorias.appendChild(itemCat)
 }
 
-function generarItemsCheckout(){
+function generarItemsCheckout() {
 
     sectionProductosCheckout.innerHTML = ""
     let itemcheckout = document.createElement('div')
     itemcheckout.classList.add('flex', 'flex-col')
 
     let cadaItemCheckout = ""
-    
-    carrito.contenidoCarrito.forEach((prod) =>{
-        
+
+    carrito.contenidoCarrito.forEach((prod) => {
+
         cadaItemCheckout +=
-        `<div id="itemCheckout${prod[0].idProd}" class="flex flex-auto m-2 max-w-[100%]">
+            `<div id="itemCheckout${prod[0].idProd}" class="flex flex-auto m-2 max-w-[100%]">
                      
         <div class="w-8 min-w-[2rem]  h-8 rounded-full overflow-hidden ">
           <img src="./res/img/prod/${prod[0].imagenProd}" alt="">
@@ -597,7 +627,7 @@ function generarItemsCarrito() {
 
 }
 
-function actualizaTotalCarrito(){
+function actualizaTotalCarrito() {
     subtotalDiv.innerHTML = `$${carrito.total}`
     subtotalDivChechout.innerHTML = `$${carrito.total}`
     accordionTitlePrecio.innerHTML = `$${carrito.total}`
@@ -610,7 +640,7 @@ function actualizaTotalCarrito(){
 
 }
 
-function procesarEnvio(radio){
+function procesarEnvio(radio) {
     radio.id == "sinEnvio" ? carrito.costoEnvio = 0 : carrito.costoEnvio = 120
     actualizaTotalCarrito()
 }
