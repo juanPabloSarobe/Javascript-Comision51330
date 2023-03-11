@@ -75,6 +75,18 @@ const accordionBodyPagos2 = d.querySelector('#accordionBodyPagos2')
 const accordionBodyPagos3 = d.querySelector('#accordionBodyPagos3')
 const yaTieneCuenta = d.querySelector('#yaTieneCuenta')
 
+const formCheckout = d.querySelector('#formCheckout')
+const checkoutEmail = d.formCheckout.emailCheckout
+const checkoutNombre = d.formCheckout.nombreCheckout
+const checkoutApellido = d.formCheckout.apellidoCheckout
+const checkoutPais = d.formCheckout.PaisCheckout
+const checkoutProvincia = d.formCheckout.provinciaCheckout
+const checkoutLocalidad = d.formCheckout.localidadCheckout
+const checkoutDireccion = d.formCheckout.direccionCheckout
+
+
+
+
 
 const contenedor = d.getElementById("zonaProductos");
 const seccionCategorias = d.querySelector("#seccionCategorias")
@@ -242,7 +254,9 @@ formLogin.addEventListener('submit', (e) => {
     for (const value of formData.values()) {
         v.push(value)
     }
-
+    for (const pairs of formData.entries()){
+        console.log(pairs)
+    }
     const usuarioVerif = verifUsuario(v[0])
 
     if (!usuarioVerif) {
@@ -274,6 +288,9 @@ function registraUsuario(index) {
     usuEncontrado.pais = usuarioReg[index].pais
     usuEncontrado.localidad = usuarioReg[index].localidad
     usuEncontrado.estado = usuarioReg[index].estado
+    usuEncontrado.direccion = usuarioReg[index].direccion
+
+    
     
     muestraUsuarioRegistrado()
     
@@ -292,9 +309,23 @@ function muestraUsuarioRegistrado(){
     usuLabel.innerHTML = usuEncontrado.nombre
     usuLabel.classList.remove('hidden')
     navbarTitulo.classList.add( 'hidden')
+    cargaUsuarioRecuperado(usuEncontrado)
     toogleyaTieneCuenta()
     menuUsuToggle()
 }
+
+function cargaUsuarioRecuperado(usu){
+    
+    checkoutEmail.value = usu?.email ||""
+    checkoutNombre.value = usu?.nombre ||""
+    checkoutApellido.value = usu?.apellido ||""
+    checkoutPais.value = usu?.pais ||""
+    checkoutProvincia.value = usu?.estado ||""
+    checkoutLocalidad.value = usu?.localidad ||""
+    checkoutDireccion.value = usu?.direccion ||""
+}
+
+cargaUsuarioRecuperado()
 
 function recuperaUsuarioRegistrado(){
     usuarioRegistrado = JSON.parse(localStorage.getItem('usuRegistrado'))
@@ -312,6 +343,7 @@ formRegister.addEventListener('submit', (e) => {
     for (const value of formData.values()) {
         v.push(value)
     }
+   
 
     if (!verifUsuario(v[0])) {
         crearNuevoUsuario(v)

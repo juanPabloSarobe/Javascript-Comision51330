@@ -32,6 +32,7 @@ let usuEncontrado = {
     pais: "",
     estado: "",
     localidad: "",
+    direccion: ""
 }
 
 let carrito = {
@@ -128,8 +129,9 @@ window.onload = (e) => {
     verificaCarritoAbierto()
     calcularTotal()
 
-}
+   
 
+}
 
 
 function verifUsuario(val) {
@@ -156,6 +158,9 @@ function crearNuevoUsuario(arrNewUser) {
         arrNewUser[3]
     )
     formNuevoUsuario.insertarUsuario()
+}
+function cargarUsuarioEnCheckout(){
+
 }
 
 

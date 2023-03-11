@@ -414,7 +414,8 @@
             <h2 class="mt-1 ml-1 text-left text-xl font-bold tracking-tight text-gray-900 dark:text-white">Datos de
               envío y Pago
             </h2>
-            <p id="yaTieneCuenta" class="mt-0.5 ml-1 text-left sm:text-right text-sm text-gray-600 dark:text-gray-400 sm:self-center">
+            <p id="yaTieneCuenta"
+              class="mt-0.5 ml-1 text-left sm:text-right text-sm text-gray-600 dark:text-gray-400 sm:self-center">
               Ya tienes cuenta?
               <br class="hidden sm:block">
               <a href="#" onclick="abrirLogin()"
@@ -426,39 +427,39 @@
           </div>
 
           <div class="p-6 pt-1  space-y-2 md:space-y-4 sm:p-8 sm:pt-4">
-            <form id="formCheckout" class="space-y-1 md:space-y-4" action="#">
+            <form id="formCheckout" name="formCheckout" class="space-y-1 md:space-y-4" action="#">
               <div>
                 <h2 class="mt-1 ml-1 text-left text-sm font-semibold text-gray-700 dark:text-white">Complete sus datos
                 </h2>
               </div>
               <div>
 
-                <input type="email" name="email" id="emailRegister"
+                <input type="email" name="emailCheckout" id="emailCheckout"
                   class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="email" required="">
-                <p id="usuExistente" class="text-primary-500 hidden ">*el usuario ya existe</p>
+                <p id="usuExistenteCheckout" class="text-primary-500 hidden ">*el usuario ya existe</p>
               </div>
 
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 ">
                 <div>
-                  <input type="text" name="Nombre" id="nombre" placeholder="Nombre"
+                  <input type="text" name="NombreCheckout" id="nombreCheckout" placeholder="Nombre"
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     required="">
                 </div>
                 <div>
-                  <input type="text" name="Apellido" id="apellido" placeholder="Apellido"
+                  <input type="text" name="ApellidoCheckout" id="apellidoCheckout" placeholder="Apellido"
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     required="">
                 </div>
               </div>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 ">
                 <div>
-                  <input type="text" name="Pais" id="pais" placeholder="País"
+                  <input type="text" name="PaisCheckout" id="paisCheckout" placeholder="País"
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     required="">
                 </div>
                 <div>
-                  <input type="text" name="Provincia" id="provincia" placeholder="Provincia"
+                  <input type="text" name="ProvinciaCheckout" id="provinciaCheckout" placeholder="Provincia"
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     required="">
                 </div>
@@ -466,14 +467,14 @@
               </div>
               <div>
 
-                <input type="text" name="Localidad" id="localidad"
+                <input type="text" name="LocalidadCheckout" id="localidadCheckout"
                   class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="Localidad" required="">
 
               </div>
               <div>
 
-                <input type="text" name="Direccion" id="direccion"
+                <input type="text" name="DireccionCheckout" id="direccionCheckout"
                   class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="Dirección" required="">
               </div>
@@ -583,7 +584,7 @@
                         <button type="submit" id="pagarTransferencia"
                           class="disabled:cursor-not-allowed disabled:opacity-70  w-[90%] text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
                           Pagar con Transferencia Bancaria</button>
-  
+
                       </div>
 
                     </div>
@@ -633,7 +634,8 @@
                                 </div>
 
                                 <div class="payment-brands-general-container">
-                                  <div class="flex space-x-2 space-y-2 flex-wrap" id="payment-brands-container-credit_card"><img alt="visa"
+                                  <div class="flex space-x-2 space-y-2 flex-wrap"
+                                    id="payment-brands-container-credit_card"><img alt="visa"
                                       src="https://checkout-security.ms.tiendanube.com/img/brands/visa.svg"><img
                                       alt="mastercard"
                                       src="https://checkout-security.ms.tiendanube.com/img/brands/mastercard.svg"><img
@@ -984,7 +986,7 @@
                 <div class="-space-y-px rounded-md shadow-sm">
                   <div>
                     <label for="emailLogin" class="sr-only">Ingresa tu email</label>
-                    <input id="emailLogin" name="email" type="email" autocomplete="email" required
+                    <input id="emailLogin" name="emailLogin" type="email" autocomplete="email" required
                       class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:border-primary-500 focus:outline-none focus:ring-primary-500 sm:text-sm"
                       placeholder="Email address">
                   </div>
@@ -1067,33 +1069,66 @@
             <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
               Crea tu cuenta
             </h1>
-            <form id="formRegister" class="space-y-1 md:space-y-4" action="#">
+            <form id="formRegister" class="space-y-1 md:space-y-2" action="#">
               <div>
-                <label for="email" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Ingresa tu
+                <label for="email" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Ingresa tu
                   email</label>
-                <input type="email" name="email" id="email"
+                <input type="email" name="emailRegister" id="email"
                   class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="name@company.com" required="">
                 <p id="usuExistente" class="text-primary-500 hidden ">*el usuario ya existe</p>
               </div>
               <div>
                 <label for="password"
-                  class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                  class="block  text-xs font-medium text-gray-900 dark:text-white">Password</label>
                 <input type="password" name="password" id="password" placeholder="••••••••"
                   class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   required="">
               </div>
+              <div class="flex flex-col md:flex-row">
+                <div class="flex-grow md:mr-2 mr-0">
+                  <label for="Nombre" class="block text-xs font-medium text-gray-900 dark:text-white">Ingresa tu
+                    nombre</label>
+                  <input type="text" name="Nombre" id="Nombre" placeholder="Nombre"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    required="">
+                </div>
+                <div class="flex-grow md:ml-2 ml-0" >
+                  <label for="Apellido" class="block  text-xs font-medium text-gray-900 dark:text-white">Ingresa tu
+                    apellido</label>
+                  <input type="text" name="Apellido" id="Apellido" placeholder="Apellido"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    required="">
+                </div>
+              </div>
+
+              <div class="flex flex-col md:flex-row">
+                <div class="flex-grow md:mr-2 mr-0">
+                  <label for="Pais" class="block text-xs font-medium text-gray-900 dark:text-white">Ingresa tu
+                    pais</label>
+                    <input type="text" name="Pais" id="pais" placeholder="Pais"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                    required="">
+                  </div>
+                  <div class="flex-grow md:ml-2 ml-0">
+                    <label for="Provincia" class="block  text-xs font-medium text-gray-900 dark:text-white">Ingresa tu
+                      provincia</label>
+                      <input type="text" name="Provincia" id="provincia" placeholder="Provincia"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                      required="">
+                    </div>
+                  </div>
               <div>
-                <label for="Nombre" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Ingresa tu
-                  nombre</label>
-                <input type="text" name="Nombre" id="Nombre" placeholder="Nombre"
+                <label for="Localidad" class="block text-xs font-medium text-gray-900 dark:text-white">Ingresa tu
+                  localidad</label>
+                <input type="text" name="Localidad" id="localidad" placeholder="Localidad"
                   class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   required="">
               </div>
               <div>
-                <label for="Apellido" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Ingresa tu
-                  apellido</label>
-                <input type="text" name="Apellido" id="Apellido" placeholder="Apellido"
+                <label for="Direccion" class="block  text-xs font-medium text-gray-900 dark:text-white">Ingresa tu
+                  direccion</label>
+                <input type="text" name="Direccion" id="direccion" placeholder="Direccion"
                   class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   required="">
               </div>
