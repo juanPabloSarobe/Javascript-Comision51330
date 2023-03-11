@@ -183,6 +183,9 @@ function borrarLocalStorage(){
     setTimeout(winReload,3000)
     
 }
+
+
+
 function winReload(){
     window.location.reload()
 }
@@ -361,13 +364,19 @@ function devolver(id){
 }
 
 function devolverTodo(id){
-
+    
     const prodSelec = listaProductos.find(obj => obj.idProd == id)
     const indice3 = carrito.contenidoCarrito.findIndex(e => {
         return e[0].idProd == prodSelec.idProd
     })
-    carrito.contenidoCarrito.splice(indice3,1)
-    calcularTotal()
+    confirmacion('error',`esta seguro que desea eliminar el producto ${prodSelec.nombreProd}?`, prodSelec.nombreProd)
+    .then(()=>{
+        carrito.contenidoCarrito.splice(indice3,1)
+        calcularTotal()
+    })
+    .catch(()=>{
+        toast('success','Producto no eliminado')
+    })
 }
 
 function comprar(id) {

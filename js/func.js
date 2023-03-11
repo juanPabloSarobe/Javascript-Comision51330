@@ -19,6 +19,7 @@ const botonCarrito = d.querySelector('#botonCarrito')
 /* menu de usuario */
 const menuItemsLogin = d.querySelector('#menuItemsLogin')
 const menuItemsRegistrado = d.querySelector('#menuItemsRegistrado')
+const ItemCerrarSesion = d.querySelector('#ItemCerrarSesion')
 
 /* Register Form */
 const email = d.querySelector('#email')
@@ -202,6 +203,12 @@ btnSeguirComprando.addEventListener('click',()=> toogleCarrito())
 btnFinCompra.addEventListener('click',()=> { 
     toogleCheckout()
     toogleCarrito()
+    if(usuEncontrado.idUsuario!=""){
+        carrito.usuario = usuEncontrado
+        guardaCarrito()
+    }
+    cargaUsuarioRecuperado(usuEncontrado)
+    
 })
 
 searchNav.addEventListener('keyup',(e) => {
@@ -254,9 +261,7 @@ formLogin.addEventListener('submit', (e) => {
     for (const value of formData.values()) {
         v.push(value)
     }
-    for (const pairs of formData.entries()){
-        console.log(pairs)
-    }
+    
     const usuarioVerif = verifUsuario(v[0])
 
     if (!usuarioVerif) {
@@ -289,8 +294,6 @@ function registraUsuario(index) {
     usuEncontrado.localidad = usuarioReg[index].localidad
     usuEncontrado.estado = usuarioReg[index].estado
     usuEncontrado.direccion = usuarioReg[index].direccion
-
-    
     
     muestraUsuarioRegistrado()
     
@@ -334,6 +337,28 @@ function recuperaUsuarioRegistrado(){
    
 }
 
+function eliminaUsuarioRegistrado(){
+    localStorage?.removeItem('usuRegistrado') 
+    sessionStorage?.removeItem('usuRegistrado')
+    usuEncontrado.idUsuario =""
+    usuEncontrado.email = ""
+    usuEncontrado.nombre = ""
+    usuEncontrado.apellido = ""
+    usuEncontrado.pais = ""
+    usuEncontrado.estado = ""
+    usuEncontrado.localidad = ""
+    usuEncontrado.direccion = ""
+    carrito.usuario = {}
+    guardaCarrito()
+}
+
+function ocultaUsuarioLogout(){
+    usuLabel.innerHTML = ""
+    usuLabel.classList.add('hidden')
+    navbarTitulo.classList.remove( 'hidden')
+    menuUsuToggle()
+}
+
 formRegister.addEventListener('submit', (e) => {
     e.preventDefault()
     const v = []
@@ -353,4 +378,25 @@ formRegister.addEventListener('submit', (e) => {
         usuExistente.classList.remove('hidden')
     }
 
+})
+
+ItemCerrarSesion.addEventListener('click', (e) =>{
+    toggleMenu()    
+    
+    confirmacion('','Esta seguro que desea cerrar sesion?','cierreSesion')
+    .then(()=>{
+        toast('success', 'sesion cerrada correctamente')
+        eliminaUsuarioRegistrado()
+        ocultaUsuarioLogout()
+
+    })
+    
+
+    .catch(()=>{
+        toast('error', 'accion cancelada por el usuario')
+    }
+    )
+    
+    
+    
 })
