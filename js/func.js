@@ -325,8 +325,6 @@ function cargaUsuarioRecuperado(usu){
     checkoutDireccion.value = usu?.direccion ||""
 }
 
-cargaUsuarioRecuperado()
-
 function recuperaUsuarioRegistrado(){
     usuarioRegistrado = JSON.parse(localStorage.getItem('usuRegistrado'))
     if (usuarioRegistrado != null){

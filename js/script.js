@@ -155,7 +155,12 @@ function crearNuevoUsuario(arrNewUser) {
         arrNewUser[0],
         arrNewUser[1],
         arrNewUser[2],
-        arrNewUser[3]
+        arrNewUser[3],
+        arrNewUser[4],
+        arrNewUser[5],
+        arrNewUser[6],
+        arrNewUser[7],
+
     )
     formNuevoUsuario.insertarUsuario()
 }
