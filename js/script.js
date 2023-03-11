@@ -118,6 +118,7 @@ productosArr.forEach(element => {
 
 })
 
+console.log(JSON.stringify(listaProductos) )
 const nuevoUsuario = new Usuarios(1002, 0, '12', '12', 'Pedro', 'Martinez', 'Argentina', 'buenos Aires', 'La Plata', 'Calle 13 452, entre 65 y 66');
 nuevoUsuario.insertarUsuario()
 

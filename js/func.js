@@ -112,7 +112,7 @@ function toogleCarritoYTotales(){
 
     if(carrito.items === 0 ){
         carritoVaciado()
-    }else if(carrito.items === 1){
+    }else if(carrito.items >= 1){
         carritoLleno()
     }
    
