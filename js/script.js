@@ -121,7 +121,7 @@ function crearListaProductosDesdeArray() {
 }
 
 function crearListaProductosDesdeJson(){
-    fetch( '../productos.json' )
+    fetch( './productos.json' )
     .then( (res) => res.json())
     .then( (data) => {
         data.forEach(element =>{
@@ -138,8 +138,6 @@ function crearListaProductosDesdeJson(){
 
         )
         producto.cargarProducto()
-
-
         })
 
         generarProductos(listaProductos)
