@@ -1158,6 +1158,18 @@ body::-webkit-scrollbar{
   height: 100vh;
 }
 
+.h-\[20vh\] {
+  height: 20vh;
+}
+
+.h-\[40vh\] {
+  height: 40vh;
+}
+
+.h-\[32vh\] {
+  height: 32vh;
+}
+
 .max-h-\[450px\] {
   max-height: 450px;
 }
