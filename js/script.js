@@ -628,7 +628,7 @@ function generarItemsCarrito() {
 function actualizaTotalCarrito() {
     subtotalDiv.innerHTML = `$${carrito.total}`
     subtotalDivChechout.innerHTML = `$${carrito.total}`
-    accordionTitlePrecio.innerHTML = `$${carrito.total}`
+    accordionTitlePrecio.innerHTML = `$${carrito.total + carrito.costoEnvio}`
     envioDivCheckout.innerHTML = `$${carrito.costoEnvio}`
     totalDiv.innerHTML = `$${carrito.total + carrito.costoEnvio}`
     totalDivCheckout.innerHTML = `$${carrito.total + carrito.costoEnvio}`
