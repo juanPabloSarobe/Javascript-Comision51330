@@ -1,7 +1,7 @@
 
 /* los datos se cargaron en un array basico, para luego con ellos usar un constructor y colocarlos en el array de objetos definitivo */
 
-
+/* lista de productos original, se decide dejarla pq todavia se puede probar cambian la funcion que crea el listado de productos en window.onload */
 const productosArr = [
   ["Camiseta básica de algodón", "Una camiseta básica hecha de algodón suave y cómodo", 10, 3, "img1.jpeg", 3.96, 1, 1, "Oferta verano clasico", false, "Unisex"],
   ["Jeans skinny", "Jeans ajustados con estilo disponibles en diferentes lavados y colores", 50, 40, "img2.jpeg", 3.16, 2, 6, "Oferta verano", false, "Mujer"],
@@ -119,45 +119,6 @@ const categorias = [
     "idCategoria": 11,
     "Categoria": "extra",
     "path": "imgCat11.jpeg"
-  }
-]
-
-const marcas = [
-  {
-    "idMarca": 1,
-    "Marca": "Adidas"
-  },
-  {
-    "idMarca": 2,
-    "Marca": "Topper"
-  },
-  {
-    "idMarca": 3,
-    "Marca": "Puma"
-  },
-  {
-    "idMarca": 4,
-    "Marca": "Nike"
-  },
-  {
-    "idMarca": 5,
-    "Marca": "Under Armor"
-  },
-  {
-    "idMarca": 6,
-    "Marca": "Levis"
-  },
-  {
-    "idMarca": 7,
-    "Marca": "Calvin Klein"
-  },
-  {
-    "idMarca": 8,
-    "Marca": "Generico"
-  },
-  {
-    "idMarca": 9,
-    "Marca": "extra"
   }
 ]
 

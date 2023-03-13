@@ -52,6 +52,7 @@ let password
 let acceso = false
 let listaProd = ''
 let usuarioRegistrado
+let marcas =[]
 
 
 
@@ -120,28 +121,39 @@ function crearListaProductosDesdeArray() {
     })
 }
 
+async function pedirMarcas(){
+    const respuesta = await fetch('./marcas.json')
+    const marcasJson = await respuesta.json()
+    marcas = marcasJson
+  }
+  
+
 function crearListaProductosDesdeJson(){
     fetch( './productos.json' )
     .then( (res) => res.json())
     .then( (data) => {
-        data.forEach(element =>{
-        const e6 = categorias.find(obj => obj.idCategoria == element.categoria)
-        const e7 = marcas.find(obj => obj.idMarca == element.marca)
-        
+        pedirMarcas()
+        .then(()=>{
 
-        const producto = new Productos(
-            element.idProd, element.nombreProd , element.descripProd,
-            element.precioProd, element.stockProd, element.imagenProd,
-            element.valoracion, e6.Categoria, e7.Marca,
-            element.palclaves, element.destacado, element.sexo,
-            `${element.nombreProd} ${element.descripProd} ${e6.Categoria}  ${e7.Marca} ${element.palclaves} ${element.sexo}  `
-
-        )
-        producto.cargarProducto()
+            data.forEach(element =>{
+                const e6 = categorias.find(obj => obj.idCategoria == element.categoria)
+                const e7 = marcas.find(obj => obj.idMarca == element.marca)
+                
+                
+                const producto = new Productos(
+                    element.idProd, element.nombreProd , element.descripProd,
+                    element.precioProd, element.stockProd, element.imagenProd,
+                    element.valoracion, e6.Categoria, e7.Marca,
+                    element.palclaves, element.destacado, element.sexo,
+                    `${element.nombreProd} ${element.descripProd} ${e6.Categoria}  ${e7.Marca} ${element.palclaves} ${element.sexo}  `
+                    
+                    )
+                    producto.cargarProducto()
+                })
+                
+                generarProductos(listaProductos)
+            })
         })
-
-        generarProductos(listaProductos)
-    })
 
 }
 
@@ -150,7 +162,7 @@ nuevoUsuario.insertarUsuario()
 
 
 window.onload = (e) => {
-    // crearListaProductosDesdeArray()
+    // crearListaProductosDesdeArray() //este comentario se dejo a los efectos de que se puede intercambiar por crearListaProductosDesdeJson para crear la lista desde un array de arrays
     crearListaProductosDesdeJson()
     generarProductos(listaProductos)
     generarCategorias(categorias)
@@ -408,6 +420,12 @@ function devolverTodo(id) {
         .catch(() => {
             toast('success', 'Producto no eliminado')
         })
+}
+
+function vaciarCarrito(){
+    carrito.contenidoCarrito.splice(0, carrito.contenidoCarrito.length)
+    carrito.costoEnvio = 0
+    calcularTotal()
 }
 
 function comprar(id) {

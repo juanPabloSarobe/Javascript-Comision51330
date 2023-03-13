@@ -87,7 +87,13 @@ const checkoutProvincia = d.formCheckout.provinciaCheckout
 const checkoutLocalidad = d.formCheckout.localidadCheckout
 const checkoutDireccion = d.formCheckout.direccionCheckout
 
+const formTarjeta = d.querySelector('#formTarjeta')
+const inputsTarjeta = d.getElementsByName('inputTarjeta')
 
+
+const pagarTarjeta = d.querySelector('#pagarTarjeta')
+const pagarTransferencia = d.querySelector('#pagarTransferencia')
+const pagarMercadoPago = d.querySelector('#pagarMercadoPago')
 
 
 
@@ -148,11 +154,22 @@ function toogleAccordionTitlePagosIcon2(){accordionTitlePagosIcon2.classList.tog
 function toogleAccordionTitlePagosIcon3(){accordionTitlePagosIcon3.classList.toggle('-rotate-90')}
 function toogleyaTieneCuenta(){yaTieneCuenta.classList.toggle('hidden')}
 
+function requiredTarjeta(){
+    inputsTarjeta.forEach((e)=>{
+        if(e.required == false){
+            e.required = true
+        }else{
+            e.required = false
+        }
+    })
+}
+
 accordionTitlePagos1.addEventListener('click', ()=>{
     toogleAccordionBodyPagos1()
     toogleAccordionTitlePagosIcon1()
     toogleAccordionTitlePagos2()
     toogleAccordionTitlePagos3()
+    requiredTarjeta()
 })
 accordionTitlePagos2.addEventListener('click', ()=>{
     toogleAccordionBodyPagos2()
@@ -305,6 +322,41 @@ formLogin.addEventListener('submit', (e) => {
 
 })
 
+formCheckout.addEventListener('submit',(e)=>{
+    e.preventDefault()
+    let submitter = e.submitter;
+    let handler = submitter.id;
+    let msjExtra
+    handler == 'pagarTarjeta'? msjExtra = 'Usted esta a punto de pagar con tarjeta de credito': ""
+    handler == 'pagarTransferencia'? msjExtra = `Usted esta a punto de pagar con transferencia electrónica. Los datos bancarios serán enviados por correo`: ""
+    handler == 'pagarMercadoPago'? msjExtra = `Usted esta a punto de pagar con MercadoPago, en breve será redireccionado al link de pago para abonar su compra`: ""
+    pagarCompra(msjExtra)
+      
+})
+
+
+function pagarCompra(msjExtra){
+    Swal.fire({
+        title: 'Felicitaciones por su compra',
+        text: `${msjExtra}`,
+        icon: 'success',
+        confirmButtonColor: 'green',
+        confirmButtonText: 'Confirmar compra!!!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: 'Gracias por su compra!!!',
+            confirmButtonColor: 'green'
+
+        })
+          toogleCheckout()
+          vaciarCarrito()
+          localStorage?.removeItem('carritoLocal') 
+          verificaCarritoAbierto()
+        }
+
+      })
+}
 
 
 function registraUsuario(index) {
@@ -414,7 +466,6 @@ ItemCerrarSesion.addEventListener('click', (e) =>{
 
     })
     
-
     .catch(()=>{
         toast('error', 'accion cancelada por el usuario')
     }

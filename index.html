@@ -15,6 +15,8 @@
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <script src="https://kit.fontawesome.com/c0e3d846ce.js" crossorigin="anonymous"></script>
+ 
+  
 </head>
 
 <body id="body" class=" w-screen relative bg-gray-200 dark:bg-gray-700 text-gray-300">
@@ -509,13 +511,13 @@
 
                       <div class="flex justify-between px-2 relative  w-full">
                         <div class="relative w-full">
-                          <form action="#" class=" w-full">
+                          <form id="formTarjeta" action="#" class=" w-full">
                             <div></div>
                             <div class=" p-2  rounded-md flex relative justify-between ">
                               <i class="logoTarjeta absolute right-3.5 fa-brands fa-cc fa-3x text-gray-700 "></i>
                               <input
                                 class="input-tarjeta border-none h-12 bg-white text-gray-800 w-full pl-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Número de la tarjeta" required>
+                                placeholder="Número de la tarjeta" name="inputTarjeta" >
 
                             </div>
 
@@ -524,13 +526,13 @@
                               <div></div>
                               <input
                                 class="titularTarjeta  border-none h-12 bg-white text-gray-800 w-full sm:w-1/2 pl-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Titular de la tarjeta" autocapitalize="on" required>
+                                placeholder="Titular de la tarjeta" autocapitalize="on" name="inputTarjeta" >
                               <input
                                 class="input-vencimientoTarjeta border-none h-12 bg-white text-gray-800 w-full sm:w-1/4 pl-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Vencimiento" maxlength="5" required>
+                                placeholder="Vencimiento" maxlength="5" name="inputTarjeta" >
                               <input
                                 class="input-cvvTarjeta border-none h-12 bg-white text-gray-800 w-full sm:w-1/4 pl-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="CVV" maxlength="3" required>
+                                placeholder="CVV" maxlength="3" name="inputTarjeta" >
                             </div>
 
 
@@ -558,7 +560,7 @@
                   <h2>
                     <button id="accordionTitlePagos2" type="button" class="flex items-center justify-between w-full p-3 font-light text-left bg-gray-200 text-gray-500 border border-b-0 border-gray-200  
                        dark:text-gray-400  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
-                         hover:bg-gray-100 dark:hover:bg-gray-800">
+                         hover:bg-gray-100 dark:hover:bg-gray-800" >
                       <span class=" ">Transferencia Bancaria</span>
                       <div class="flex">
                         <svg id="accordionTitlePagosIcon2"
@@ -584,7 +586,7 @@
                       </div>
 
                       <div class="w-full mr-4 my-4 flex justify-center">
-                        <button type="submit" id="pagarTransferencia"
+                        <button type="submit" id="pagarTransferencia" form="formCheckout"
                           class="disabled:cursor-not-allowed disabled:opacity-70  w-[90%] text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
                           Pagar con Transferencia Bancaria</button>
 
@@ -1332,6 +1334,8 @@
   <script src="./js/func.js"></script>
   <script src="./js/toast.js"></script>
   <script src="./js/cleave.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
   <!-- se comento el script de flowbite para usar 100% javascript propio -->
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
  -->

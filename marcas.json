@@ -1,0 +1,38 @@
+[
+    {
+      "idMarca": 1,
+      "Marca": "Adidas"
+    },
+    {
+      "idMarca": 2,
+      "Marca": "Topper"
+    },
+    {
+      "idMarca": 3,
+      "Marca": "Puma"
+    },
+    {
+      "idMarca": 4,
+      "Marca": "Nike"
+    },
+    {
+      "idMarca": 5,
+      "Marca": "Under Armor"
+    },
+    {
+      "idMarca": 6,
+      "Marca": "Levis"
+    },
+    {
+      "idMarca": 7,
+      "Marca": "Calvin Klein"
+    },
+    {
+      "idMarca": 8,
+      "Marca": "Generico"
+    },
+    {
+      "idMarca": 9,
+      "Marca": "extra"
+    }
+  ]
