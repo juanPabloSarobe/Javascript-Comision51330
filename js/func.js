@@ -348,11 +348,12 @@ function pagarCompra(msjExtra){
             title: 'Gracias por su compra!!!',
             confirmButtonColor: 'green'
 
+        }).then(()=>{
+            toogleCheckout()
+            vaciarCarrito()
+            localStorage?.removeItem('carritoLocal') 
+            verificaCarritoAbierto()
         })
-          toogleCheckout()
-          vaciarCarrito()
-          localStorage?.removeItem('carritoLocal') 
-          verificaCarritoAbierto()
         }
 
       })

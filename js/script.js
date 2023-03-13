@@ -52,7 +52,7 @@ let password
 let acceso = false
 let listaProd = ''
 let usuarioRegistrado
-let marcas =[]
+
 
 
 
@@ -97,34 +97,10 @@ class Productos {
     }
 }
 
-function crearListaProductosDesdeArray() {
-    productosArr.forEach(element => {
-        let newId = 0
-        if (listaProductos.length === 0) {
-            newId = 1
-        } else {
-            newId = listaProductos[listaProductos.length - 1].idProd + 1
-        }
-        const e6 = categorias.find(obj => obj.idCategoria == element[6])
-        const e7 = marcas.find(obj => obj.idMarca == element[7])
-
-        const producto = new Productos(
-            newId, element[0], element[1],
-            element[2], element[3], element[4],
-            element[5], e6.Categoria, e7.Marca,
-            element[8], element[9], element[10],
-            `${element[0]} ${element[1]} ${e6.Categoria}  ${e7.Marca} ${element[8]} ${element[10]}  `
-
-        )
-        producto.cargarProducto()
-
-    })
-}
-
-async function pedirMarcas(){
+let marcas = async() =>{
     const respuesta = await fetch('./marcas.json')
-    const marcasJson = await respuesta.json()
-    marcas = marcasJson
+    return marcas = await respuesta.json()
+    
   }
   
 
@@ -132,7 +108,7 @@ function crearListaProductosDesdeJson(){
     fetch( './productos.json' )
     .then( (res) => res.json())
     .then( (data) => {
-        pedirMarcas()
+        marcas()
         .then(()=>{
 
             data.forEach(element =>{
@@ -162,7 +138,6 @@ nuevoUsuario.insertarUsuario()
 
 
 window.onload = (e) => {
-    // crearListaProductosDesdeArray() //este comentario se dejo a los efectos de que se puede intercambiar por crearListaProductosDesdeJson para crear la lista desde un array de arrays
     crearListaProductosDesdeJson()
     generarProductos(listaProductos)
     generarCategorias(categorias)
