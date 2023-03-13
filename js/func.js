@@ -331,6 +331,46 @@ formCheckout.addEventListener('submit',(e)=>{
     handler == 'pagarTransferencia'? msjExtra = `Usted esta a punto de pagar con transferencia electrónica. Los datos bancarios serán enviados por correo`: ""
     handler == 'pagarMercadoPago'? msjExtra = `Usted esta a punto de pagar con MercadoPago, en breve será redireccionado al link de pago para abonar su compra`: ""
     pagarCompra(msjExtra)
+
+    const formData = new FormData(formCheckout);
+    formData.append('service_id', 'service_ru60x72');
+    formData.append('template_id', 'template_ooiwkup');
+    formData.append('user_id', 'wiS8yxAfMqiYyC9ID');
+    formData.append('carritoTotal', `${carrito.total}`);
+    formData.append('carritoEnvio', `${carrito.costoEnvio}`);
+    formData.append('carritoTotalMasEnvio', `${carrito.costoEnvio + carrito.total}`);
+    formData.append('carritoItems', `${carrito.items}`);
+    formData.append('carritoIdCarrito', `${carrito.idCarrito}`);
+    let totalProductos = ""
+    carrito.contenidoCarrito.forEach((prod)=>{
+            totalProductos += `${prod[0].nombreProd} x ${prod[1]} unidades
+            `
+        })
+    formData.append(`productos`, `${totalProductos}`);
+    let tieneEnvio
+    if (carrito.costoEnvio === 0){
+        tieneEnvio = 'A retirar por sucursal'
+    }else{
+        tieneEnvio = `Con envío a ${formData.get('PaisCheckout')}, ${formData.get('ProvinciaCheckout')}, ${formData.get('LocalidadCheckout')}, ${formData.get('DireccionCheckout')}.`
+    }
+    formData.append('tieneEnvio', `${tieneEnvio}`);
+    
+
+    
+    fetch('https://api.emailjs.com/api/v1.0/email/send-form', {
+        method: 'POST',
+        body: formData
+    })
+    .then(function(response) {
+        if (response.ok) {
+           
+        } else {
+            throw new Error('Oops... ' + response.statusText);
+        }
+    })
+    .catch(function(error) {
+        alert(error);
+    });
       
 })
 
@@ -339,13 +379,16 @@ function pagarCompra(msjExtra){
     Swal.fire({
         title: 'Felicitaciones por su compra',
         text: `${msjExtra}`,
-        icon: 'success',
+        icon: 'success',    
+        background:'#E5E7EB',
         confirmButtonColor: 'green',
         confirmButtonText: 'Confirmar compra!!!'
       }).then((result) => {
         if (result.isConfirmed) {
           Swal.fire({
             title: 'Gracias por su compra!!!',
+            text: 'Le hemos enviado un mail con los datos de su compra',
+            background:'#E5E7EB',
             confirmButtonColor: 'green'
 
         }).then(()=>{
