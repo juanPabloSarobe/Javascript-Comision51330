@@ -1,6 +1,6 @@
 
 
-/* En este archivo se maneja las vinculaciones con el DOM */
+/* En este archivo se maneja las vinculaciones con el DOM  y las funciones de login de usuario*/
 const d = document
 
 /* Navbar */
@@ -369,7 +369,12 @@ formCheckout.addEventListener('submit',(e)=>{
         }
     })
     .catch(function(error) {
-        alert(error);
+        Swal.fire({
+            title: error,
+            text: 'parece que hubo un dato erroneo y no pudo enviarse su correo. Por favor pongase en contacto. Gracias',
+            background:'#E5E7EB',
+            confirmButtonColor: 'blue'
+        })
     });
       
 })

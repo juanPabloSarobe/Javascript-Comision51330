@@ -1,7 +1,5 @@
-
-/* los datos se cargaron en un array basico, para luego con ellos usar un constructor y colocarlos en el array de objetos definitivo */
-
-
+// antiguamente los datos se cargaban de un array en este archivo, estos luego se mudaron a los .json correspondientes
+// se implemento la lectura de productos.json con then y de marcas.json con async await
 
 const categorias = [
   {

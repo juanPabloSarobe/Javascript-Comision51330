@@ -1,5 +1,7 @@
 
-
+// Se implemento la libreria Cleaver para darle formato a los datos de pago con tarjeta de credito.
+// se utiliza la misma para traer la imagen de la tejrta si indrouce un codigo que comience con una categoria de tarjeta valida
+// no se hace ningún tipo de validacion en los datos de la tajeta, mas alla del tipo de datos.
 
 
 new Cleave('.input-tarjeta', {

@@ -1,4 +1,4 @@
-/* ARchivo donde se ejecuta la logica de funcionamiento de la app */
+/* Archivo donde se ejecuta la logica de funcionamiento de la app */
 
 
 const usuarioReg = [{
@@ -44,6 +44,7 @@ let carrito = {
     items: 0
 }
 
+// el costo de env'io se decidi'o hardcodear para simpleficar el código
 const costEnvio = 120
 const listaProductos = []
 let prodSeleccionados = []

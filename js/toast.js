@@ -1,5 +1,7 @@
 
 /* archivo exclusivo para la generacion del toast */
+// Los toast son personalizados y se creo el codigo js de cero, para poder reutilizarlos con cada producto o cada msj que queramos dar
+// tambien se crearon la funcion confirmaci'on que se utiliza para crear un modal personalizado para poner en practicas promesas
 
 
 function toast(tipo, msj) {
